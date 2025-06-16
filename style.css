@@ -1,12 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: #fdf6f0;
-    color: #333;
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #fdf6f0;
+    color: #333;
+}
+
+/* Header */
 header {
     background-color: #ff9933;
     padding: 20px;
@@ -14,54 +19,104 @@ header {
 }
 
 header h1 {
-    margin: 0;
     color: #fff;
+    font-size: 2rem;
 }
 
-.navbar {
+nav {
     margin-top: 10px;
 }
 
-.navbar a {
-    margin: 0 10px;
+nav a {
+    margin: 0 12px;
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 5px;
-    background: #cc7a00;
+    font-size: 1rem;
 }
 
-.navbar a:hover {
-    background: #b36600;
-}
-
+/* Hero Background */
 .hero {
+    height: 400px;
     background: url('astro-wheel.webp') no-repeat center center;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 80vh;
-    min-height: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    transition: none !important;
-    will-change: transform;
+    position: relative;
 }
 
-.about {
+/* Welcome Section */
+.welcome-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.highlight-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* Footer Extras */
+.footer-extras {
     padding: 40px 20px;
+    background-color: #fff8ec;
     text-align: center;
 }
 
+.footer-extras h4 {
+    margin-bottom: 10px;
+    color: #cc5500;
+}
+
+.footer-extras a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.footer-extras a:hover {
+    text-decoration: underline;
+}
+
+.footer-extras p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.disclaimer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Footer */
 footer {
     background-color: #ff9933;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .highlight-title {
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .welcome-section {
+        padding: 30px 15px;
+    }
 }
