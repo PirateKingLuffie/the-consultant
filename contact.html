@@ -1,30 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Consultant GuptaJi!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
-<header>
-    <h1>Contact Us</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="astrologers.html">Astrologers</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+
+  <header>
+    <div class="logo-container">
+      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
+      <h1>The Consultant GuptaJi!</h1>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links" id="nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="vaastu.html">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
     </nav>
-</header>
-<section class="upload">
-    <h2>We're here to help</h2>
-    <form>
-        <input type="text" placeholder="Your Name"><br><br>
-        <input type="email" placeholder="Your Email"><br><br>
-        <textarea placeholder="Your Message"></textarea><br><br>
-        <button type="submit">Send</button>
-    </form>
-</section>
-<footer><p>&copy; 2025 Jyotish Connect</p></footer>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Your Trusted Astrologer</h2>
+      <p>Get personalized guidance based on ancient Vedic astrology.</p>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-placeholder">[Future Image]</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 The Consultant GuptaJi!
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
