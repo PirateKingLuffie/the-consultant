@@ -1,13 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: url('astro-wheel.webp') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+    background: #fdf6f0;
+    color: #333;
 }
 
 header {
-    background-color: rgba(255, 153, 51, 0.95);
+    background-color: #ff9933;
     padding: 20px;
     text-align: center;
 }
@@ -15,6 +14,10 @@ header {
 header h1 {
     margin: 0;
     color: #fff;
+}
+
+nav {
+    margin-top: 10px;
 }
 
 nav a {
@@ -25,27 +28,53 @@ nav a {
 }
 
 .hero {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 100px;
+    background: url('astro-wheel.webp') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
     text-align: center;
     color: white;
 }
 
 .upload {
-    background-color: rgba(0, 0, 0, 0.6);
     text-align: center;
-    padding: 50px;
-}
-
-.upload input,
-.upload button {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 50px 20px;
 }
 
 footer {
-    background-color: rgba(255, 153, 51, 0.95);
+    background-color: #ff9933;
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+/* Responsive tweaks */
+.hero, .upload, header, footer {
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 2em;
+}
+
+.upload h3 {
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .upload {
+        padding: 30px 20px;
+    }
+
+    header, footer {
+        text-align: center;
+    }
 }
