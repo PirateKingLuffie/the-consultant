@@ -13,7 +13,13 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 50px; /* Prevents wheel cutoff at bottom */
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Zodiac Wheel Animation - Deep Cosmic Blue */
@@ -22,13 +28,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vmin;
-  height: 90vmin;
+  width: 100vmin;
+  height: 100vmin;
   background: transparent;
   border-radius: 50%;
   z-index: -1;
-  opacity: 0.35;
-  filter: drop-shadow(0 0 30px rgba(0, 80, 255, 0.95));
+  opacity: 0.3;
+  filter: drop-shadow(0 0 30px rgba(0, 80, 255, 0.9));
   animation: rotateWheel 120s linear infinite;
   pointer-events: none;
 }
@@ -48,7 +54,7 @@ body {
     #0055ff, #0033ff
   );
   mask: radial-gradient(transparent 30%, black 31%);
-  animation: pulseGlow 4s ease-in-out infinite alternate;
+  animation: pulseGlow 5s ease-in-out infinite alternate;
 }
 
 .zodiac-sign {
@@ -65,11 +71,11 @@ body {
   color: #0088ff;
   transform-origin: center;
   box-shadow: 
-    0 0 30px rgba(0, 136, 255, 0.95),
-    0 0 45px rgba(0, 170, 255, 0.7);
+    0 0 25px rgba(0, 136, 255, 0.9),
+    0 0 35px rgba(0, 170, 255, 0.7);
   text-shadow: 
-    0 0 25px rgba(0, 170, 255, 0.95),
-    0 0 35px rgba(0, 204, 255, 0.8);
+    0 0 20px rgba(0, 170, 255, 0.9),
+    0 0 30px rgba(0, 204, 255, 0.8);
   pointer-events: none;
 }
 
@@ -80,11 +86,11 @@ body {
 
 @keyframes pulseGlow {
   from { 
-    opacity: 0.5;
-    filter: drop-shadow(0 0 25px rgba(0, 80, 255, 0.9));
+    opacity: 0.4;
+    filter: drop-shadow(0 0 25px rgba(0, 80, 255, 0.8));
   }
   to { 
-    opacity: 0.7;
+    opacity: 0.6;
     filter: drop-shadow(0 0 40px rgba(0, 170, 255, 1));
   }
 }
@@ -181,10 +187,10 @@ header h1 {
   text-align: center;
   position: relative;
   z-index: 1;
-  background: rgba(253, 246, 240, 0.88);
-  margin: 20px auto;
-  max-width: 95%;
+  background: rgba(253, 246, 240, 0.85);
+  margin: 20px;
   border-radius: 8px;
+  backdrop-filter: blur(2px);
 }
 
 .highlight-title {
@@ -205,15 +211,15 @@ header h1 {
 
 /* Astrology Info Box */
 .astrology-info-box {
-  background-color: rgba(249, 243, 233, 0.9);
+  background-color: rgba(249, 243, 233, 0.85);
   border: 2px solid #d4af37;
   border-radius: 10px;
   padding: 25px;
-  margin: 30px auto;
-  max-width: 900px;
+  margin: 30px 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .astrology-info-box h2 {
@@ -285,16 +291,17 @@ header h1 {
 
 /* Info Box Section */
 .info-box {
-  margin: 40px auto;
+  margin: 40px 20px;
   max-width: 800px;
   border: 2px solid #ff9933;
-  background: rgba(255, 248, 236, 0.9);
+  background: rgba(255, 248, 236, 0.85);
   padding: 25px;
   border-radius: 12px;
   text-align: center;
   position: relative;
   z-index: 1;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
 }
 
 .info-box h3 {
@@ -311,12 +318,13 @@ header h1 {
 /* Footer Extras */
 .footer-extras {
   padding: 40px 20px;
-  background-color: rgba(255, 243, 224, 0.9);
+  background-color: rgba(255, 243, 224, 0.85);
   text-align: center;
   border-top: 4px solid #ff9933;
   margin-top: 60px;
   position: relative;
   z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .footer-extras h4 {
@@ -389,7 +397,7 @@ footer {
   .zodiac-wheel {
     width: 120vmin;
     height: 120vmin;
-    opacity: 0.3;
+    opacity: 0.25;
   }
 
   .planets-list {
@@ -414,7 +422,7 @@ footer {
   .astrology-info-box,
   .info-box,
   .footer-extras {
-    background-color: rgba(253, 246, 240, 0.94);
+    background-color: rgba(253, 246, 240, 0.92);
   }
 }
 
@@ -433,6 +441,6 @@ footer {
   }
   
   .zodiac-wheel {
-    opacity: 0.25;
+    opacity: 0.2;
   }
 }
