@@ -105,6 +105,34 @@ header h1 {
   font-family: 'Playfair Display', serif;
 }
 
+/* Mobile Ganesh Image (visible only on phones) */
+.mobile-ganesh {
+  display: none;
+  width: 80px;
+  margin: 10px auto 0;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.mobile-ganesh img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 153, 51, 0.5));
+}
+
+/* Desktop Ganesh Image (visible only on desktop) */
+.desktop-ganesh {
+  display: none;
+  width: 150px;
+  margin-right: 30px;
+}
+
+.desktop-ganesh img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.5));
+}
+
 /* Navigation Styles */
 .desktop-nav {
   display: flex;
@@ -191,18 +219,6 @@ header h1 {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.ganesh-image {
-  width: 150px;
-  margin-right: 30px;
-  display: none; /* Hidden by default, shown on desktop */
-}
-
-.ganesh-image img {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.5));
 }
 
 .welcome-content {
@@ -391,7 +407,7 @@ footer {
 
 /* Responsive Styles */
 @media (min-width: 992px) {
-  .ganesh-image {
+  .desktop-ganesh {
     display: block;
   }
   
@@ -441,6 +457,11 @@ footer {
     display: block;
   }
   
+  /* Mobile Ganesh Image */
+  .mobile-ganesh {
+    display: block;
+  }
+  
   /* Increase content background opacity on mobile */
   .welcome-section,
   .astrology-info-box,
@@ -470,5 +491,11 @@ footer {
   
   .zodiac-wheel {
     opacity: 0.25;
+  }
+  
+  /* Adjust mobile Ganesh image size */
+  .mobile-ganesh {
+    width: 70px;
+    padding-left: 15px;
   }
 }
