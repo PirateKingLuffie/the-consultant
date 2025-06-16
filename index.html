@@ -8,177 +8,200 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Additional inline styles for Ganesh image */
+    .ganesh-image {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    @media (max-width: 1024px) {
+      .ganesh-image {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animation -->
   <div class="zodiac-wheel" id="zodiacWheel"></div>
 
-  <!-- Header -->
-  <header>
-    <h1>The Consultant GuptaJi!</h1>
-    
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    
-    <!-- Mobile Navigation Button -->
-    <button class="mobile-nav-btn" id="mobileNavBtn">
-      <i class="fas fa-bars"></i>
-    </button>
-    
-    <!-- Mobile Navigation Menu -->
-    <nav class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <!-- Ganesh Image -->
+  <img src="ganesh.webp" alt="Lord Ganesh" class="ganesh-image">
 
-  <section class="hero"></section>
-
-  <section class="welcome-section">
-    <h2 class="highlight-title">Welcome to The Consultant GuptaJi!</h2>
-    <p>
-      At The Consultant GuptaJi!, we guide your life using the timeless wisdom of Vedic astrology.
-      With years of experience in Kundli reading, gemstone recommendations, and Vaastu, we provide
-      authentic and personalized insights for your journey.
-    </p>
-    <p>
-      Whether you're looking for spiritual growth, compatibility insights, or direction in career or relationships—
-      you're in the right place.
-    </p>
-  </section>
-
-  <!-- Astrology Information Box -->
-  <section class="astrology-info-box">
-    <h2>WHY ASTROLOGY?</h2>
-    
-    <div class="astrology-section">
-      <h3>The Divine Science</h3>
-      <p><span class="highlight">Astrology reveals the will of the Gods</span>. It is a predictive science with its own methods, claims and findings that have forever inspired and allowed people with insights into different aspects of their life.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>The Nine Planets (Navagrahas)</h3>
-      <p>In Vedic astrology, we study 9 cosmic bodies that influence human lives:</p>
-      <div class="planets-list">
-        <div class="planet-item">Sun (Surya)</div>
-        <div class="planet-item">Moon (Chandra)</div>
-        <div class="planet-item">Mars (Mangala)</div>
-        <div class="planet-item">Mercury (Budha)</div>
-        <div class="planet-item">Jupiter (Brihaspati)</div>
-        <div class="planet-item">Venus (Shukra)</div>
-        <div class="planet-item">Saturn (Shani)</div>
-        <div class="planet-item">Rahu (North Node)</div>
-        <div class="planet-item">Ketu (South Node)</div>
-      </div>
-      <p>Each planet has unique influences - some bring positivity while others like Rahu and Ketu can bring challenges depending on their position in your Kundli.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>The 12 Houses</h3>
-      <p>Your Kundli contains 12 houses, each representing different aspects of life:</p>
-      <ul>
-        <li><strong>1st House (Ascendant):</strong> Self, personality, physical traits</li>
-        <li><strong>5th House (Putra Bhava):</strong> Creativity, romance, pleasure</li>
-        <li><strong>7th House:</strong> Marriage and partnerships</li>
-        <li><strong>10th House:</strong> Career and social status</li>
-      </ul>
-      <p>The placement of planets in these houses determines their influence on your life.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>Frequently Asked Questions</h3>
+  <!-- Main Content Container -->
+  <div class="main-content">
+    <!-- Header -->
+    <header>
+      <h1>The Consultant GuptaJi!</h1>
       
-      <div class="faq-item">
-        <div class="faq-question">Why is astrology so accurate?</div>
-        <p>Astrology is based on scientific principles established thousands of years ago. Our astrologers study planetary movements and their influences on human life with precision.</p>
-      </div>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="vaastu.html">Vaastu Shastra</a>
+        <a href="rashi.html">Rashi Ratna</a>
+        <a href="kundli.html">Kundli</a>
+        <a href="matrimonial.html">Matrimonial</a>
+        <a href="contact.html">Contact</a>
+      </nav>
       
-      <div class="faq-item">
-        <div class="faq-question">What can astrology predict?</div>
-        <p>Astrology can provide insights about career, relationships, health, finances, and more by analyzing planetary positions and their interactions.</p>
-      </div>
+      <!-- Mobile Navigation Button -->
+      <button class="mobile-nav-btn" id="mobileNavBtn">
+        <i class="fas fa-bars"></i>
+      </button>
       
-      <div class="faq-item">
-        <div class="faq-question">Can astrology predictions change?</div>
-        <p>Predictions may change based on your actions (karma), incorrect birth data, or astrological remedies that alter planetary influences.</p>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">How can I benefit from astrology?</div>
-        <p>Astrology helps you understand life challenges, optimal timings for important decisions, and remedies to overcome obstacles.</p>
-      </div>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>Our Astrology Services</h3>
-      <p>We offer comprehensive services including:</p>
-      <ul>
-        <li>Kundli Analysis & Birth Chart Reading</li>
-        <li>Planetary Transit Predictions</li>
-        <li>Marriage Compatibility (Kundli Milan)</li>
-        <li>Gemstone Recommendations (Rashi Ratna)</li>
-        <li>Vaastu Consultations</li>
-        <li>Numerology Guidance</li>
-        <li>Remedies for Planetary Afflictions</li>
-      </ul>
-    </div>
-  </section>
+      <!-- Mobile Navigation Menu -->
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="vaastu.html">Vaastu Shastra</a>
+        <a href="rashi.html">Rashi Ratna</a>
+        <a href="kundli.html">Kundli</a>
+        <a href="matrimonial.html">Matrimonial</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-  <!-- Announcements Box -->
-  <section class="info-box">
-    <h3>Announcements & Updates</h3>
-    <p>✨ Get your personalized 2025 yearly horoscope now! Limited slots available for one-on-one consultations.</p>
-    <p>🪔 Bookings open for Diwali Vaastu and Rashi Ratna consultations. Contact now to reserve your spot.</p>
-  </section>
+    <section class="hero"></section>
 
-  <!-- Footer Extras -->
-  <section class="footer-extras">
-    <div class="quick-links">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a> |
-      <a href="vaastu.html">Vaastu</a> |
-      <a href="rashi.html">Rashi Ratna</a> |
-      <a href="kundli.html">Kundli</a> |
-      <a href="matrimonial.html">Matrimonial</a> |
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="contact-info">
-      <h4>Contact Us</h4>
-      <p>Email: connect@guptajiastro.com</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Location: Delhi, India</p>
-    </div>
-
-    <div class="social-media">
-      <h4>Follow Us</h4>
+    <section class="welcome-section">
+      <h2 class="highlight-title">Welcome to The Consultant GuptaJi!</h2>
       <p>
-        <a href="#">Instagram</a> |
-        <a href="#">Facebook</a> |
-        <a href="#">YouTube</a>
+        At The Consultant GuptaJi!, we guide your life using the timeless wisdom of Vedic astrology.
+        With years of experience in Kundli reading, gemstone recommendations, and Vaastu, we provide
+        authentic and personalized insights for your journey.
       </p>
-    </div>
+      <p>
+        Whether you're looking for spiritual growth, compatibility insights, or direction in career or relationships—
+        you're in the right place.
+      </p>
+    </section>
 
-    <div class="disclaimer">
-      <p><em>Disclaimer: Astrological advice is subject to personal interpretation.
-      The Consultant GuptaJi! is not liable for any decisions made based on this information.</em></p>
-    </div>
-  </section>
+    <!-- Astrology Information Box -->
+    <section class="astrology-info-box">
+      <h2>WHY ASTROLOGY?</h2>
+      
+      <div class="astrology-section">
+        <h3>The Divine Science</h3>
+        <p><span class="highlight">Astrology reveals the will of the Gods</span>. It is a predictive science with its own methods, claims and findings that have forever inspired and allowed people with insights into different aspects of their life.</p>
+      </div>
+      
+      <div class="astrology-section">
+        <h3>The Nine Planets (Navagrahas)</h3>
+        <p>In Vedic astrology, we study 9 cosmic bodies that influence human lives:</p>
+        <div class="planets-list">
+          <div class="planet-item">Sun (Surya)</div>
+          <div class="planet-item">Moon (Chandra)</div>
+          <div class="planet-item">Mars (Mangala)</div>
+          <div class="planet-item">Mercury (Budha)</div>
+          <div class="planet-item">Jupiter (Brihaspati)</div>
+          <div class="planet-item">Venus (Shukra)</div>
+          <div class="planet-item">Saturn (Shani)</div>
+          <div class="planet-item">Rahu (North Node)</div>
+          <div class="planet-item">Ketu (South Node)</div>
+        </div>
+        <p>Each planet has unique influences - some bring positivity while others like Rahu and Ketu can bring challenges depending on their position in your Kundli.</p>
+      </div>
+      
+      <div class="astrology-section">
+        <h3>The 12 Houses</h3>
+        <p>Your Kundli contains 12 houses, each representing different aspects of life:</p>
+        <ul>
+          <li><strong>1st House (Ascendant):</strong> Self, personality, physical traits</li>
+          <li><strong>5th House (Putra Bhava):</strong> Creativity, romance, pleasure</li>
+          <li><strong>7th House:</strong> Marriage and partnerships</li>
+          <li><strong>10th House:</strong> Career and social status</li>
+        </ul>
+        <p>The placement of planets in these houses determines their influence on your life.</p>
+      </div>
+      
+      <div class="astrology-section">
+        <h3>Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">Why is astrology so accurate?</div>
+          <p>Astrology is based on scientific principles established thousands of years ago. Our astrologers study planetary movements and their influences on human life with precision.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">What can astrology predict?</div>
+          <p>Astrology can provide insights about career, relationships, health, finances, and more by analyzing planetary positions and their interactions.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Can astrology predictions change?</div>
+          <p>Predictions may change based on your actions (karma), incorrect birth data, or astrological remedies that alter planetary influences.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">How can I benefit from astrology?</div>
+          <p>Astrology helps you understand life challenges, optimal timings for important decisions, and remedies to overcome obstacles.</p>
+        </div>
+      </div>
+      
+      <div class="astrology-section">
+        <h3>Our Astrology Services</h3>
+        <p>We offer comprehensive services including:</p>
+        <ul>
+          <li>Kundli Analysis & Birth Chart Reading</li>
+          <li>Planetary Transit Predictions</li>
+          <li>Marriage Compatibility (Kundli Milan)</li>
+          <li>Gemstone Recommendations (Rashi Ratna)</li>
+          <li>Vaastu Consultations</li>
+          <li>Numerology Guidance</li>
+          <li>Remedies for Planetary Afflictions</li>
+        </ul>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 The Consultant GuptaJi!</p>
-  </footer>
+    <!-- Announcements Box -->
+    <section class="info-box">
+      <h3>Announcements & Updates</h3>
+      <p>✨ Get your personalized 2025 yearly horoscope now! Limited slots available for one-on-one consultations.</p>
+      <p>🪔 Bookings open for Diwali Vaastu and Rashi Ratna consultations. Contact now to reserve your spot.</p>
+    </section>
+
+    <!-- Footer Extras -->
+    <section class="footer-extras">
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a> |
+        <a href="vaastu.html">Vaastu</a> |
+        <a href="rashi.html">Rashi Ratna</a> |
+        <a href="kundli.html">Kundli</a> |
+        <a href="matrimonial.html">Matrimonial</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="contact-info">
+        <h4>Contact Us</h4>
+        <p>Email: connect@guptajiastro.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Location: Delhi, India</p>
+      </div>
+
+      <div class="social-media">
+        <h4>Follow Us</h4>
+        <p>
+          <a href="#">Instagram</a> |
+          <a href="#">Facebook</a> |
+          <a href="#">YouTube</a>
+        </p>
+      </div>
+
+      <div class="disclaimer">
+        <p><em>Disclaimer: Astrological advice is subject to personal interpretation.
+        The Consultant GuptaJi! is not liable for any decisions made based on this information.</em></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 The Consultant GuptaJi!</p>
+    </footer>
+  </div>
 
   <script>
     // Create zodiac signs around the wheel
@@ -190,7 +213,7 @@
       
       signs.forEach((sign, index) => {
         const angle = (index * 30) * (Math.PI / 180);
-        const radius = 42; // Percentage of wheel radius
+        const radius = 42;
         
         const signElement = document.createElement('div');
         signElement.className = 'zodiac-sign';
