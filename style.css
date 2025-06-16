@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* Zodiac Wheel Animation */
+/* Zodiac Wheel Animation - Blue Version */
 .zodiac-wheel {
   position: fixed;
   top: 50%;
@@ -26,8 +26,8 @@ body {
   background: transparent;
   border-radius: 50%;
   z-index: -1;
-  opacity: 0.15;
-  filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.7));
+  opacity: 0.2;
+  filter: drop-shadow(0 0 15px rgba(0, 162, 255, 0.8));
   animation: rotateWheel 120s linear infinite;
 }
 
@@ -41,29 +41,30 @@ body {
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
-    #ff9933, #ff6600, #cc5500, #ff6600, #ff9933,
-    #ff9933, #ff6600, #cc5500, #ff6600, #ff9933,
-    #ff9933, #ff6600
+    #00a2ff, #0062ff, #003cff, #0062ff, #00a2ff,
+    #00a2ff, #0062ff, #003cff, #0062ff, #00a2ff,
+    #00a2ff, #0062ff
   );
   mask: radial-gradient(transparent 35%, black 36%);
-  animation: pulseGlow 8s ease-in-out infinite alternate;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
 }
 
 .zodiac-sign {
   position: absolute;
   width: 8%;
   height: 8%;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1.5rem;
-  color: #cc5500;
+  color: #0066ff;
   transform-origin: center;
-  box-shadow: 0 0 10px rgba(255, 153, 51, 0.8);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.9);
   cursor: default;
+  text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
 }
 
 @keyframes rotateWheel {
@@ -72,8 +73,14 @@ body {
 }
 
 @keyframes pulseGlow {
-  from { opacity: 0.3; filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.5)); }
-  to { opacity: 0.5; filter: drop-shadow(0 0 20px rgba(255, 153, 51, 0.9)); }
+  from { 
+    opacity: 0.4; 
+    filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.7));
+  }
+  to { 
+    opacity: 0.6; 
+    filter: drop-shadow(0 0 25px rgba(0, 204, 255, 0.9));
+  }
 }
 
 /* Header Styles */
@@ -373,7 +380,7 @@ footer {
   .zodiac-wheel {
     width: 120vmin;
     height: 120vmin;
-    opacity: 0.1;
+    opacity: 0.25;
   }
 
   .planets-list {
