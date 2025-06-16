@@ -1,147 +1,160 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: url('astro-wheel.webp') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fdf6f0;
+  color: #333;
 }
 
 header {
-  background: rgba(255, 140, 0, 0.95);
+  background-color: #ff9933;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1.5rem;
+  justify-content: center;
   flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  gap: 15px;
 }
 
-.logo-container {
+.ganesh-logo {
+  width: 60px;
+  height: auto;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
-.ganesh-icon {
-  height: 40px;
-  margin-right: 10px;
+nav ul li {
+  margin: 10px;
 }
 
-.logo-container h1 {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links a {
+nav a {
   text-decoration: none;
   color: white;
-  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  padding: 8px 14px;
+  background: #cc7a00;
+  border-radius: 20px;
   transition: background 0.3s;
 }
 
-.nav-links a:hover {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+nav a:hover {
+  background: #b36b00;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 2rem;
-  flex-wrap: wrap;
-  min-height: 70vh;
+  background: url('astro-wheel.webp') no-repeat center center;
+  background-size: cover;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
 }
 
-.hero-text {
-  max-width: 50%;
+.content-section {
+  padding: 60px 20px;
+  background-color: #fff8ee;
 }
 
-.hero-text h2 {
-  font-size: 2.5rem;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.hero-photo {
-  max-width: 40%;
+.content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.photo-placeholder {
-  width: 200px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px dashed #fff;
-  border-radius: 10px;
-  line-height: 200px;
-  color: white;
-  font-weight: bold;
+.content-wrapper h3 {
+  font-size: 28px;
+  color: #cc7a00;
+  margin-bottom: 20px;
+}
+
+.content-wrapper p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #444;
 }
 
 footer {
-  text-align: center;
-  background: rgba(255, 140, 0, 0.95);
+  background-color: #ff9933;
   color: white;
-  padding: 1rem;
+  text-align: center;
+  padding: 20px;
 }
 
-/* Responsive */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .nav-links {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ganesh-logo {
+    width: 50px;
+  }
+
+  nav ul {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: rgba(255, 140, 0, 0.9);
-    position: absolute;
-    top: 70px;
-    left: 0;
+    background-color: #cc7a00;
   }
 
-  .nav-links.active {
+  nav ul.show {
     display: flex;
   }
 
-  .menu-icon {
+  nav ul li {
+    margin: 0;
+    border-bottom: 1px solid #fff;
+  }
+
+  .menu-toggle {
     display: block;
   }
 
-  .hero {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-text, .hero-photo {
-    max-width: 100%;
-  }
-
-  .photo-placeholder {
-    margin-top: 2rem;
+  nav a {
+    display: block;
     width: 100%;
-    max-width: 250px;
-    height: 250px;
-    line-height: 250px;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  .content-wrapper p {
+    font-size: 16px;
   }
 }
