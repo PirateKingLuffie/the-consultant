@@ -6,6 +6,85 @@
   <title>The Consultant GuptaJi!</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    /* Additional styles for the astrology info box */
+    .astrology-info-box {
+      background-color: #f9f3e9;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .astrology-info-box h2 {
+      color: #8e44ad;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    
+    .astrology-section {
+      margin-bottom: 25px;
+    }
+    
+    .astrology-section h3 {
+      color: #2980b9;
+      border-bottom: 1px dashed #d4af37;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+    
+    .astrology-section p {
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    .highlight {
+      background-color: #fffde7;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    
+    .planets-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 15px 0;
+    }
+    
+    .planet-item {
+      background: #e8f4f8;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      color: #8e44ad;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .planets-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .planets-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -33,6 +112,83 @@
       Whether you're looking for spiritual growth, compatibility insights, or direction in career or relationships—
       you're in the right place.
     </p>
+  </section>
+
+  <!-- Astrology Information Box -->
+  <section class="astrology-info-box">
+    <h2>WHY ASTROLOGY?</h2>
+    
+    <div class="astrology-section">
+      <h3>The Divine Science</h3>
+      <p><span class="highlight">Astrology reveals the will of the Gods</span>. It is a predictive science with its own methods, claims and findings that have forever inspired and allowed people with insights into different aspects of their life.</p>
+    </div>
+    
+    <div class="astrology-section">
+      <h3>The Nine Planets (Navagrahas)</h3>
+      <p>In Vedic astrology, we study 9 cosmic bodies that influence human lives:</p>
+      <div class="planets-list">
+        <div class="planet-item">Sun (Surya)</div>
+        <div class="planet-item">Moon (Chandra)</div>
+        <div class="planet-item">Mars (Mangala)</div>
+        <div class="planet-item">Mercury (Budha)</div>
+        <div class="planet-item">Jupiter (Brihaspati)</div>
+        <div class="planet-item">Venus (Shukra)</div>
+        <div class="planet-item">Saturn (Shani)</div>
+        <div class="planet-item">Rahu (North Node)</div>
+        <div class="planet-item">Ketu (South Node)</div>
+      </div>
+      <p>Each planet has unique influences - some bring positivity while others like Rahu and Ketu can bring challenges depending on their position in your Kundli.</p>
+    </div>
+    
+    <div class="astrology-section">
+      <h3>The 12 Houses</h3>
+      <p>Your Kundli contains 12 houses, each representing different aspects of life:</p>
+      <ul>
+        <li><strong>1st House (Ascendant):</strong> Self, personality, physical traits</li>
+        <li><strong>5th House (Putra Bhava):</strong> Creativity, romance, pleasure</li>
+        <li><strong>7th House:</strong> Marriage and partnerships</li>
+        <li><strong>10th House:</strong> Career and social status</li>
+      </ul>
+      <p>The placement of planets in these houses determines their influence on your life.</p>
+    </div>
+    
+    <div class="astrology-section">
+      <h3>Frequently Asked Questions</h3>
+      
+      <div class="faq-item">
+        <div class="faq-question">Why is astrology so accurate?</div>
+        <p>Astrology is based on scientific principles established thousands of years ago. Our astrologers study planetary movements and their influences on human life with precision.</p>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What can astrology predict?</div>
+        <p>Astrology can provide insights about career, relationships, health, finances, and more by analyzing planetary positions and their interactions.</p>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can astrology predictions change?</div>
+        <p>Predictions may change based on your actions (karma), incorrect birth data, or astrological remedies that alter planetary influences.</p>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How can I benefit from astrology?</div>
+        <p>Astrology helps you understand life challenges, optimal timings for important decisions, and remedies to overcome obstacles.</p>
+      </div>
+    </div>
+    
+    <div class="astrology-section">
+      <h3>Our Astrology Services</h3>
+      <p>We offer comprehensive services including:</p>
+      <ul>
+        <li>Kundli Analysis & Birth Chart Reading</li>
+        <li>Planetary Transit Predictions</li>
+        <li>Marriage Compatibility (Kundli Milan)</li>
+        <li>Gemstone Recommendations (Rashi Ratna)</li>
+        <li>Vaastu Consultations</li>
+        <li>Numerology Guidance</li>
+        <li>Remedies for Planetary Afflictions</li>
+      </ul>
+    </div>
   </section>
 
   <!-- 🔶 Custom Information Box Section -->
