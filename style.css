@@ -8,85 +8,25 @@
 
 body {
   font-family: 'Poppins', Arial, sans-serif;
-  background: #fdf6f0;
+  background: #fdf6f0 url('astro-wheel.webp') no-repeat center center fixed;
+  background-size: cover;
   color: #333;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 50px; /* Prevents wheel cutoff at bottom */
+  padding-bottom: 50px;
 }
 
-/* Zodiac Wheel Animation - Deep Cosmic Blue */
-.zodiac-wheel {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vmin;
-  height: 90vmin;
-  background: transparent;
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.35;
-  filter: drop-shadow(0 0 30px rgba(0, 80, 255, 0.95));
-  animation: rotateWheel 120s linear infinite;
-  pointer-events: none;
-}
-
-.zodiac-wheel::before {
+/* Background overlay for better readability */
+body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #0055ff, #0033ff, #0011ff, #0033ff, #0055ff,
-    #0055ff, #0033ff, #0011ff, #0033ff, #0055ff,
-    #0055ff, #0033ff
-  );
-  mask: radial-gradient(transparent 30%, black 31%);
-  animation: pulseGlow 4s ease-in-out infinite alternate;
-}
-
-.zodiac-sign {
-  position: absolute;
-  width: 9%;
-  height: 9%;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.8rem;
-  color: #0088ff;
-  transform-origin: center;
-  box-shadow: 
-    0 0 30px rgba(0, 136, 255, 0.95),
-    0 0 45px rgba(0, 170, 255, 0.7);
-  text-shadow: 
-    0 0 25px rgba(0, 170, 255, 0.95),
-    0 0 35px rgba(0, 204, 255, 0.8);
-  pointer-events: none;
-}
-
-@keyframes rotateWheel {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes pulseGlow {
-  from { 
-    opacity: 0.5;
-    filter: drop-shadow(0 0 25px rgba(0, 80, 255, 0.9));
-  }
-  to { 
-    opacity: 0.7;
-    filter: drop-shadow(0 0 40px rgba(0, 170, 255, 1));
-  }
+  background: rgba(253, 246, 240, 0.85);
+  z-index: -1;
 }
 
 /* Header Styles */
@@ -208,7 +148,7 @@ header h1 {
   padding: 50px 20px;
   position: relative;
   z-index: 1;
-  background: rgba(253, 246, 240, 0.88);
+  background: rgba(253, 246, 240, 0.95);
   margin: 20px auto;
   max-width: 95%;
   border-radius: 8px;
@@ -243,7 +183,7 @@ header h1 {
 
 /* Astrology Info Box */
 .astrology-info-box {
-  background-color: rgba(249, 243, 233, 0.9);
+  background-color: rgba(249, 243, 233, 0.95);
   border: 2px solid #d4af37;
   border-radius: 10px;
   padding: 25px;
@@ -326,7 +266,7 @@ header h1 {
   margin: 40px auto;
   max-width: 800px;
   border: 2px solid #ff9933;
-  background: rgba(255, 248, 236, 0.9);
+  background: rgba(255, 248, 236, 0.95);
   padding: 25px;
   border-radius: 12px;
   text-align: center;
@@ -349,7 +289,7 @@ header h1 {
 /* Footer Extras */
 .footer-extras {
   padding: 40px 20px;
-  background-color: rgba(255, 243, 224, 0.9);
+  background-color: rgba(255, 243, 224, 0.95);
   text-align: center;
   border-top: 4px solid #ff9933;
   margin-top: 60px;
@@ -433,12 +373,6 @@ footer {
     margin: 30px 15px;
     padding: 20px;
   }
-  
-  .zodiac-wheel {
-    width: 120vmin;
-    height: 120vmin;
-    opacity: 0.3;
-  }
 
   .planets-list {
     grid-template-columns: repeat(2, 1fr);
@@ -462,16 +396,20 @@ footer {
     display: block;
   }
   
-  /* Increase content background opacity on mobile */
+  /* Adjust background for mobile */
+  body {
+    background-attachment: scroll;
+  }
+  
+  body::before {
+    background: rgba(253, 246, 240, 0.92);
+  }
+  
   .welcome-section,
   .astrology-info-box,
   .info-box,
   .footer-extras {
-    background-color: rgba(253, 246, 240, 0.94);
-  }
-  
-  .welcome-container {
-    flex-direction: column;
+    background-color: rgba(253, 246, 240, 0.97);
   }
 }
 
@@ -480,17 +418,9 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .zodiac-sign {
-    font-size: 1.4rem;
-  }
-  
   .astrology-info-box {
     padding: 20px 15px;
     margin: 20px 15px;
-  }
-  
-  .zodiac-wheel {
-    opacity: 0.25;
   }
   
   /* Adjust mobile Ganesh image size */
