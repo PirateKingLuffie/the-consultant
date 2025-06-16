@@ -6,8 +6,87 @@
   <title>The Consultant GuptaJi!</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Additional styles for the astrology info box */
+    /* Enhanced Header Styles */
+    header {
+      background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .logo span {
+      color: #f9d423;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive Header */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+
+    /* Original styles for other sections */
     .astrology-info-box {
       background-color: #f9f3e9;
       border: 2px solid #d4af37;
@@ -87,16 +166,19 @@
   </style>
 </head>
 <body>
+  <!-- Enhanced Header -->
   <header>
-    <h1>The Consultant GuptaJi!</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-container">
+      <a href="index.html" class="logo">The Consultant <span>GuptaJi!</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="vaastu.html">Vaastu Shastra</a>
+        <a href="rashi.html">Rashi Ratna</a>
+        <a href="kundli.html">Kundli</a>
+        <a href="matrimonial.html">Matrimonial</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero"></section>
