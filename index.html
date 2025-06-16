@@ -3,35 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jyotish Connect</title>
+  <title>The Consultant GuptaJi!</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.querySelector('.menu-icon');
+      const nav = document.querySelector('.nav-links');
+      menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
-    <h1>Jyotish Connect</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#astrologers">Astrologers</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+    <div class="logo">
+      <img src="ganesh.webp" alt="Ganesh Icon">
+      <h1>The Consultant GuptaJi!</h1>
+    </div>
+    <div class="menu-icon">☰</div>
+    <nav class="nav-links">
+      <a href="#"><span>🏠</span> Home</a>
+      <a href="#">Vaastu Shastra</a>
+      <a href="#">Rashi Ratna</a>
+      <a href="#">Kundli</a>
+      <a href="#">Matrimonial</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <h2>Your Trusted Astrologer</h2>
-    <p>Get personalized guidance based on ancient Vedic astrology.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Your Trusted Astrologer</h2>
+      <p>Get personalized guidance based on ancient Vedic astrology.</p>
+      <form>
+        <label>Upload Your Kundli</label><br />
+        <input type="file" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="hero-photo">
+      <!-- Right side image goes here when available -->
+      <div class="photo-placeholder">Your Image Here</div>
+    </div>
   </section>
 
-  <section class="upload" id="upload">
-    <h3>Upload Your Kundli</h3>
-    <form>
-      <input type="file" />
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-
-  <footer id="contact">
-    <p>&copy; 2025 Jyotish Connect</p>
+  <footer>
+    © 2025 The Consultant GuptaJi!
   </footer>
 </body>
 </html>
