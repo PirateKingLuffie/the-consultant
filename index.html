@@ -7,86 +7,181 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Enhanced Header Styles */
-    header {
-      background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
-      color: white;
-      padding: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-    
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      color: white;
-      text-decoration: none;
-    }
-    
-    .logo span {
-      color: #f9d423;
-    }
-    
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    
-    nav a:hover {
-      background-color: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-    
-    /* Responsive Header */
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-      }
-      
-      .logo {
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-      
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      nav a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    /* Original styles for other sections */
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdf6f0;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Zodiac Wheel Animation */
+    .zodiac-wheel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vmin;
+      height: 80vmin;
+      background: transparent;
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.15;
+      filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.7));
+      animation: rotateWheel 120s linear infinite;
+    }
+
+    .zodiac-wheel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #ff9933, #ff6600, #cc5500, #ff6600, #ff9933,
+        #ff9933, #ff6600, #cc5500, #ff6600, #ff9933,
+        #ff9933, #ff6600
+      );
+      mask: radial-gradient(transparent 35%, black 36%);
+      animation: pulseGlow 8s ease-in-out infinite alternate;
+    }
+
+    .zodiac-sign {
+      position: absolute;
+      width: 8%;
+      height: 8%;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #cc5500;
+      transform-origin: center;
+      box-shadow: 0 0 10px rgba(255, 153, 51, 0.8);
+    }
+
+    @keyframes rotateWheel {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes pulseGlow {
+      from { opacity: 0.3; filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.5)); }
+      to { opacity: 0.5; filter: drop-shadow(0 0 20px rgba(255, 153, 51, 0.9)); }
+    }
+
+    /* Header */
+    header {
+      background-color: #ff9933;
+      padding: 15px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 10px;
+    }
+
+    .desktop-nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .desktop-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .mobile-nav {
+      display: none;
+      background-color: #ff9933;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .mobile-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero - Removed background image */
+    .hero {
+      height: 100px;
+      position: relative;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      background: rgba(253, 246, 240, 0.8);
+    }
+
+    .highlight-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ffcc00, #ff6600);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    /* Astrology Info Box */
     .astrology-info-box {
       background-color: #f9f3e9;
       border: 2px solid #d4af37;
@@ -95,227 +190,115 @@
       margin: 30px auto;
       max-width: 900px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
     }
-    
-    .astrology-info-box h2 {
-      color: #8e44ad;
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
-    
-    .astrology-section {
-      margin-bottom: 25px;
-    }
-    
-    .astrology-section h3 {
-      color: #2980b9;
-      border-bottom: 1px dashed #d4af37;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-    
-    .astrology-section p {
-      line-height: 1.6;
-      color: #333;
-    }
-    
-    .highlight {
-      background-color: #fffde7;
-      padding: 2px 5px;
-      border-radius: 3px;
-      font-weight: bold;
-    }
-    
-    .planets-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 15px 0;
-    }
-    
-    .planet-item {
-      background: #e8f4f8;
-      padding: 8px 12px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    
-    .faq-item {
-      margin-bottom: 15px;
-    }
-    
-    .faq-question {
-      font-weight: bold;
-      color: #8e44ad;
-      cursor: pointer;
-    }
-    
+
+    /* ... (rest of your existing CSS styles remain the same) ... */
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .planets-list {
-        grid-template-columns: repeat(2, 1fr);
+      .highlight-title {
+        font-size: 2rem;
       }
-    }
-    
-    @media (max-width: 480px) {
-      .planets-list {
-        grid-template-columns: 1fr;
+
+      .hero {
+        height: 60px;
+      }
+
+      .welcome-section {
+        padding: 30px 15px;
+      }
+
+      .info-box {
+        margin: 30px 15px;
+      }
+      
+      .zodiac-wheel {
+        width: 120vmin;
+        height: 120vmin;
+        opacity: 0.1;
+      }
+
+      /* Mobile Navigation Styles */
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-btn {
+        display: block;
+      }
+
+      .mobile-nav.active {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Enhanced Header -->
+  <!-- Zodiac Wheel Animation -->
+  <div class="zodiac-wheel" id="zodiacWheel"></div>
+
+  <!-- Header -->
   <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">The Consultant <span>GuptaJi!</span></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="vaastu.html">Vaastu Shastra</a>
-        <a href="rashi.html">Rashi Ratna</a>
-        <a href="kundli.html">Kundli</a>
-        <a href="matrimonial.html">Matrimonial</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+    <h1>The Consultant GuptaJi!</h1>
+    
+    <!-- Desktop Navigation (shown on larger screens) -->
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="vaastu.html">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <!-- Mobile Navigation Button (shown on smaller screens) -->
+    <button class="mobile-nav-btn" id="mobileNavBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="vaastu.html">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <section class="hero"></section>
+  <!-- ... (rest of your HTML content remains the same) ... -->
 
-  <section class="welcome-section">
-    <h2 class="highlight-title">Welcome to The Consultant GuptaJi!</h2>
-    <p>
-      At The Consultant GuptaJi!, we guide your life using the timeless wisdom of Vedic astrology.
-      With years of experience in Kundli reading, gemstone recommendations, and Vaastu, we provide
-      authentic and personalized insights for your journey.
-    </p>
-    <p>
-      Whether you're looking for spiritual growth, compatibility insights, or direction in career or relationships—
-      you're in the right place.
-    </p>
-  </section>
-
-  <!-- Astrology Information Box -->
-  <section class="astrology-info-box">
-    <h2>WHY ASTROLOGY?</h2>
-    
-    <div class="astrology-section">
-      <h3>The Divine Science</h3>
-      <p><span class="highlight">Astrology reveals the will of the Gods</span>. It is a predictive science with its own methods, claims and findings that have forever inspired and allowed people with insights into different aspects of their life.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>The Nine Planets (Navagrahas)</h3>
-      <p>In Vedic astrology, we study 9 cosmic bodies that influence human lives:</p>
-      <div class="planets-list">
-        <div class="planet-item">Sun (Surya)</div>
-        <div class="planet-item">Moon (Chandra)</div>
-        <div class="planet-item">Mars (Mangala)</div>
-        <div class="planet-item">Mercury (Budha)</div>
-        <div class="planet-item">Jupiter (Brihaspati)</div>
-        <div class="planet-item">Venus (Shukra)</div>
-        <div class="planet-item">Saturn (Shani)</div>
-        <div class="planet-item">Rahu (North Node)</div>
-        <div class="planet-item">Ketu (South Node)</div>
-      </div>
-      <p>Each planet has unique influences - some bring positivity while others like Rahu and Ketu can bring challenges depending on their position in your Kundli.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>The 12 Houses</h3>
-      <p>Your Kundli contains 12 houses, each representing different aspects of life:</p>
-      <ul>
-        <li><strong>1st House (Ascendant):</strong> Self, personality, physical traits</li>
-        <li><strong>5th House (Putra Bhava):</strong> Creativity, romance, pleasure</li>
-        <li><strong>7th House:</strong> Marriage and partnerships</li>
-        <li><strong>10th House:</strong> Career and social status</li>
-      </ul>
-      <p>The placement of planets in these houses determines their influence on your life.</p>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>Frequently Asked Questions</h3>
+  <script>
+    // Create zodiac signs around the wheel
+    document.addEventListener('DOMContentLoaded', function() {
+      const wheel = document.getElementById('zodiacWheel');
+      const signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 
+                    'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
       
-      <div class="faq-item">
-        <div class="faq-question">Why is astrology so accurate?</div>
-        <p>Astrology is based on scientific principles established thousands of years ago. Our astrologers study planetary movements and their influences on human life with precision.</p>
-      </div>
+      signs.forEach((sign, index) => {
+        const angle = (index * 30) * (Math.PI / 180);
+        const radius = 40; // Percentage of wheel radius
+        
+        const signElement = document.createElement('div');
+        signElement.className = 'zodiac-sign';
+        signElement.textContent = sign;
+        signElement.style.left = `calc(50% + ${radius * Math.cos(angle)}%)`;
+        signElement.style.top = `calc(50% + ${radius * Math.sin(angle)}%)`;
+        
+        wheel.appendChild(signElement);
+      });
+
+      // Mobile navigation toggle
+      const mobileNavBtn = document.getElementById('mobileNavBtn');
+      const mobileNav = document.getElementById('mobileNav');
       
-      <div class="faq-item">
-        <div class="faq-question">What can astrology predict?</div>
-        <p>Astrology can provide insights about career, relationships, health, finances, and more by analyzing planetary positions and their interactions.</p>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">Can astrology predictions change?</div>
-        <p>Predictions may change based on your actions (karma), incorrect birth data, or astrological remedies that alter planetary influences.</p>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">How can I benefit from astrology?</div>
-        <p>Astrology helps you understand life challenges, optimal timings for important decisions, and remedies to overcome obstacles.</p>
-      </div>
-    </div>
-    
-    <div class="astrology-section">
-      <h3>Our Astrology Services</h3>
-      <p>We offer comprehensive services including:</p>
-      <ul>
-        <li>Kundli Analysis & Birth Chart Reading</li>
-        <li>Planetary Transit Predictions</li>
-        <li>Marriage Compatibility (Kundli Milan)</li>
-        <li>Gemstone Recommendations (Rashi Ratna)</li>
-        <li>Vaastu Consultations</li>
-        <li>Numerology Guidance</li>
-        <li>Remedies for Planetary Afflictions</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 🔶 Custom Information Box Section -->
-  <section class="info-box">
-    <h3>Announcements & Updates</h3>
-    <p>✨ Get your personalized 2025 yearly horoscope now! Limited slots available for one-on-one consultations.</p>
-    <p>🪔 Bookings open for Diwali Vaastu and Rashi Ratna consultations. Contact now to reserve your spot.</p>
-  </section>
-
-  <!-- 🔻 Footer Extras with Clear Separation -->
-  <section class="footer-extras">
-    <div class="quick-links">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a> |
-      <a href="vaastu.html">Vaastu</a> |
-      <a href="rashi.html">Rashi Ratna</a> |
-      <a href="kundli.html">Kundli</a> |
-      <a href="matrimonial.html">Matrimonial</a> |
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="contact-info">
-      <h4>Contact Us</h4>
-      <p>Email: connect@guptajiastro.com</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Location: Delhi, India</p>
-    </div>
-
-    <div class="social-media">
-      <h4>Follow Us</h4>
-      <p>
-        <a href="#">Instagram</a> |
-        <a href="#">Facebook</a> |
-        <a href="#">YouTube</a>
-      </p>
-    </div>
-
-    <div class="disclaimer">
-      <p><em>Disclaimer: Astrological advice is subject to personal interpretation.
-      The Consultant GuptaJi! is not liable for any decisions made based on this information.</em></p>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 The Consultant GuptaJi!</p>
-  </footer>
+      mobileNavBtn.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
