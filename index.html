@@ -10,9 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Zodiac Wheel Animation -->
-  <div class="zodiac-wheel" id="zodiacWheel"></div>
-
   <!-- Header -->
   <header>
     <h1>The Consultant GuptaJi!</h1>
@@ -70,7 +67,6 @@
     </div>
   </section>
 
-  <!-- Rest of your HTML content remains the same -->
   <!-- Astrology Information Box -->
   <section class="astrology-info-box">
     <h2>WHY ASTROLOGY?</h2>
@@ -194,28 +190,8 @@
   </footer>
 
   <script>
-    // Create zodiac signs around the wheel
+    // Mobile navigation toggle
     document.addEventListener('DOMContentLoaded', function() {
-      const wheel = document.getElementById('zodiacWheel');
-      const signs = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
-      const signNames = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 
-                        'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
-      
-      signs.forEach((sign, index) => {
-        const angle = (index * 30) * (Math.PI / 180);
-        const radius = 42; // Percentage of wheel radius
-        
-        const signElement = document.createElement('div');
-        signElement.className = 'zodiac-sign';
-        signElement.textContent = sign;
-        signElement.title = signNames[index];
-        signElement.style.left = `${50 + radius * Math.cos(angle)}%`;
-        signElement.style.top = `${50 + radius * Math.sin(angle)}%`;
-        
-        wheel.appendChild(signElement);
-      });
-
-      // Mobile navigation toggle
       const mobileNavBtn = document.getElementById('mobileNavBtn');
       const mobileNav = document.getElementById('mobileNav');
       
