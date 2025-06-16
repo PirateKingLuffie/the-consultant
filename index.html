@@ -8,41 +8,52 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
-
   <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
+    <div class="header-content">
+      <img src="ganesh.webp" alt="Ganesh" class="ganesh-logo" />
       <h1>The Consultant GuptaJi!</h1>
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html"><span>🏠</span> Home</a></li>
+        <li><a href="vaastu.html">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="kundli.html">Kundli</a></li>
+        <li><a href="matrimonial.html">Matrimonial</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
-    </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
+    <h2>Welcome to The Consultant GuptaJi!</h2>
+    <p>Explore Vedic astrology, Kundli matching, Vaastu, gemstones, and more.</p>
+  </section>
+
+  <section class="content-section">
+    <div class="content-wrapper">
+      <h3>Discover Your True Self</h3>
+      <p>
+        At The Consultant GuptaJi!, we believe that the universe has a plan for you. Our services are rooted deeply in Vedic traditions — including Kundli analysis, gemstone recommendations, marriage matchmaking, and Vaastu corrections.
+      </p>
+      <p>
+        Whether you're facing uncertainty or simply want to understand your cosmic blueprint, we provide personalized consultations to guide your path. Begin your journey into self-discovery, and unlock the mysteries written in the stars.
+      </p>
+      <p>
+        We also offer expert guidance in Rashi Ratna — identifying gemstones based on your birth chart — and Kundli Milan services for harmonizing relationships. With ancient wisdom and modern care, we’re here for every question you carry in your soul.
+      </p>
     </div>
   </section>
 
   <footer>
-    © 2025 The Consultant GuptaJi!
+    <p>&copy; 2025 The Consultant GuptaJi!</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    document.getElementById('menu-toggle').onclick = function () {
+      document.getElementById('nav-links').classList.toggle('show');
+    };
   </script>
 </body>
 </html>
