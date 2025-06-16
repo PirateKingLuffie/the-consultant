@@ -13,22 +13,24 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  padding-bottom: 50px; /* Prevents wheel cutoff at bottom */
 }
 
-/* Zodiac Wheel Animation - Blue Version */
+/* Zodiac Wheel Animation - Deep Cosmic Blue */
 .zodiac-wheel {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vmin;
-  height: 80vmin;
+  width: 90vmin;
+  height: 90vmin;
   background: transparent;
   border-radius: 50%;
   z-index: -1;
-  opacity: 0.2;
-  filter: drop-shadow(0 0 15px rgba(0, 162, 255, 0.8));
+  opacity: 0.35;
+  filter: drop-shadow(0 0 30px rgba(0, 80, 255, 0.95));
   animation: rotateWheel 120s linear infinite;
+  pointer-events: none;
 }
 
 .zodiac-wheel::before {
@@ -41,30 +43,34 @@ body {
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
-    #00a2ff, #0062ff, #003cff, #0062ff, #00a2ff,
-    #00a2ff, #0062ff, #003cff, #0062ff, #00a2ff,
-    #00a2ff, #0062ff
+    #0055ff, #0033ff, #0011ff, #0033ff, #0055ff,
+    #0055ff, #0033ff, #0011ff, #0033ff, #0055ff,
+    #0055ff, #0033ff
   );
-  mask: radial-gradient(transparent 35%, black 36%);
-  animation: pulseGlow 6s ease-in-out infinite alternate;
+  mask: radial-gradient(transparent 30%, black 31%);
+  animation: pulseGlow 4s ease-in-out infinite alternate;
 }
 
 .zodiac-sign {
   position: absolute;
-  width: 8%;
-  height: 8%;
-  background: rgba(255, 255, 255, 0.9);
+  width: 9%;
+  height: 9%;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #0066ff;
+  font-size: 1.8rem;
+  color: #0088ff;
   transform-origin: center;
-  box-shadow: 0 0 15px rgba(0, 102, 255, 0.9);
-  cursor: default;
-  text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+  box-shadow: 
+    0 0 30px rgba(0, 136, 255, 0.95),
+    0 0 45px rgba(0, 170, 255, 0.7);
+  text-shadow: 
+    0 0 25px rgba(0, 170, 255, 0.95),
+    0 0 35px rgba(0, 204, 255, 0.8);
+  pointer-events: none;
 }
 
 @keyframes rotateWheel {
@@ -74,12 +80,12 @@ body {
 
 @keyframes pulseGlow {
   from { 
-    opacity: 0.4; 
-    filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.7));
+    opacity: 0.5;
+    filter: drop-shadow(0 0 25px rgba(0, 80, 255, 0.9));
   }
   to { 
-    opacity: 0.6; 
-    filter: drop-shadow(0 0 25px rgba(0, 204, 255, 0.9));
+    opacity: 0.7;
+    filter: drop-shadow(0 0 40px rgba(0, 170, 255, 1));
   }
 }
 
@@ -175,7 +181,10 @@ header h1 {
   text-align: center;
   position: relative;
   z-index: 1;
-  background: rgba(253, 246, 240, 0.9);
+  background: rgba(253, 246, 240, 0.88);
+  margin: 20px auto;
+  max-width: 95%;
+  border-radius: 8px;
 }
 
 .highlight-title {
@@ -196,7 +205,7 @@ header h1 {
 
 /* Astrology Info Box */
 .astrology-info-box {
-  background-color: #f9f3e9;
+  background-color: rgba(249, 243, 233, 0.9);
   border: 2px solid #d4af37;
   border-radius: 10px;
   padding: 25px;
@@ -279,7 +288,7 @@ header h1 {
   margin: 40px auto;
   max-width: 800px;
   border: 2px solid #ff9933;
-  background: #fff8ec;
+  background: rgba(255, 248, 236, 0.9);
   padding: 25px;
   border-radius: 12px;
   text-align: center;
@@ -302,7 +311,7 @@ header h1 {
 /* Footer Extras */
 .footer-extras {
   padding: 40px 20px;
-  background-color: #fff3e0;
+  background-color: rgba(255, 243, 224, 0.9);
   text-align: center;
   border-top: 4px solid #ff9933;
   margin-top: 60px;
@@ -380,7 +389,7 @@ footer {
   .zodiac-wheel {
     width: 120vmin;
     height: 120vmin;
-    opacity: 0.25;
+    opacity: 0.3;
   }
 
   .planets-list {
@@ -399,6 +408,14 @@ footer {
   .mobile-nav.active {
     display: block;
   }
+  
+  /* Increase content background opacity on mobile */
+  .welcome-section,
+  .astrology-info-box,
+  .info-box,
+  .footer-extras {
+    background-color: rgba(253, 246, 240, 0.94);
+  }
 }
 
 @media (max-width: 480px) {
@@ -407,11 +424,15 @@ footer {
   }
   
   .zodiac-sign {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .astrology-info-box {
     padding: 20px 15px;
     margin: 20px 15px;
+  }
+  
+  .zodiac-wheel {
+    opacity: 0.25;
   }
 }
