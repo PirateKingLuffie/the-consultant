@@ -12,7 +12,7 @@ body {
 
 header {
   background-color: #ff9933;
-  padding: 15px;
+  padding: 20px 15px;
   text-align: center;
   position: relative;
 }
@@ -22,17 +22,11 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-}
-
-.ganesh-logo {
-  width: 60px;
-  height: auto;
 }
 
 header h1 {
   color: #fff;
-  font-size: 24px;
+  font-size: 28px;
   margin: 0;
 }
 
@@ -47,29 +41,32 @@ nav ul {
   justify-content: center;
   flex-wrap: wrap;
   margin: 0;
+  gap: 10px;
 }
 
 nav ul li {
-  margin: 10px;
+  margin: 0;
 }
 
 nav a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 8px 14px;
+  padding: 10px 16px;
   background: #cc7a00;
-  border-radius: 20px;
-  transition: background 0.3s;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 nav a:hover {
   background: #b36b00;
+  transform: scale(1.05);
 }
 
 .menu-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   color: white;
   cursor: pointer;
   position: absolute;
@@ -123,15 +120,13 @@ footer {
     align-items: center;
   }
 
-  .ganesh-logo {
-    width: 50px;
-  }
-
   nav ul {
     display: none;
     flex-direction: column;
     width: 100%;
     background-color: #cc7a00;
+    margin-top: 10px;
+    padding: 10px 0;
   }
 
   nav ul.show {
@@ -139,7 +134,8 @@ footer {
   }
 
   nav ul li {
-    margin: 0;
+    width: 100%;
+    text-align: center;
     border-bottom: 1px solid #fff;
   }
 
@@ -148,10 +144,9 @@ footer {
   }
 
   nav a {
-    display: block;
     width: 100%;
-    padding: 12px;
     border-radius: 0;
+    padding: 14px;
   }
 
   .content-wrapper p {
