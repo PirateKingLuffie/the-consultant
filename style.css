@@ -1,434 +1,428 @@
-/* General Styles */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
-
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background-color: #fdf6f0;
-  color: #333;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 50px;
-}
-
-/* Astro Wheel Container */
-.astro-wheel-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+html, body {
   height: 100%;
-  z-index: -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background: #0b1c2c;
+  color: #e8f1ff;
+  overflow-x: hidden;
+}
+
+/* Zodiac Wheel Background */
+.zodiac-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
   pointer-events: none;
 }
-
-.astro-wheel {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1.0;
-}
-
-/* Content Background Overlay */
-.welcome-section,
-.astrology-info-box,
-.info-box,
-.footer-extras {
-  background-color: rgba(253, 246, 240, 0.9);
-}
-
-/* Header Styles */
-header {
-  background-color: #ff9933;
-  padding: 15px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  color: #fff;
-  font-size: 2rem;
-  font-family: 'Playfair Display', serif;
-}
-
-/* Mobile Ganesh Image (visible only on phones) */
-.mobile-ganesh {
-  display: none;
-  width: 80px;
-  margin: 10px auto 0;
-  text-align: left;
-  padding-left: 20px;
-}
-
-.mobile-ganesh img {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 8px rgba(255, 153, 51, 0.5));
-}
-
-/* Desktop Ganesh Image (visible only on desktop) */
-.desktop-ganesh {
-  display: none;
-  width: 150px;
-  margin-right: 30px;
-}
-
-.desktop-ganesh img {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.5));
-}
-
-/* Navigation Styles */
-.desktop-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 10px;
-}
-
-.desktop-nav a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.desktop-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.mobile-nav-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
+.zodiac-wheel {
   position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 101;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw; max-width: 700px; min-width: 300px;
+  height: auto;
+  opacity: 0.45;
+  filter: blur(0.5px) drop-shadow(0 0 60px #5ee7ffcc);
+  animation: spin 60s linear infinite;
+}
+@keyframes spin {
+  100% { transform: translate(-50%, -50%) rotate(360deg);}
 }
 
-.mobile-nav {
-  display: none;
-  background-color: #ff9933;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 10px 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.mobile-nav a {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.3s;
-}
-
-.mobile-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Hero Section */
-.hero {
-  height: 100px;
-  position: relative;
-}
-
-/* Welcome Section */
-.welcome-section {
-  padding: 50px 20px;
-  position: relative;
-  margin: 20px auto;
-  max-width: 95%;
-  border-radius: 8px;
-}
-
-.welcome-container {
+/* Navigation Bar */
+nav {
+  width: 100%;
+  background: rgba(10, 20, 40, 0.95);
+  box-shadow: 0 2px 24px #0b1c2c55;
   display: flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: space-between;
+  padding: 0.8em 2em;
+  position: relative;
+  z-index: 10;
 }
-
-.welcome-content {
-  flex: 1;
-}
-
-.highlight-title {
-  font-size: 2.5rem;
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
   font-weight: bold;
-  background: linear-gradient(45deg, #ffcc00, #ff6600);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  color: #5ee7ff;
+  gap: 0.5em;
+  text-shadow: 0 0 8px #5ee7ff99;
 }
-
-.welcome-content p {
-  max-width: 800px;
-  margin: 0 auto 15px;
-  line-height: 1.6;
+.nav-links {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  align-items: center;
 }
-
-/* Astrology Info Box */
-.astrology-info-box {
-  border: 2px solid #d4af37;
-  border-radius: 10px;
-  padding: 25px;
-  margin: 30px auto;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.nav-links li {
   position: relative;
 }
-
-.astrology-info-box h2 {
-  color: #8e44ad;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
-  font-family: 'Playfair Display', serif;
-}
-
-.astrology-section {
-  margin-bottom: 25px;
-}
-
-.astrology-section h3 {
-  color: #2980b9;
-  border-bottom: 1px dashed #d4af37;
-  padding-bottom: 8px;
-  margin-bottom: 12px;
-  font-size: 22px;
-}
-
-.astrology-section p {
-  line-height: 1.6;
-  color: #333;
-}
-
-.highlight {
-  background-color: #fffde7;
-  padding: 2px 5px;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-.planets-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.planet-item {
-  background: #e8f4f8;
-  padding: 8px 12px;
-  border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.astrology-section ul {
-  margin-left: 20px;
-  line-height: 1.6;
-}
-
-.astrology-section li {
-  margin-bottom: 8px;
-}
-
-.faq-item {
-  margin-bottom: 15px;
-}
-
-.faq-question {
-  font-weight: bold;
-  color: #cc5500;
-  margin-bottom: 5px;
-}
-
-/* Info Box Section */
-.info-box {
-  margin: 40px auto;
-  max-width: 800px;
-  border: 2px solid #ff9933;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.info-box h3 {
-  color: #cc5500;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-.info-box p {
-  margin: 10px 0;
-  line-height: 1.5;
-}
-
-/* Footer Extras */
-.footer-extras {
-  padding: 40px 20px;
-  border-top: 4px solid #ff9933;
-  margin-top: 60px;
-  position: relative;
-}
-
-.footer-extras h4 {
-  margin-bottom: 10px;
-  color: #cc5500;
-  font-size: 1.2rem;
-}
-
-.footer-extras a {
-  color: #ff6600;
+.nav-links a {
+  color: #e8f1ff;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 1.1em;
+  padding: 0.4em 1em;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.nav-links a.nav-anim {
+  animation: navPopIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both;
+}
+@keyframes navPopIn {
+  0% {transform: scale(0.7) translateY(-20px); opacity: 0;}
+  100% {transform: scale(1) translateY(0); opacity: 1;}
+}
+.nav-links a:hover, .nav-links a:focus {
+  background: #1b2c4c;
+  color: #5ee7ff;
+  box-shadow: 0 0 8px #5ee7ff44;
+  transform: scale(1.07);
 }
 
-.footer-extras a:hover {
-  color: #cc5500;
-  text-decoration: underline;
+/* Hamburger Menu for Mobile */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  z-index: 20;
+}
+.nav-toggle-label span,
+.nav-toggle-label span:before,
+.nav-toggle-label span:after {
+  display: block;
+  background: #5ee7ff;
+  height: 4px;
+  width: 28px;
+  border-radius: 2px;
+  position: absolute;
+  left: 4px;
+  transition: all 0.3s;
+}
+.nav-toggle-label span {
+  top: 16px;
+}
+.nav-toggle-label span:before {
+  content: '';
+  top: -10px;
+}
+.nav-toggle-label span:after {
+  content: '';
+  top: 10px;
+}
+@media (max-width: 900px) {
+  nav {
+    padding: 0.8em 1em;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0; right: 0;
+    flex-direction: column;
+    background: #101a2c;
+    height: 100vh;
+    width: 220px;
+    align-items: flex-start;
+    padding-top: 80px;
+    gap: 1.2em;
+    box-shadow: -6px 0 18px #0b1c2c77;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    z-index: 100;
+  }
+  .nav-toggle:checked ~ .nav-links {
+    transform: translateX(0);
+  }
+  .nav-toggle-label {
+    display: block;
+  }
+  .nav-toggle:checked + .nav-toggle-label span {
+    background: transparent;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:before {
+    transform: rotate(45deg) translate(6px, 6px);
+    top: 0;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:after {
+    transform: rotate(-45deg) translate(6px, -6px);
+    top: 0;
+  }
 }
 
-.footer-extras p {
-  margin: 5px 0;
-  font-size: 0.95rem;
-  color: #333;
+/* Header */
+header {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin-bottom: 2em;
+  padding-top: 1.5em;
+}
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 1.5em;
+}
+.profile-photo {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #5ee7ff;
+  box-shadow: 0 0 28px #5ee7ff44;
+  margin-bottom: 0.8em;
+  background: #1a2d48;
+}
+.profile-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+.header-content h1 {
+  font-size: 2.3em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 18px #5ee7ff33, 0 0 2px #0b1c2c;
+}
+.header-content .highlight {
+  color: #5ee7ff;
+  text-shadow: 0 0 8px #5ee7ff99;
+}
+.intro {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 1.15em;
+  background: rgba(20, 36, 60, 0.7);
+  border-radius: 12px;
+  padding: 1em 1.5em;
+  box-shadow: 0 0 18px #5ee7ff22;
+  color: #e8f1ff;
+  line-height: 1.6;
 }
 
-.quick-links, .contact-info, .social-media {
-  margin-bottom: 20px;
+/* Main Content */
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1.2em 1em 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
 }
-
-.disclaimer {
-  margin-top: 30px;
-  font-size: 0.85rem;
-  color: #777;
-  font-style: italic;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+section {
+  background: rgba(14, 30, 60, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 30px #5ee7ff11;
+  margin-bottom: 1em;
+  padding: 2em 1.5em;
+  text-align: center;
+}
+section h2 {
+  font-size: 1.7em;
+  color: #5ee7ff;
+  margin-bottom: 0.6em;
+  text-shadow: 0 0 8px #5ee7ff55;
+  letter-spacing: 1px;
+}
+section h3 {
+  font-size: 1.2em;
+  color: #e8f1ff;
+  margin-bottom: 0.4em;
+  letter-spacing: 0.5px;
+}
+.info-section p, .info-section ul, .faq-section p, .services-section ul {
+  color: #b3d2ff;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.astro-columns {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  margin-top: 1.2em;
+  flex-wrap: wrap;
+}
+.astro-box {
+  flex: 1 1 260px;
+  background: rgba(20, 40, 70, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 0 18px #5ee7ff22;
+  padding: 1.2em;
+  margin: 0.5em 0;
+  min-width: 220px;
+}
+.astro-box ul {
+  text-align: left;
+  margin: 0.6em 0 0.6em 1em;
+}
+.astro-box li {
+  margin-bottom: 0.3em;
+}
+.faq-section .faq-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+.faq-item {
+  flex: 1 1 320px;
+  background: rgba(18, 36, 60, 0.7);
+  border-radius: 10px;
+  padding: 1em 1em 0.7em 1em;
+  margin: 0.4em 0;
+  min-width: 220px;
+  box-shadow: 0 0 14px #5ee7ff11;
+  text-align: left;
+}
+.faq-item h4 {
+  color: #5ee7ff;
+  margin-bottom: 0.3em;
+  font-size: 1.1em;
+}
+.services-section .services-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2em;
+  list-style: none;
+  margin-top: 1em;
+  padding: 0;
+}
+.services-section .services-list li {
+  background: rgba(30, 54, 90, 0.8);
+  border-radius: 8px;
+  padding: 0.7em 1.3em;
+  color: #e8f1ff;
+  font-size: 1em;
+  margin: 0.2em 0;
+  box-shadow: 0 0 10px #5ee7ff22;
+  transition: background 0.2s;
+}
+.services-section .services-list li:hover {
+  background: #5ee7ff22;
+  color: #5ee7ff;
 }
 
 /* Footer */
 footer {
-  background-color: #ff9933;
-  color: white;
+  background: rgba(12, 24, 40, 0.98);
+  box-shadow: 0 -2px 24px #0b1c2c55;
+  padding: 2em 1em 1em 1em;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  margin-top: 2em;
   text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
   position: relative;
+  z-index: 10;
+}
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+.quick-links a {
+  color: #5ee7ff;
+  text-decoration: none;
+  font-size: 1.05em;
+  padding: 0.3em 0.9em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.quick-links a:hover {
+  background: #5ee7ff22;
+  color: #fff;
+}
+.contact-details {
+  margin-bottom: 1em;
+  color: #b3d2ff;
+  font-size: 1.05em;
+}
+.contact-details p {
+  margin: 0.2em 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.4em;
+  margin-bottom: 1em;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #1a2d48;
+  color: #5ee7ff;
+  font-size: 1.6em;
+  box-shadow: 0 0 16px #5ee7ff33;
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.social-icon:hover, .social-icon:focus {
+  background: #5ee7ff;
+  color: #0b1c2c;
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 0 0 24px #5ee7ffcc;
+}
+.social-icon.insta:hover { background: linear-gradient(45deg,#fd5,#ff543e,#c837ab,#1fa2ff); color: #fff;}
+.social-icon.fb:hover { background: #1877f3; color: #fff;}
+.social-icon.yt:hover { background: #ff0000; color: #fff;}
+footer .copyright {
+  color: #b3d2ff;
+  margin-top: 0.7em;
+  font-size: 0.97em;
+  opacity: 0.7;
 }
 
-/* Responsive Styles */
-@media (min-width: 992px) {
-  .desktop-ganesh {
-    display: block;
+/* Responsive Design */
+@media (max-width: 700px) {
+  .header-content h1 {
+    font-size: 1.4em;
   }
-  
-  .welcome-content {
-    padding-left: 0;
+  .profile-photo {
+    width: 80px; height: 80px;
   }
-}
-
-@media (max-width: 768px) {
-  .highlight-title {
-    font-size: 2rem;
+  main {
+    padding: 1em 0.3em 0.5em 0.3em;
   }
-
-  .hero {
-    height: 60px;
+  section {
+    padding: 1.2em 0.7em;
   }
-
-  .welcome-section {
-    padding: 30px 15px;
+  .astro-columns {
+    flex-direction: column;
+    gap: 1em;
   }
-
-  .info-box {
-    margin: 30px 15px;
-    padding: 20px;
+  .faq-section .faq-list {
+    flex-direction: column;
+    gap: 1em;
   }
-
-  .planets-list {
-    grid-template-columns: repeat(2, 1fr);
+  .services-section .services-list {
+    gap: 0.5em;
   }
-
-  /* Mobile Navigation Styles */
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-nav-btn {
-    display: block;
-  }
-
-  .mobile-nav.active {
-    display: block;
-  }
-  
-  /* Mobile Ganesh Image */
-  .mobile-ganesh {
-    display: block;
-  }
-
-  /* Adjust astro wheel for mobile */
-  .astro-wheel {
-    opacity: 1.0;
-  }
-  
-  /* Increase content opacity on mobile */
-  .welcome-section,
-  .astrology-info-box,
-  .info-box,
-  .footer-extras {
-    background-color: rgba(253, 246, 240, 0.95);
-  }
-}
-
-@media (max-width: 480px) {
-  .planets-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .astrology-info-box {
-    padding: 20px 15px;
-    margin: 20px 15px;
-  }
-  
-  /* Adjust mobile Ganesh image size */
-  .mobile-ganesh {
-    width: 70px;
-    padding-left: 15px;
+  .quick-links {
+    gap: 0.6em;
   }
 }
