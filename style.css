@@ -17,21 +17,15 @@ html, body {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 0;
-  overflow: hidden;
   pointer-events: none;
-}
-.zodiac-wheel {
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw; max-width: 700px; min-width: 300px;
-  height: auto;
-  opacity: 0.45;
-  filter: blur(0.5px) drop-shadow(0 0 60px #5ee7ffcc);
+  background: url('astro-wheel.webp') center center no-repeat;
+  background-size: cover;
+  opacity: 0.33;
+  filter: drop-shadow(0 0 80px #5ee7ff55) brightness(1.2) contrast(1.2);
   animation: spin 60s linear infinite;
 }
 @keyframes spin {
-  100% { transform: translate(-50%, -50%) rotate(360deg);}
+  100% { transform: rotate(360deg);}
 }
 
 /* Navigation Bar */
@@ -44,7 +38,7 @@ nav {
   justify-content: space-between;
   padding: 0.8em 2em;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 .logo {
   display: flex;
@@ -61,6 +55,7 @@ nav {
   gap: 1.5em;
   list-style: none;
   align-items: center;
+  transition: right 0.3s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
 }
 .nav-links li {
   position: relative;
@@ -89,76 +84,65 @@ nav {
   transform: scale(1.07);
 }
 
-/* Hamburger Menu for Mobile */
-.nav-toggle {
+/* Hamburger Menu */
+.hamburger {
   display: none;
-}
-.nav-toggle-label {
-  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  z-index: 100;
   position: relative;
-  z-index: 20;
+  margin-left: 1em;
 }
-.nav-toggle-label span,
-.nav-toggle-label span:before,
-.nav-toggle-label span:after {
+.hamburger span {
   display: block;
-  background: #5ee7ff;
-  height: 4px;
   width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #5ee7ff;
   border-radius: 2px;
-  position: absolute;
-  left: 4px;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
 }
-.nav-toggle-label span {
-  top: 16px;
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
-.nav-toggle-label span:before {
-  content: '';
-  top: -10px;
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
 }
-.nav-toggle-label span:after {
-  content: '';
-  top: 10px;
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
+
+/* Hamburger and mobile nav */
 @media (max-width: 900px) {
-  nav {
-    padding: 0.8em 1em;
-  }
   .nav-links {
-    position: fixed;
-    top: 0; right: 0;
     flex-direction: column;
     background: #101a2c;
+    position: fixed;
+    top: 0; right: -100vw;
     height: 100vh;
     width: 220px;
     align-items: flex-start;
     padding-top: 80px;
     gap: 1.2em;
     box-shadow: -6px 0 18px #0b1c2c77;
-    transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
-    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: right 0.3s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
+    z-index: 99;
   }
-  .nav-toggle:checked ~ .nav-links {
-    transform: translateX(0);
+  .nav-links.open {
+    right: 0;
+    opacity: 1;
+    pointer-events: all;
   }
-  .nav-toggle-label {
-    display: block;
-  }
-  .nav-toggle:checked + .nav-toggle-label span {
-    background: transparent;
-  }
-  .nav-toggle:checked + .nav-toggle-label span:before {
-    transform: rotate(45deg) translate(6px, 6px);
-    top: 0;
-  }
-  .nav-toggle:checked + .nav-toggle-label span:after {
-    transform: rotate(-45deg) translate(6px, -6px);
-    top: 0;
+  .hamburger {
+    display: flex;
   }
 }
 
