@@ -11,7 +11,11 @@
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
-  <div class="zodiac-bg"></div>
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="zodiac-wheel.jpg" alt="Zodiac Wheel" class="zodiac-wheel-img">
+    </div>
+  </div>
 
   <header>
     <nav>
@@ -35,7 +39,6 @@
     </nav>
     <div class="header-content">
       <div class="profile-photo">
-        <!-- Replace src with your astrologer's photo -->
         <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=3" alt="GuptaJi">
       </div>
       <h1>The Consultant - <span class="highlight">GuptaJi</span></h1>
@@ -154,7 +157,6 @@
     hamburger.addEventListener('click', function() {
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('open');
-      // Update aria-expanded for accessibility
       hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
     // Optional: close menu when clicking a link (for single-page)
