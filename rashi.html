@@ -44,7 +44,7 @@
       <h1>Rashi Ratna - <span class="highlight">Gemstones</span></h1>
       <p class="intro">
         Discover the power of Vedic gemstones. Each Rashi Ratna holds unique energies to enhance your destiny, health, and fortune.<br>
-        Click on a gemstone to learn about its significance and benefits.
+        All gemstones and their benefits are listed below.
       </p>
     </div>
   </header>
@@ -52,15 +52,42 @@
   <main>
     <section class="rashi-ratna-section">
       <div class="gemstone-left">
-        <div class="gemstone-slot slot1"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Yellow_Sapphire.jpg" alt="Yellow Sapphire" class="gemstone-img"></div>
-        <div class="gemstone-slot slot2"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Blue_Sapphire_Gem.jpg" alt="Blue Sapphire" class="gemstone-img"></div>
-        <div class="gemstone-slot slot3"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Loose_ruby_gemstone.jpg" alt="Ruby" class="gemstone-img"></div>
-        <div class="gemstone-slot slot4"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Natural_pearl.jpg" alt="Pearl" class="gemstone-img"></div>
-        <div class="gemstone-slot slot5"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Brilliant-cut-diamond.jpg" alt="Diamond" class="gemstone-img"></div>
-        <div class="gemstone-slot slot6"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Red_coral_gemstone.jpg" alt="Coral" class="gemstone-img"></div>
-        <div class="gemstone-slot slot7"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Cats_eye_gemstone.jpg" alt="Cat's Eye" class="gemstone-img"></div>
-        <div class="gemstone-slot slot8"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Emerald_gemstone.jpg" alt="Emerald" class="gemstone-img"></div>
-        <div class="gemstone-slot slot9"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Hessonite_gemstone.jpg" alt="Hessonite" class="gemstone-img"></div>
+        <div class="gemstone-slot slot1">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Yellow_Sapphire.jpg" alt="Yellow Sapphire">
+          <span>Yellow Sapphire</span>
+        </div>
+        <div class="gemstone-slot slot2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Blue_Sapphire_Gem.jpg" alt="Blue Sapphire">
+          <span>Blue Sapphire</span>
+        </div>
+        <div class="gemstone-slot slot3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Loose_ruby_gemstone.jpg" alt="Ruby">
+          <span>Ruby</span>
+        </div>
+        <div class="gemstone-slot slot4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Natural_pearl.jpg" alt="Pearl">
+          <span>Pearl</span>
+        </div>
+        <div class="gemstone-slot slot5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Brilliant-cut-diamond.jpg" alt="Diamond">
+          <span>Diamond</span>
+        </div>
+        <div class="gemstone-slot slot6">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Red_coral_gemstone.jpg" alt="Coral">
+          <span>Coral</span>
+        </div>
+        <div class="gemstone-slot slot7">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Cats_eye_gemstone.jpg" alt="Cat's Eye">
+          <span>Cat's Eye</span>
+        </div>
+        <div class="gemstone-slot slot8">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Emerald_gemstone.jpg" alt="Emerald">
+          <span>Emerald</span>
+        </div>
+        <div class="gemstone-slot slot9">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Hessonite_gemstone.jpg" alt="Hessonite">
+          <span>Hessonite</span>
+        </div>
       </div>
       <div class="gemstone-right">
         <div class="gem-info">
@@ -163,23 +190,6 @@
         }
       });
     });
-
-    // Gemstone fly-in animation and info switching
-    const gemSlots = document.querySelectorAll('.gemstone-slot');
-    const gemInfos = document.querySelectorAll('.gem-info');
-    gemSlots.forEach((slot, idx) => {
-      slot.addEventListener('click', () => {
-        gemInfos.forEach((info, i) => {
-          info.style.display = (i === idx) ? 'block' : 'none';
-        });
-        gemSlots.forEach((s, i) => {
-          s.classList.toggle('active', i === idx);
-        });
-      });
-    });
-    // Show first info by default
-    if (gemInfos.length) gemInfos[0].style.display = 'block';
-    if (gemSlots.length) gemSlots[0].classList.add('active');
   </script>
 </body>
 </html>
