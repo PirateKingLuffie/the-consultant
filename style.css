@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* ====== BASE RESET AND LAYOUT ====== */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Zodiac Wheel Background */
+/* ====== ZODIAC WHEEL BACKGROUND ====== */
 .zodiac-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -51,7 +51,7 @@ html, body {
   100% { transform: rotate(360deg);}
 }
 
-/* Navigation Bar */
+/* ====== NAVIGATION BAR ====== */
 nav {
   width: 100%;
   background: rgba(10, 20, 40, 0.95);
@@ -107,7 +107,7 @@ nav {
   transform: scale(1.07);
 }
 
-/* Hamburger Menu */
+/* ====== HAMBURGER MENU ====== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -140,8 +140,6 @@ nav {
 .hamburger.open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-
-/* Hamburger and mobile nav */
 @media (max-width: 900px) {
   .nav-links {
     flex-direction: column;
@@ -169,7 +167,7 @@ nav {
   }
 }
 
-/* Header */
+/* ====== HEADER ====== */
 header {
   position: relative;
   z-index: 5;
@@ -220,7 +218,7 @@ header {
   line-height: 1.6;
 }
 
-/* Main Content */
+/* ====== MAIN CONTENT (HOME PAGE) ====== */
 main {
   position: relative;
   z-index: 2;
@@ -325,7 +323,7 @@ section h3 {
   color: #5ee7ff;
 }
 
-/* Footer */
+/* ====== FOOTER ====== */
 footer {
   background: rgba(12, 24, 40, 0.98);
   box-shadow: 0 -2px 24px #0b1c2c55;
@@ -404,91 +402,56 @@ footer .copyright {
   opacity: 0.7;
 }
 
-/* Responsive Design */
-@media (max-width: 700px) {
-  .header-content h1 {
-    font-size: 1.4em;
-  }
-  .profile-photo {
-    width: 80px; height: 80px;
-  }
-  main {
-    padding: 1em 0.3em 0.5em 0.3em;
-  }
-  section {
-    padding: 1.2em 0.7em;
-  }
-  .astro-columns {
-    flex-direction: column;
-    gap: 1em;
-  }
-  .faq-section .faq-list {
-    flex-direction: column;
-    gap: 1em;
-  }
-  .services-section .services-list {
-    gap: 0.5em;
-  }
-  .quick-links {
-    gap: 0.6em;
-  }
-  .zodiac-wheel-container {
-    width: min(100vw, 100vh);
-    height: min(100vw, 100vh);
-  }
-}
-/* ... your previous CSS remains unchanged ... */
-
-/* Rashi Ratna Gemstone Section */
-.rashi-ratna-section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2.5em;
-  margin: 2em 0;
-  min-height: 600px;
-  position: relative;
-  z-index: 2;
-}
-.gemstone-left {
+/* ====== RASHI RATNA GRID (GEMSTONES) ====== */
+.rashi-ratna-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-  min-width: 260px;
-  align-items: flex-end;
-  margin-top: 0.5em;
+  gap: 2em;
+  margin: 2em auto;
+  max-width: 900px;
+  z-index: 2;
+  position: relative;
+}
+.gem-row {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  align-items: stretch;
+  gap: 2em;
+  min-height: 140px;
 }
 .gemstone-slot {
-  width: 200px;
-  height: 80px;
-  background: rgba(20,40,70,0.85);
-  border-radius: 18px;
+  background: rgba(20,40,70,0.90);
+  border-radius: 22px;
   box-shadow: 0 0 18px #5ee7ff22;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 18px;
-  margin-right: 0.5em;
+  padding: 0 32px;
+  min-height: 120px;
+  min-width: 240px;
+  max-width: 340px;
   opacity: 0;
-  transform: translateX(-300px) scale(0.7);
+  transform: translateX(-400px) scale(0.7);
   animation: flyInGemSlot 1.1s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  animation-delay: calc(var(--i) * 0.10s);
   border: 2px solid transparent;
   transition: border 0.2s, box-shadow 0.2s;
   position: relative;
   overflow: hidden;
 }
 .gemstone-slot img {
-  width: 54px;
-  height: 54px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
-  border-radius: 12px;
-  margin-right: 18px;
+  border-radius: 14px;
+  margin-right: 24px;
   background: #fff2;
   box-shadow: 0 0 10px #5ee7ff33;
+  border: 2px solid #5ee7ff33;
 }
 .gemstone-slot span {
   color: #e8f1ff;
-  font-size: 1.1em;
+  font-size: 1.3em;
   font-weight: 600;
   letter-spacing: 1px;
   text-shadow: 0 0 8px #5ee7ff55;
@@ -499,40 +462,23 @@ footer .copyright {
   box-shadow: 0 0 22px #5ee7ff77;
   z-index: 2;
 }
-.slot1 { animation-delay: 0.10s; }
-.slot2 { animation-delay: 0.22s; }
-.slot3 { animation-delay: 0.34s; }
-.slot4 { animation-delay: 0.46s; }
-.slot5 { animation-delay: 0.58s; }
-.slot6 { animation-delay: 0.70s; }
-.slot7 { animation-delay: 0.82s; }
-.slot8 { animation-delay: 0.94s; }
-.slot9 { animation-delay: 1.06s; }
-
 @keyframes flyInGemSlot {
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
   }
 }
-
-.gemstone-right {
-  flex: 1 1 320px;
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.3em;
-  margin-left: 0.5em;
-}
 .gem-info {
   background: rgba(30,54,90,0.85);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 0 18px #5ee7ff22;
-  padding: 1.7em 1.5em;
-  text-align: left;
+  padding: 2em 2em;
   color: #e8f1ff;
   animation: fadeInGemInfo 0.7s;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .gem-info h2 {
   color: #5ee7ff;
@@ -545,46 +491,54 @@ footer .copyright {
   to { opacity: 1; transform: translateY(0);}
 }
 
-/* Responsive for Rashi Ratna */
-@media (max-width: 1100px) {
-  .rashi-ratna-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5em;
-    min-height: 0;
-  }
-  .gemstone-left {
-    flex-direction: row;
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1000px) {
+  .rashi-ratna-grid {
+    max-width: 98vw;
     gap: 1em;
-    align-items: flex-start;
-    margin: 0 0 1em 0;
-    min-width: 0;
-    justify-content: center;
+  }
+  .gem-row {
+    grid-template-columns: 1fr 2fr;
+    gap: 1em;
+    min-height: 100px;
   }
   .gemstone-slot {
-    margin-right: 0;
-    margin-bottom: 0;
-    width: 110px;
-    height: 110px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 8px;
+    min-width: 120px;
+    max-width: 180px;
+    min-height: 80px;
+    padding: 0 10px;
   }
   .gemstone-slot img {
-    margin-right: 0;
-    margin-bottom: 8px;
     width: 48px;
     height: 48px;
+    margin-right: 12px;
   }
   .gemstone-slot span {
-    font-size: 0.92em;
-    text-align: center;
-    white-space: normal;
+    font-size: 1em;
   }
-  .gemstone-right {
-    margin-left: 0;
-    width: 100%;
+  .gem-info {
+    padding: 1.1em 1em;
+    font-size: 0.98em;
+  }
+}
+@media (max-width: 700px) {
+  .rashi-ratna-grid {
+    gap: 0.7em;
+  }
+  .gem-row {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .gemstone-slot {
     min-width: 0;
+    max-width: 100vw;
+    min-height: 60px;
+    margin-bottom: 0.2em;
+    justify-content: flex-start;
+  }
+  .gem-info {
+    margin-top: 0.2em;
+    padding: 0.9em 0.6em;
+    font-size: 0.97em;
   }
 }
