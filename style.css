@@ -97,10 +97,10 @@ nav {
   transform: scale(1.07);
 }
 
-/* ====== DROPDOWN MENU (RASHI RATNA) ====== */
+/* ====== MEGA DROPDOWN MENU ====== */
 .dropdown { position: relative; }
 .dropdown > a { cursor: pointer; }
-.dropdown-menu {
+.mega-dropdown-menu {
   display: none;
   position: absolute;
   left: 0;
@@ -108,27 +108,27 @@ nav {
   background: #101a2c;
   box-shadow: 0 4px 24px #0b1c2c88;
   border-radius: 12px;
-  min-width: 340px;
-  padding: 1em 1.3em;
+  min-width: 800px;
+  padding: 1.2em 1.7em;
   z-index: 100;
   display: flex;
   gap: 2em;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
 }
-.dropdown.open > .dropdown-menu,
-.dropdown:hover > .dropdown-menu {
+.dropdown.open > .mega-dropdown-menu,
+.dropdown:hover > .mega-dropdown-menu {
   display: flex;
   opacity: 1;
   pointer-events: all;
 }
-.dropdown-section {
-  min-width: 130px;
+.mega-dropdown-menu .dropdown-section {
+  min-width: 170px;
   margin-right: 1em;
 }
-.dropdown-section h4 {
+.mega-dropdown-menu .dropdown-section h4 {
   color: #5ee7ff;
   margin-bottom: 0.4em;
   font-size: 1em;
@@ -138,12 +138,12 @@ nav {
   border-bottom: 1px solid #223;
   padding-bottom: 2px;
 }
-.dropdown-section ul {
+.mega-dropdown-menu .dropdown-section ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.dropdown-section li {
+.mega-dropdown-menu .dropdown-section li {
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -155,13 +155,13 @@ nav {
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
 }
-.dropdown-section li:hover {
+.mega-dropdown-menu .dropdown-section li:hover {
   background: #5ee7ff22;
   color: #5ee7ff;
 }
 .gem-thumb {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   background: #1a2d48;
   border-radius: 6px;
   display: inline-block;
@@ -221,11 +221,11 @@ nav {
   .hamburger {
     display: flex;
   }
-  .dropdown-menu {
+  .mega-dropdown-menu {
     position: static;
     left: 0;
     top: 0;
-    min-width: 100%;
+    min-width: 100vw;
     box-shadow: none;
     border-radius: 0;
     flex-direction: column;
@@ -235,7 +235,12 @@ nav {
     pointer-events: all;
     display: none;
   }
-  .dropdown.open > .dropdown-menu { display: flex; }
+  .dropdown.open > .mega-dropdown-menu { display: flex; }
+  .mega-dropdown-menu .dropdown-section {
+    min-width: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
 }
 
 /* ====== HEADER ====== */
@@ -289,52 +294,59 @@ header {
   line-height: 1.6;
 }
 
-/* ====== GEMSTONE GRID ====== */
+/* ====== GEMSTONE GRID SLOTS ====== */
 .rashi-ratna-grid {
   display: flex;
   flex-direction: column;
   gap: 2em;
   margin: 2em auto;
-  max-width: 900px;
+  max-width: 1100px;
   z-index: 2;
   position: relative;
 }
-.gem-row {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
-  align-items: stretch;
-  gap: 2em;
-  min-height: 140px;
+.gem-section-title {
+  color: #5ee7ff;
+  margin-bottom: 0.7em;
+  font-size: 1.3em;
+  text-align: left;
+  text-shadow: 0 0 8px #5ee7ff44;
+  padding-left: 0.5em;
+  letter-spacing: 1px;
+}
+.gemstone-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3em;
+  margin-bottom: 2em;
 }
 .gemstone-slot {
   background: rgba(20,40,70,0.90);
-  border-radius: 22px;
-  box-shadow: 0 0 18px #5ee7ff22;
+  border-radius: 18px;
+  box-shadow: 0 0 14px #5ee7ff22;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 32px;
-  min-height: 120px;
-  min-width: 240px;
-  max-width: 340px;
+  padding: 0.7em 1.3em;
+  min-height: 68px;
+  min-width: 210px;
+  max-width: 260px;
   border: 2px solid transparent;
   transition: border 0.2s, box-shadow 0.2s;
   position: relative;
   overflow: hidden;
+  margin-bottom: 0.8em;
 }
-.gemstone-slot img {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  border-radius: 14px;
-  margin-right: 24px;
-  background: #fff2;
-  box-shadow: 0 0 10px #5ee7ff33;
-  border: 2px solid #5ee7ff33;
+.gemstone-slot .gem-thumb {
+  width: 38px;
+  height: 38px;
+  margin-right: 14px;
+  background: #1a2d48;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #5ee7ff33;
 }
 .gemstone-slot span {
   color: #e8f1ff;
-  font-size: 1.3em;
+  font-size: 1.08em;
   font-weight: 600;
   letter-spacing: 1px;
   text-shadow: 0 0 8px #5ee7ff55;
@@ -342,25 +354,8 @@ header {
 }
 .gemstone-slot:hover, .gemstone-slot:focus {
   border: 2px solid #5ee7ff;
-  box-shadow: 0 0 22px #5ee7ff77;
+  box-shadow: 0 0 18px #5ee7ff77;
   z-index: 2;
-}
-.gem-info {
-  background: rgba(30,54,90,0.85);
-  border-radius: 18px;
-  box-shadow: 0 0 18px #5ee7ff22;
-  padding: 2em 2em;
-  color: #e8f1ff;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.gem-info h2 {
-  color: #5ee7ff;
-  margin-bottom: 0.5em;
-  font-size: 1.3em;
-  text-shadow: 0 0 8px #5ee7ff55;
 }
 
 /* ====== FOOTER ====== */
@@ -445,16 +440,15 @@ footer .copyright {
 /* ====== RESPONSIVE ====== */
 @media (max-width: 1100px) {
   .rashi-ratna-grid { max-width: 98vw; gap: 1em; }
-  .gem-row { grid-template-columns: 1fr 2fr; gap: 1em; min-height: 100px; }
-  .gemstone-slot { min-width: 120px; max-width: 180px; min-height: 80px; padding: 0 10px; }
-  .gemstone-slot img { width: 48px; height: 48px; margin-right: 12px; }
+  .gemstone-row { gap: 0.7em; }
+  .gemstone-slot { min-width: 120px; max-width: 180px; min-height: 60px; padding: 0.5em 0.7em; }
+  .gemstone-slot .gem-thumb { width: 28px; height: 28px; margin-right: 8px; }
   .gemstone-slot span { font-size: 1em; }
-  .gem-info { padding: 1.1em 1em; font-size: 0.98em; }
 }
 @media (max-width: 700px) {
   .rashi-ratna-grid { gap: 0.7em; }
-  .gem-row { grid-template-columns: 1fr; min-height: 0; }
-  .gemstone-slot { min-width: 0; max-width: 100vw; min-height: 60px; margin-bottom: 0.2em; justify-content: flex-start; }
-  .gem-info { margin-top: 0.2em; padding: 0.9em 0.6em; font-size: 0.97em; }
-  .dropdown-menu { min-width: 100vw; }
+  .gem-section-title { font-size: 1.1em; }
+  .gemstone-row { gap: 0.5em; flex-direction: column; }
+  .gemstone-slot { min-width: 95vw; max-width: 100vw; margin-bottom: 0.5em; }
+  .mega-dropdown-menu { min-width: 100vw; }
 }
