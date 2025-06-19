@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
-  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -30,7 +29,61 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="#">Vaastu Shastra</a></li>
-        <li><a href="rashi.html" class="nav-anim">Rashi Ratna</a></li>
+        <li class="dropdown">
+          <a href="rashi.html" class="nav-anim">Rashi Ratna <i class="fa fa-caret-down"></i></a>
+          <div class="mega-dropdown-menu">
+            <div class="dropdown-section">
+              <h4>Astro Gems</h4>
+              <ul>
+                <li><div class="gem-thumb"></div>Blue Sapphire</li>
+                <li><div class="gem-thumb"></div>Yellow Sapphire</li>
+                <li><div class="gem-thumb"></div>Ruby</li>
+                <li><div class="gem-thumb"></div>Emerald</li>
+                <li><div class="gem-thumb"></div>Pearl</li>
+                <li><div class="gem-thumb"></div>Red Coral</li>
+                <li><div class="gem-thumb"></div>Diamond</li>
+                <li><div class="gem-thumb"></div>Cat's Eye</li>
+                <li><div class="gem-thumb"></div>Hessonite</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Vedic Gems</h4>
+              <ul>
+                <li><div class="gem-thumb"></div>Opal</li>
+                <li><div class="gem-thumb"></div>White Sapphire</li>
+                <li><div class="gem-thumb"></div>Amethyst</li>
+                <li><div class="gem-thumb"></div>Citrine</li>
+                <li><div class="gem-thumb"></div>Gomed</li>
+                <li><div class="gem-thumb"></div>Blue Topaz</li>
+                <li><div class="gem-thumb"></div>Peridot</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Exclusive Gems</h4>
+              <ul>
+                <li><div class="gem-thumb"></div>Alexandrite</li>
+                <li><div class="gem-thumb"></div>Tanzanite</li>
+                <li><div class="gem-thumb"></div>Aquamarine</li>
+                <li><div class="gem-thumb"></div>Morganite</li>
+                <li><div class="gem-thumb"></div>Pink Sapphire</li>
+                <li><div class="gem-thumb"></div>Star Ruby</li>
+                <li><div class="gem-thumb"></div>Star Sapphire</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Other Gems</h4>
+              <ul>
+                <li><div class="gem-thumb"></div>Turquoise</li>
+                <li><div class="gem-thumb"></div>Moonstone</li>
+                <li><div class="gem-thumb"></div>Garnet</li>
+                <li><div class="gem-thumb"></div>Amber</li>
+                <li><div class="gem-thumb"></div>Smoky Quartz</li>
+                <li><div class="gem-thumb"></div>Tourmaline</li>
+                <li><div class="gem-thumb"></div>White Topaz</li>
+              </ul>
+            </div>
+          </div>
+        </li>
         <li><a href="#">Kundli</a></li>
         <li><a href="#">Matrimonial</a></li>
         <li><a href="#">Contact</a></li>
@@ -47,62 +100,52 @@
       </p>
     </div>
   </header>
-
-  <!-- Centered Mega Dropdown for Gemstones -->
-  <div class="gemstones-dropdown-wrapper">
-    <div class="gemstones-dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false">
-      Gemstones ▼
-      <div class="gemstones-menu" role="menu" aria-label="Gemstones categories">
-        <div class="gemstones-menu-column" role="none">
-          <h5>Astro Gems</h5>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Blue Sapphire</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Yellow Sapphire</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Ruby</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Emerald</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Pearl</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Red Coral</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Diamond</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Cat's Eye</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Hessonite</div>
-        </div>
-        <div class="gemstones-menu-column" role="none">
-          <h5>Vedic Gems</h5>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Opal</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">White Sapphire</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Amethyst</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Citrine</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Gomed</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Blue Topaz</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Peridot</div>
-        </div>
-        <div class="gemstones-menu-column" role="none">
-          <h5>Exclusive Gems</h5>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Alexandrite</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Tanzanite</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Aquamarine</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Morganite</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Pink Sapphire</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Star Ruby</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Star Sapphire</div>
-        </div>
-        <div class="gemstones-menu-column" role="none">
-          <h5>Other Gems</h5>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Turquoise</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Moonstone</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Garnet</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Amber</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Smoky Quartz</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">Tourmaline</div>
-          <div class="gemstone-slot" role="menuitem" tabindex="-1">White Topaz</div>
-        </div>
+  <main>
+    <div class="rashi-ratna-grid">
+      <h2 class="gem-section-title">Astro Gems</h2>
+      <div class="gemstone-row">
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Blue Sapphire</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Yellow Sapphire</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Ruby</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Emerald</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Pearl</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Red Coral</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Diamond</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Cat's Eye</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Hessonite</span></div>
+      </div>
+      <h2 class="gem-section-title">Vedic Gems</h2>
+      <div class="gemstone-row">
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Opal</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>White Sapphire</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Amethyst</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Citrine</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Gomed</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Blue Topaz</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Peridot</span></div>
+      </div>
+      <h2 class="gem-section-title">Exclusive Gems</h2>
+      <div class="gemstone-row">
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Alexandrite</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Tanzanite</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Aquamarine</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Morganite</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Pink Sapphire</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Star Ruby</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Star Sapphire</span></div>
+      </div>
+      <h2 class="gem-section-title">Other Gems</h2>
+      <div class="gemstone-row">
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Turquoise</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Moonstone</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Garnet</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Amber</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Smoky Quartz</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Tourmaline</span></div>
+        <div class="gemstone-slot"><div class="gem-thumb"></div><span>White Topaz</span></div>
       </div>
     </div>
-  </div>
-
-  <main>
-    <!-- You can add your gemstone grid or other content here -->
   </main>
-
   <footer>
     <div class="quick-links">
       <a href="index.html">Home</a>
@@ -145,27 +188,25 @@
       });
     });
 
-    // Gemstones dropdown open/close for click and accessibility
-    const gemDropdown = document.querySelector('.gemstones-dropdown');
-    gemDropdown.addEventListener('click', function(e) {
-      this.classList.toggle('open');
-      this.setAttribute('aria-expanded', this.classList.contains('open'));
-      e.stopPropagation();
+    // Dropdown for mobile/touch
+    document.querySelectorAll('.dropdown > a').forEach(drop => {
+      drop.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
     });
-    document.addEventListener('click', function(e) {
-      if (!gemDropdown.contains(e.target)) {
-        gemDropdown.classList.remove('open');
-        gemDropdown.setAttribute('aria-expanded', 'false');
-      }
-    });
-    // Keyboard accessibility
-    gemDropdown.addEventListener('keydown', function(e) {
-      if (e.key === "Escape") {
-        this.classList.remove('open');
-        this.setAttribute('aria-expanded', 'false');
-      }
+
+    // Dropdown hover for desktop
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      drop.addEventListener('mouseenter', function() {
+        if(window.innerWidth > 900) this.classList.add('open');
+      });
+      drop.addEventListener('mouseleave', function() {
+        if(window.innerWidth > 900) this.classList.remove('open');
+      });
     });
   </script>
 </body>
 </html>
-d
