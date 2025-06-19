@@ -1,48 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Consultant GuptaJi!</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rashi Ratna - The Consultant GuptaJi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
+    </div>
+  </div>
 
   <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
-      <h1>The Consultant GuptaJi!</h1>
-    </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="#">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="#">Kundli</a></li>
+        <li><a href="#">Matrimonial</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
+    <div class="header-content">
+      <div class="profile-photo">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=3" alt="GuptaJi">
+      </div>
+      <h1>Rashi Ratna - <span class="highlight">Gemstones</span></h1>
+      <p class="intro">
+        Discover the power of Vedic gemstones. Each Rashi Ratna holds unique energies to enhance your destiny, health, and fortune.<br>
+        Click on a gemstone to learn about its significance and benefits.
+      </p>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
-    </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
-    </div>
-  </section>
+  <main>
+    <section class="rashi-ratna-section">
+      <div class="gemstone-left">
+        <div class="gemstone-slot slot1"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Yellow_Sapphire.jpg" alt="Yellow Sapphire" class="gemstone-img"></div>
+        <div class="gemstone-slot slot2"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Blue_Sapphire_Gem.jpg" alt="Blue Sapphire" class="gemstone-img"></div>
+        <div class="gemstone-slot slot3"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Loose_ruby_gemstone.jpg" alt="Ruby" class="gemstone-img"></div>
+        <div class="gemstone-slot slot4"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Natural_pearl.jpg" alt="Pearl" class="gemstone-img"></div>
+        <div class="gemstone-slot slot5"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Brilliant-cut-diamond.jpg" alt="Diamond" class="gemstone-img"></div>
+        <div class="gemstone-slot slot6"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Red_coral_gemstone.jpg" alt="Coral" class="gemstone-img"></div>
+        <div class="gemstone-slot slot7"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Cats_eye_gemstone.jpg" alt="Cat's Eye" class="gemstone-img"></div>
+        <div class="gemstone-slot slot8"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Emerald_gemstone.jpg" alt="Emerald" class="gemstone-img"></div>
+        <div class="gemstone-slot slot9"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Hessonite_gemstone.jpg" alt="Hessonite" class="gemstone-img"></div>
+      </div>
+      <div class="gemstone-right">
+        <div class="gem-info">
+          <h2>Yellow Sapphire (Pukhraj)</h2>
+          <p><strong>Planet:</strong> Jupiter (Guru)<br>
+          <strong>Benefits:</strong> Wisdom, prosperity, marriage, and spiritual growth.<br>
+          <strong>Who should wear:</strong> Those seeking knowledge, wealth, or good fortune in marriage.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Blue Sapphire (Neelam)</h2>
+          <p><strong>Planet:</strong> Saturn (Shani)<br>
+          <strong>Benefits:</strong> Discipline, focus, career success, and protection from evil.<br>
+          <strong>Who should wear:</strong> People facing obstacles, seeking stability, or under Sade Sati.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Ruby (Manik)</h2>
+          <p><strong>Planet:</strong> Sun (Surya)<br>
+          <strong>Benefits:</strong> Leadership, confidence, vitality, and fame.<br>
+          <strong>Who should wear:</strong> Those needing motivation, recognition, or a boost in self-esteem.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Pearl (Moti)</h2>
+          <p><strong>Planet:</strong> Moon (Chandra)<br>
+          <strong>Benefits:</strong> Emotional balance, peace, mental clarity, and maternal happiness.<br>
+          <strong>Who should wear:</strong> People with anxiety, mood swings, or seeking calmness.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Diamond (Heera)</h2>
+          <p><strong>Planet:</strong> Venus (Shukra)<br>
+          <strong>Benefits:</strong> Luxury, charm, creativity, and relationship harmony.<br>
+          <strong>Who should wear:</strong> Artists, lovers, or those wanting to enhance beauty and relationships.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Coral (Moonga)</h2>
+          <p><strong>Planet:</strong> Mars (Mangal)<br>
+          <strong>Benefits:</strong> Courage, health, energy, and victory over enemies.<br>
+          <strong>Who should wear:</strong> People lacking confidence or facing health issues.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Cat's Eye (Lehsunia)</h2>
+          <p><strong>Planet:</strong> Ketu<br>
+          <strong>Benefits:</strong> Protection from evil, spiritual awakening, and sudden gains.<br>
+          <strong>Who should wear:</strong> Those undergoing Ketu Mahadasha or seeking mystical growth.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Emerald (Panna)</h2>
+          <p><strong>Planet:</strong> Mercury (Budh)<br>
+          <strong>Benefits:</strong> Intelligence, communication, business success, and healing.<br>
+          <strong>Who should wear:</strong> Students, businesspeople, or those needing clarity in speech.</p>
+        </div>
+        <div class="gem-info">
+          <h2>Hessonite (Gomed)</h2>
+          <p><strong>Planet:</strong> Rahu<br>
+          <strong>Benefits:</strong> Success in legal matters, clarity, and overcoming confusion.<br>
+          <strong>Who should wear:</strong> Those affected by Rahu dosha or facing delays and obstacles.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2025 The Consultant GuptaJi!
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="#">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="#">Kundli</a>
+      <a href="#">Matrimonial</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="contact-details">
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9876543210</p>
+      <p><i class="fa-solid fa-location-dot"></i> Varanasi, Uttar Pradesh, India</p>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Gemstone fly-in animation and info switching
+    const gemSlots = document.querySelectorAll('.gemstone-slot');
+    const gemInfos = document.querySelectorAll('.gem-info');
+    gemSlots.forEach((slot, idx) => {
+      slot.addEventListener('click', () => {
+        gemInfos.forEach((info, i) => {
+          info.style.display = (i === idx) ? 'block' : 'none';
+        });
+        gemSlots.forEach((s, i) => {
+          s.classList.toggle('active', i === idx);
+        });
+      });
+    });
+    // Show first info by default
+    if (gemInfos.length) gemInfos[0].style.display = 'block';
+    if (gemSlots.length) gemSlots[0].classList.add('active');
   </script>
 </body>
 </html>
