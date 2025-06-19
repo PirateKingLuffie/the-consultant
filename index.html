@@ -29,9 +29,9 @@
         <span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#" class="nav-anim">Home</a></li>
+        <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="#">Vaastu Shastra</a></li>
-        <li><a href="#">Rashi Ratna</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
         <li><a href="#">Kundli</a></li>
         <li><a href="#">Matrimonial</a></li>
         <li><a href="#">Contact</a></li>
@@ -128,9 +128,9 @@
 
   <footer>
     <div class="quick-links">
-      <a href="#">Home</a>
+      <a href="index.html">Home</a>
       <a href="#">Vaastu Shastra</a>
-      <a href="#">Rashi Ratna</a>
+      <a href="rashi.html">Rashi Ratna</a>
       <a href="#">Kundli</a>
       <a href="#">Matrimonial</a>
       <a href="#">Contact</a>
@@ -159,7 +159,6 @@
       hamburger.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
-    // Optional: close menu when clicking a link (for single-page)
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
