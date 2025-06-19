@@ -2,160 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rashi Ratna - Gemstones</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS -->
+  <title>Rashi Ratna - The Consultant GuptaJi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
   <div class="zodiac-bg">
     <div class="zodiac-wheel-container">
-      <img class="zodiac-wheel-img" src="astro-wheel.webp" alt="Zodiac Wheel" />
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
     </div>
   </div>
-
-  <!-- NAVIGATION BAR -->
-  <nav>
-    <div class="logo">THE CONSULTANT</div>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li class="dropdown" id="gem-dropdown">
-        <a href="javascript:void(0);" id="gem-dropdown-btn">Gemstones ▼</a>
-        <div class="dropdown-menu" id="gem-dropdown-menu">
-          <ul>
-            <li><span class="gem-icon"></span> Blue Sapphire</li>
-            <li><span class="gem-icon"></span> Yellow Sapphire</li>
-            <li><span class="gem-icon"></span> Emerald</li>
-            <li><span class="gem-icon"></span> Ruby</li>
-            <li><span class="gem-icon"></span> Opal</li>
-            <li><span class="gem-icon"></span> Pearl</li>
-            <li><span class="gem-icon"></span> Red Coral</li>
-            <li><span class="gem-icon"></span> Cat's Eye</li>
-            <li><span class="gem-icon"></span> Hessonite</li>
-            <li><span class="gem-icon"></span> Amethyst</li>
-            <li><span class="gem-icon"></span> Citrine</li>
-            <li><span class="gem-icon"></span> White Sapphire</li>
-            <li><span class="gem-icon"></span> White Coral</li>
-            <li><span class="gem-icon"></span> Iolite</li>
-            <li><span class="gem-icon"></span> Peridot</li>
-            <li><span class="gem-icon"></span> Turquoise</li>
-            <li><span class="gem-icon"></span> Diamond</li>
-            <li><span class="gem-icon"></span> Gomed</li>
-            <li><span class="gem-icon"></span> Blue Zircon</li>
-            <li><span class="gem-icon"></span> Pink Sapphire</li>
-            <li><span class="gem-icon"></span> Star Ruby</li>
-            <li><span class="gem-icon"></span> Star Sapphire</li>
-            <li><span class="gem-icon"></span> Aquamarine</li>
-            <li><span class="gem-icon"></span> Tanzanite</li>
-            <li><span class="gem-icon"></span> Morganite</li>
-            <li><span class="gem-icon"></span> Moonstone</li>
-            <li><span class="gem-icon"></span> Red Garnet</li>
-            <li><span class="gem-icon"></span> Smoky Quartz</li>
-            <li><span class="gem-icon"></span> Tourmaline</li>
-            <li><span class="gem-icon"></span> White Topaz</li>
-            <li><span class="gem-icon"></span> Amber</li>
-            <li><span class="gem-icon"></span> Heliodor</li>
-            <li><span class="gem-icon"></span> Blue Topaz</li>
-            <li><span class="gem-icon"></span> Amertine</li>
-            <li><span class="gem-icon"></span> Pitambari</li>
-            <li><span class="gem-icon"></span> Purple Sapphire</li>
-            <!-- Add more if needed -->
-          </ul>
-        </div>
-      </li>
-      <li><a href="#">Pearls</a></li>
-      <li><a href="#">Rudraksha</a></li>
-      <li><a href="#">Healing Stones</a></li>
-      <li><a href="#">Jewellery</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- MAIN CONTENT: RASHI RATNA GRID -->
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="#">Vaastu Shastra</a></li>
+        <li class="dropdown">
+          <a href="rashi.html" class="nav-anim">Rashi Ratna <i class="fa fa-caret-down"></i></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-section">
+              <h4>Astro Gems</h4>
+              <ul>
+                <li><span class="gem-thumb"></span>Blue Sapphire</li>
+                <li><span class="gem-thumb"></span>Yellow Sapphire</li>
+                <li><span class="gem-thumb"></span>Ruby</li>
+                <li><span class="gem-thumb"></span>Emerald</li>
+                <li><span class="gem-thumb"></span>Pearl</li>
+                <li><span class="gem-thumb"></span>Red Coral</li>
+                <li><span class="gem-thumb"></span>Diamond</li>
+                <li><span class="gem-thumb"></span>Cat's Eye</li>
+                <li><span class="gem-thumb"></span>Hessonite</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Vedic Gems</h4>
+              <ul>
+                <li><span class="gem-thumb"></span>Opal</li>
+                <li><span class="gem-thumb"></span>White Sapphire</li>
+                <li><span class="gem-thumb"></span>Amethyst</li>
+                <li><span class="gem-thumb"></span>Citrine</li>
+                <li><span class="gem-thumb"></span>Gomed</li>
+                <li><span class="gem-thumb"></span>Blue Topaz</li>
+                <li><span class="gem-thumb"></span>Peridot</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Exclusive Gems</h4>
+              <ul>
+                <li><span class="gem-thumb"></span>Alexandrite</li>
+                <li><span class="gem-thumb"></span>Tanzanite</li>
+                <li><span class="gem-thumb"></span>Aquamarine</li>
+                <li><span class="gem-thumb"></span>Morganite</li>
+                <li><span class="gem-thumb"></span>Pink Sapphire</li>
+                <li><span class="gem-thumb"></span>Star Ruby</li>
+                <li><span class="gem-thumb"></span>Star Sapphire</li>
+              </ul>
+            </div>
+            <div class="dropdown-section">
+              <h4>Other Gems</h4>
+              <ul>
+                <li><span class="gem-thumb"></span>Turquoise</li>
+                <li><span class="gem-thumb"></span>Moonstone</li>
+                <li><span class="gem-thumb"></span>Garnet</li>
+                <li><span class="gem-thumb"></span>Amber</li>
+                <li><span class="gem-thumb"></span>Smoky Quartz</li>
+                <li><span class="gem-thumb"></span>Tourmaline</li>
+                <li><span class="gem-thumb"></span>White Topaz</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="#">Kundli</a></li>
+        <li><a href="#">Matrimonial</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <div class="profile-photo">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=3" alt="GuptaJi">
+      </div>
+      <h1>Rashi Ratna - <span class="highlight">Gemstones</span></h1>
+      <p class="intro">
+        Explore the sacred gemstones of Vedic astrology.<br>
+        Each stone is unique in its power and purpose.
+      </p>
+    </div>
+  </header>
   <main>
     <div class="rashi-ratna-grid">
       <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Blue Sapphire</span></div>
-        <div class="gem-info"><h2>Blue Sapphire (Neelam)</h2></div>
+        <div class="gemstone-slot">
+          <img src="Blue-Sapphire.avif" alt="Blue Sapphire">
+          <span>Blue Sapphire</span>
+        </div>
+        <div class="gem-info">
+          <h2>Blue Sapphire (Neelam)</h2>
+          <p><strong>Planet:</strong> Saturn (Shani)<br>
+          <strong>Benefits:</strong> Career growth, discipline, focus, and protection from negativity.<br>
+          <strong>Who should wear:</strong> Those under Sade Sati or seeking stability and prosperity.</p>
+        </div>
       </div>
       <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Yellow Sapphire</span></div>
-        <div class="gem-info"><h2>Yellow Sapphire (Pukhraj)</h2></div>
+        <div class="gemstone-slot">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Yellow_Sapphire.jpg" alt="Yellow Sapphire">
+          <span>Yellow Sapphire</span>
+        </div>
+        <div class="gem-info">
+          <h2>Yellow Sapphire (Pukhraj)</h2>
+          <p><strong>Planet:</strong> Jupiter (Guru)<br>
+          <strong>Benefits:</strong> Wisdom, prosperity, marriage, and spiritual growth.<br>
+          <strong>Who should wear:</strong> Those seeking knowledge, wealth, or good fortune in marriage.</p>
+        </div>
       </div>
       <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Emerald</span></div>
-        <div class="gem-info"><h2>Emerald (Panna)</h2></div>
+        <div class="gemstone-slot">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Loose_ruby_gemstone.jpg" alt="Ruby">
+          <span>Ruby</span>
+        </div>
+        <div class="gem-info">
+          <h2>Ruby (Manik)</h2>
+          <p><strong>Planet:</strong> Sun (Surya)<br>
+          <strong>Benefits:</strong> Leadership, confidence, vitality, and fame.<br>
+          <strong>Who should wear:</strong> Those needing motivation, recognition, or a boost in self-esteem.</p>
+        </div>
       </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Ruby</span></div>
-        <div class="gem-info"><h2>Ruby (Manik)</h2></div>
-      </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Opal</span></div>
-        <div class="gem-info"><h2>Opal</h2></div>
-      </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Pearl</span></div>
-        <div class="gem-info"><h2>Pearl (Moti)</h2></div>
-      </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Red Coral</span></div>
-        <div class="gem-info"><h2>Red Coral (Moonga)</h2></div>
-      </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Cat's Eye</span></div>
-        <div class="gem-info"><h2>Cat's Eye (Lehsunia)</h2></div>
-      </div>
-      <div class="gem-row">
-        <div class="gemstone-slot"><img src="" alt="" /><span>Hessonite</span></div>
-        <div class="gem-info"><h2>Hessonite (Gomed)</h2></div>
-      </div>
-      <!-- Repeat for all gemstones as needed -->
+      <!-- Add more gemstones as needed, following the same structure -->
     </div>
   </main>
-
-  <!-- FOOTER -->
   <footer>
     <div class="quick-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
+      <a href="index.html">Home</a>
+      <a href="#">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="#">Kundli</a>
+      <a href="#">Matrimonial</a>
       <a href="#">Contact</a>
     </div>
     <div class="contact-details">
-      <p>Phone: +91-8010-555-111</p>
-      <p>Email: info@the-consultant.co.in</p>
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9876543210</p>
+      <p><i class="fa-solid fa-location-dot"></i> Varanasi, Uttar Pradesh, India</p>
     </div>
     <div class="social-links">
-      <a href="#" class="social-icon fb" title="Facebook">F</a>
-      <a href="#" class="social-icon insta" title="Instagram">I</a>
-      <a href="#" class="social-icon yt" title="YouTube">Y</a>
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="copyright">
-      © 2025 THE CONSULTANT. All rights reserved.
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
     </div>
   </footer>
-
-  <!-- DROPDOWN JS: Click to open, click again to close -->
   <script>
-    const dropdown = document.getElementById('gem-dropdown');
-    const dropdownBtn = document.getElementById('gem-dropdown-btn');
-    const dropdownMenu = document.getElementById('gem-dropdown-menu');
-    dropdownBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
-    // Close dropdown if click outside
-    document.addEventListener('click', function(e) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-      }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
-    // Prevent closing when clicking inside menu
-    dropdownMenu.addEventListener('click', function(e) {
-      e.stopPropagation();
+
+    // Dropdown for mobile/touch
+    document.querySelectorAll('.dropdown > a').forEach(drop => {
+      drop.addEventListener('click', function(e) {
+        if(window.innerWidth <= 900) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    // Dropdown hover for desktop
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      drop.addEventListener('mouseenter', function() {
+        if(window.innerWidth > 900) this.classList.add('open');
+      });
+      drop.addEventListener('mouseleave', function() {
+        if(window.innerWidth > 900) this.classList.remove('open');
+      });
     });
   </script>
 </body>
