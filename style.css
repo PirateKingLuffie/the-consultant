@@ -437,3 +437,126 @@ footer .copyright {
     height: min(100vw, 100vh);
   }
 }
+/* Rashi Ratna Gemstone Section */
+.rashi-ratna-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5em;
+  margin: 2em 0;
+  min-height: 480px;
+  position: relative;
+  z-index: 2;
+}
+.gemstone-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  min-width: 120px;
+  align-items: flex-end;
+  margin-top: 0.5em;
+}
+.gemstone-slot {
+  width: 70px;
+  height: 70px;
+  background: rgba(20,40,70,0.75);
+  border-radius: 50%;
+  box-shadow: 0 0 18px #5ee7ff22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5em;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-80px) scale(0.8);
+  animation: flyInGem 1s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  border: 2px solid transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.gemstone-slot.active, .gemstone-slot:hover {
+  border: 2px solid #5ee7ff;
+  box-shadow: 0 0 18px #5ee7ff77;
+  z-index: 2;
+}
+.gemstone-slot img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.gemstone-slot.active img, .gemstone-slot:hover img {
+  transform: scale(1.15) rotate(-8deg);
+}
+.slot1 { animation-delay: 0.1s; }
+.slot2 { animation-delay: 0.2s; }
+.slot3 { animation-delay: 0.3s; }
+.slot4 { animation-delay: 0.4s; }
+.slot5 { animation-delay: 0.5s; }
+.slot6 { animation-delay: 0.6s; }
+.slot7 { animation-delay: 0.7s; }
+.slot8 { animation-delay: 0.8s; }
+.slot9 { animation-delay: 0.9s; }
+
+@keyframes flyInGem {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.gemstone-right {
+  flex: 1 1 320px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+  margin-left: 0.5em;
+}
+.gem-info {
+  display: none;
+  background: rgba(30,54,90,0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 18px #5ee7ff22;
+  padding: 1.7em 1.5em;
+  text-align: left;
+  color: #e8f1ff;
+  animation: fadeInGemInfo 0.7s;
+}
+.gem-info h2 {
+  color: #5ee7ff;
+  margin-bottom: 0.5em;
+  font-size: 1.3em;
+  text-shadow: 0 0 8px #5ee7ff55;
+}
+@keyframes fadeInGemInfo {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive for Rashi Ratna */
+@media (max-width: 900px) {
+  .rashi-ratna-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    min-height: 0;
+  }
+  .gemstone-left {
+    flex-direction: row;
+    gap: 0.8em;
+    align-items: flex-start;
+    margin: 0 0 1em 0;
+    min-width: 0;
+    justify-content: center;
+  }
+  .gemstone-slot {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .gemstone-right {
+    margin-left: 0;
+    width: 100%;
+    min-width: 0;
+  }
+}
