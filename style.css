@@ -188,7 +188,6 @@ nav .dropdown:hover > .mega-dropdown-menu {
     gap: 1em;
     padding: 1.2em 0.5em;
     border-radius: 0;
-    box-shadow: none;
   }
   .mega-dropdown-menu .dropdown-section {
     min-width: 0;
@@ -507,4 +506,62 @@ footer .copyright {
   margin-top: 0.7em;
   font-size: 0.97em;
   opacity: 0.7;
+}
+
+/* ====== GEMSTONE GRID (NEW) ====== */
+.gems-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 1em 0;
+}
+.gems-category h3 {
+  color: #5ee7ff;
+  margin-bottom: 0.8em;
+  font-size: 1.35em;
+  text-shadow: 0 0 8px #5ee7ff55;
+  letter-spacing: 1px;
+}
+.gems-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1.2em;
+  margin-bottom: 1.5em;
+}
+.gem-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(20, 40, 70, 0.7);
+  border-radius: 12px;
+  padding: 1em 0.5em;
+  text-decoration: none;
+  color: #e8f1ff;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 18px #5ee7ff22;
+}
+.gem-card:hover {
+  background: rgba(40, 80, 140, 0.8);
+  transform: translateY(-4px);
+  box-shadow: 0 0 24px #5ee7ff55;
+  color: #5ee7ff;
+}
+.gem-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.6em;
+  background: #1a2d48;
+  box-shadow: 0 0 16px #5ee7ff33;
+}
+@media (max-width: 900px) {
+  .gems-list {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1em;
+  }
+  .gem-icon {
+    width: 50px;
+    height: 50px;
+  }
 }
