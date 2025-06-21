@@ -1,5 +1,8 @@
-/* ====== BASE RESET AND LAYOUT ====== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html, body {
   height: 100%;
   font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
@@ -7,8 +10,6 @@ html, body {
   color: #e8f1ff;
   overflow-x: hidden;
 }
-
-/* ====== ZODIAC WHEEL BACKGROUND ====== */
 .zodiac-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -43,9 +44,9 @@ html, body {
   animation: spin 60s linear infinite;
   pointer-events: none;
 }
-@keyframes spin { 100% { transform: rotate(360deg);} }
-
-/* ====== NAVIGATION BAR ====== */
+@keyframes spin {
+  100% { transform: rotate(360deg);}
+}
 nav {
   width: 100%;
   background: rgba(10, 20, 40, 0.95);
@@ -74,7 +75,9 @@ nav {
   align-items: center;
   transition: right 0.3s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
 }
-.nav-links li { position: relative; }
+.nav-links li {
+  position: relative;
+}
 .nav-links a {
   color: #e8f1ff;
   text-decoration: none;
@@ -85,7 +88,9 @@ nav {
   position: relative;
   z-index: 1;
 }
-.nav-links a.nav-anim { animation: navPopIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both; }
+.nav-links a.nav-anim {
+  animation: navPopIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both;
+}
 @keyframes navPopIn {
   0% {transform: scale(0.7) translateY(-20px); opacity: 0;}
   100% {transform: scale(1) translateY(0); opacity: 1;}
@@ -96,80 +101,6 @@ nav {
   box-shadow: 0 0 8px #5ee7ff44;
   transform: scale(1.07);
 }
-
-/* ====== MEGA DROPDOWN MENU ====== */
-.dropdown { position: relative; }
-.dropdown > a { cursor: pointer; }
-.mega-dropdown-menu {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 110%;
-  background: #101a2c;
-  box-shadow: 0 4px 24px #0b1c2c88;
-  border-radius: 12px;
-  min-width: 800px;
-  padding: 1.2em 1.7em;
-  z-index: 100;
-  display: flex;
-  gap: 2em;
-  flex-wrap: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-.dropdown.open > .mega-dropdown-menu,
-.dropdown:hover > .mega-dropdown-menu {
-  display: flex;
-  opacity: 1;
-  pointer-events: all;
-}
-.mega-dropdown-menu .dropdown-section {
-  min-width: 170px;
-  margin-right: 1em;
-}
-.mega-dropdown-menu .dropdown-section h4 {
-  color: #5ee7ff;
-  margin-bottom: 0.4em;
-  font-size: 1em;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 8px #5ee7ff44;
-  border-bottom: 1px solid #223;
-  padding-bottom: 2px;
-}
-.mega-dropdown-menu .dropdown-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.mega-dropdown-menu .dropdown-section li {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: 0.97em;
-  color: #e8f1ff;
-  margin-bottom: 0.3em;
-  padding: 3px 0;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-.mega-dropdown-menu .dropdown-section li:hover {
-  background: #5ee7ff22;
-  color: #5ee7ff;
-}
-.gem-thumb {
-  width: 28px;
-  height: 28px;
-  background: #1a2d48;
-  border-radius: 6px;
-  display: inline-block;
-  margin-right: 2px;
-  box-shadow: 0 0 6px #5ee7ff33;
-}
-
-/* ====== HAMBURGER MENU ====== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -193,9 +124,15 @@ nav {
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
 }
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 @media (max-width: 900px) {
   .nav-links {
     flex-direction: column;
@@ -203,7 +140,7 @@ nav {
     position: fixed;
     top: 0; right: -100vw;
     height: 100vh;
-    width: 240px;
+    width: 220px;
     align-items: flex-start;
     padding-top: 80px;
     gap: 1.2em;
@@ -221,29 +158,7 @@ nav {
   .hamburger {
     display: flex;
   }
-  .mega-dropdown-menu {
-    position: static;
-    left: 0;
-    top: 0;
-    min-width: 100vw;
-    box-shadow: none;
-    border-radius: 0;
-    flex-direction: column;
-    gap: 1em;
-    background: #101a2c;
-    opacity: 1;
-    pointer-events: all;
-    display: none;
-  }
-  .dropdown.open > .mega-dropdown-menu { display: flex; }
-  .mega-dropdown-menu .dropdown-section {
-    min-width: 0;
-    margin-right: 0;
-    margin-bottom: 1em;
-  }
 }
-
-/* ====== HEADER ====== */
 header {
   position: relative;
   z-index: 5;
@@ -293,72 +208,129 @@ header {
   color: #e8f1ff;
   line-height: 1.6;
 }
-
-/* ====== GEMSTONE GRID SLOTS ====== */
-.rashi-ratna-grid {
+/* HOMEPAGE MAIN CONTENT STYLES */
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1.2em 1em 1.2em;
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  margin: 2em auto;
-  max-width: 1100px;
-  z-index: 2;
-  position: relative;
+  gap: 2.5em;
 }
-.gem-section-title {
+section {
+  background: rgba(14, 30, 60, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 30px #5ee7ff11;
+  margin-bottom: 1em;
+  padding: 2em 1.5em;
+  text-align: center;
+}
+section h2 {
+  font-size: 1.7em;
   color: #5ee7ff;
-  margin-bottom: 0.7em;
-  font-size: 1.3em;
-  text-align: left;
-  text-shadow: 0 0 8px #5ee7ff44;
-  padding-left: 0.5em;
+  margin-bottom: 0.6em;
+  text-shadow: 0 0 8px #5ee7ff55;
   letter-spacing: 1px;
 }
-.gemstone-row {
+section h3 {
+  font-size: 1.2em;
+  color: #e8f1ff;
+  margin-bottom: 0.4em;
+  letter-spacing: 0.5px;
+}
+.info-section p, .info-section ul, .faq-section p, .services-section ul {
+  color: #b3d2ff;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.astro-columns {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  margin-top: 1.2em;
+  flex-wrap: wrap;
+}
+.astro-box {
+  flex: 1 1 260px;
+  background: rgba(20, 40, 70, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 0 18px #5ee7ff22;
+  padding: 1.2em;
+  margin: 0.5em 0;
+  min-width: 220px;
+}
+.astro-box ul {
+  text-align: left;
+  margin: 0.6em 0 0.6em 1em;
+}
+.astro-box li {
+  margin-bottom: 0.3em;
+}
+.faq-section .faq-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.3em;
-  margin-bottom: 2em;
+  gap: 1.5em;
+  justify-content: center;
 }
-.gemstone-slot {
-  background: rgba(20,40,70,0.90);
-  border-radius: 18px;
-  box-shadow: 0 0 14px #5ee7ff22;
+.faq-item {
+  flex: 1 1 320px;
+  background: rgba(18, 36, 60, 0.7);
+  border-radius: 10px;
+  padding: 1em 1em 0.7em 1em;
+  margin: 0.4em 0;
+  min-width: 220px;
+  box-shadow: 0 0 14px #5ee7ff11;
+  text-align: left;
+}
+.faq-item h4 {
+  color: #5ee7ff;
+  margin-bottom: 0.3em;
+  font-size: 1.1em;
+}
+.services-section .services-list {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.7em 1.3em;
-  min-height: 68px;
-  min-width: 210px;
-  max-width: 260px;
-  border: 2px solid transparent;
-  transition: border 0.2s, box-shadow 0.2s;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 0.8em;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2em;
+  list-style: none;
+  margin-top: 1em;
+  padding: 0;
 }
-.gemstone-slot .gem-thumb {
-  width: 38px;
-  height: 38px;
-  margin-right: 14px;
-  background: #1a2d48;
+.services-section .services-list li {
+  background: rgba(30, 54, 90, 0.8);
   border-radius: 8px;
-  box-shadow: 0 0 8px #5ee7ff33;
-}
-.gemstone-slot span {
+  padding: 0.7em 1.3em;
   color: #e8f1ff;
-  font-size: 1.08em;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-shadow: 0 0 8px #5ee7ff55;
-  white-space: nowrap;
+  font-size: 1em;
+  margin: 0.2em 0;
+  box-shadow: 0 0 10px #5ee7ff22;
+  transition: background 0.2s;
 }
-.gemstone-slot:hover, .gemstone-slot:focus {
-  border: 2px solid #5ee7ff;
-  box-shadow: 0 0 18px #5ee7ff77;
-  z-index: 2;
+.services-section .services-list li:hover {
+  background: #5ee7ff22;
+  color: #5ee7ff;
 }
-
-/* ====== FOOTER ====== */
+@media (max-width: 700px) {
+  main {
+    padding: 1em 0.3em 0.5em 0.3em;
+  }
+  section {
+    padding: 1.2em 0.7em;
+  }
+  .astro-columns {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .faq-section .faq-list {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .services-section .services-list {
+    gap: 0.5em;
+  }
+}
 footer {
   background: rgba(12, 24, 40, 0.98);
   box-shadow: 0 -2px 24px #0b1c2c55;
@@ -435,20 +407,4 @@ footer .copyright {
   margin-top: 0.7em;
   font-size: 0.97em;
   opacity: 0.7;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1100px) {
-  .rashi-ratna-grid { max-width: 98vw; gap: 1em; }
-  .gemstone-row { gap: 0.7em; }
-  .gemstone-slot { min-width: 120px; max-width: 180px; min-height: 60px; padding: 0.5em 0.7em; }
-  .gemstone-slot .gem-thumb { width: 28px; height: 28px; margin-right: 8px; }
-  .gemstone-slot span { font-size: 1em; }
-}
-@media (max-width: 700px) {
-  .rashi-ratna-grid { gap: 0.7em; }
-  .gem-section-title { font-size: 1.1em; }
-  .gemstone-row { gap: 0.5em; flex-direction: column; }
-  .gemstone-slot { min-width: 95vw; max-width: 100vw; margin-bottom: 0.5em; }
-  .mega-dropdown-menu { min-width: 100vw; }
 }
