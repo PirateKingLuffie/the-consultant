@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rashi Ratna - The Consultant GuptaJi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rashi Ratna - GuptaJi</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -15,6 +15,8 @@
       <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
     </div>
   </div>
+
+  <!-- Navigation and Header (unchanged, same as index.html) -->
   <header>
     <nav>
       <div class="logo">
@@ -29,123 +31,169 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="#">Vaastu Shastra</a></li>
-        <li class="dropdown">
-          <a href="rashi.html" class="nav-anim">Rashi Ratna <i class="fa fa-caret-down"></i></a>
-          <div class="mega-dropdown-menu">
-            <div class="dropdown-section">
-              <h4>Astro Gems</h4>
-              <ul>
-                <li><div class="gem-thumb"></div>Blue Sapphire</li>
-                <li><div class="gem-thumb"></div>Yellow Sapphire</li>
-                <li><div class="gem-thumb"></div>Ruby</li>
-                <li><div class="gem-thumb"></div>Emerald</li>
-                <li><div class="gem-thumb"></div>Pearl</li>
-                <li><div class="gem-thumb"></div>Red Coral</li>
-                <li><div class="gem-thumb"></div>Diamond</li>
-                <li><div class="gem-thumb"></div>Cat's Eye</li>
-                <li><div class="gem-thumb"></div>Hessonite</li>
-              </ul>
-            </div>
-            <div class="dropdown-section">
-              <h4>Vedic Gems</h4>
-              <ul>
-                <li><div class="gem-thumb"></div>Opal</li>
-                <li><div class="gem-thumb"></div>White Sapphire</li>
-                <li><div class="gem-thumb"></div>Amethyst</li>
-                <li><div class="gem-thumb"></div>Citrine</li>
-                <li><div class="gem-thumb"></div>Gomed</li>
-                <li><div class="gem-thumb"></div>Blue Topaz</li>
-                <li><div class="gem-thumb"></div>Peridot</li>
-              </ul>
-            </div>
-            <div class="dropdown-section">
-              <h4>Exclusive Gems</h4>
-              <ul>
-                <li><div class="gem-thumb"></div>Alexandrite</li>
-                <li><div class="gem-thumb"></div>Tanzanite</li>
-                <li><div class="gem-thumb"></div>Aquamarine</li>
-                <li><div class="gem-thumb"></div>Morganite</li>
-                <li><div class="gem-thumb"></div>Pink Sapphire</li>
-                <li><div class="gem-thumb"></div>Star Ruby</li>
-                <li><div class="gem-thumb"></div>Star Sapphire</li>
-              </ul>
-            </div>
-            <div class="dropdown-section">
-              <h4>Other Gems</h4>
-              <ul>
-                <li><div class="gem-thumb"></div>Turquoise</li>
-                <li><div class="gem-thumb"></div>Moonstone</li>
-                <li><div class="gem-thumb"></div>Garnet</li>
-                <li><div class="gem-thumb"></div>Amber</li>
-                <li><div class="gem-thumb"></div>Smoky Quartz</li>
-                <li><div class="gem-thumb"></div>Tourmaline</li>
-                <li><div class="gem-thumb"></div>White Topaz</li>
-              </ul>
-            </div>
-          </div>
-        </li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
         <li><a href="#">Kundli</a></li>
         <li><a href="#">Matrimonial</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-    <div class="header-content">
-      <div class="profile-photo">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=3" alt="GuptaJi">
-      </div>
-      <h1>Rashi Ratna - <span class="highlight">Gemstones</span></h1>
-      <p class="intro">
-        Explore the sacred gemstones of Vedic astrology.<br>
-        Each stone is unique in its power and purpose.
-      </p>
-    </div>
   </header>
+
+  <!-- Main Content -->
   <main>
-    <div class="rashi-ratna-grid">
-      <h2 class="gem-section-title">Astro Gems</h2>
-      <div class="gemstone-row">
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Blue Sapphire</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Yellow Sapphire</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Ruby</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Emerald</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Pearl</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Red Coral</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Diamond</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Cat's Eye</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Hessonite</span></div>
+    <section>
+      <h2>Rashi Ratna – Gemstones</h2>
+      <p>Select a gemstone to learn more and purchase:</p>
+      <div class="gems-grid">
+        <!-- Astro Gems -->
+        <div class="gems-category">
+          <h3>Astro Gems</h3>
+          <div class="gems-list">
+            <a href="rashi/blue-sapphire.html" class="gem-card">
+              <img src="images/gems/blue-sapphire.png" alt="Blue Sapphire" class="gem-icon">
+              <span>Blue Sapphire</span>
+            </a>
+            <a href="rashi/yellow-sapphire.html" class="gem-card">
+              <img src="images/gems/yellow-sapphire.png" alt="Yellow Sapphire" class="gem-icon">
+              <span>Yellow Sapphire</span>
+            </a>
+            <a href="rashi/ruby.html" class="gem-card">
+              <img src="images/gems/ruby.png" alt="Ruby" class="gem-icon">
+              <span>Ruby</span>
+            </a>
+            <a href="rashi/emerald.html" class="gem-card">
+              <img src="images/gems/emerald.png" alt="Emerald" class="gem-icon">
+              <span>Emerald</span>
+            </a>
+            <a href="rashi/pearl.html" class="gem-card">
+              <img src="images/gems/pearl.png" alt="Pearl" class="gem-icon">
+              <span>Pearl</span>
+            </a>
+            <a href="rashi/red-coral.html" class="gem-card">
+              <img src="images/gems/red-coral.png" alt="Red Coral" class="gem-icon">
+              <span>Red Coral</span>
+            </a>
+            <a href="rashi/diamond.html" class="gem-card">
+              <img src="images/gems/diamond.png" alt="Diamond" class="gem-icon">
+              <span>Diamond</span>
+            </a>
+            <a href="rashi/cats-eye.html" class="gem-card">
+              <img src="images/gems/cats-eye.png" alt="Cat's Eye" class="gem-icon">
+              <span>Cat's Eye</span>
+            </a>
+            <a href="rashi/hessonite.html" class="gem-card">
+              <img src="images/gems/hessonite.png" alt="Hessonite" class="gem-icon">
+              <span>Hessonite</span>
+            </a>
+          </div>
+        </div>
+        <!-- Vedic Gems -->
+        <div class="gems-category">
+          <h3>Vedic Gems</h3>
+          <div class="gems-list">
+            <a href="rashi/opal.html" class="gem-card">
+              <img src="images/gems/opal.png" alt="Opal" class="gem-icon">
+              <span>Opal</span>
+            </a>
+            <a href="rashi/white-sapphire.html" class="gem-card">
+              <img src="images/gems/white-sapphire.png" alt="White Sapphire" class="gem-icon">
+              <span>White Sapphire</span>
+            </a>
+            <a href="rashi/amethyst.html" class="gem-card">
+              <img src="images/gems/amethyst.png" alt="Amethyst" class="gem-icon">
+              <span>Amethyst</span>
+            </a>
+            <a href="rashi/citrine.html" class="gem-card">
+              <img src="images/gems/citrine.png" alt="Citrine" class="gem-icon">
+              <span>Citrine</span>
+            </a>
+            <a href="rashi/gomed.html" class="gem-card">
+              <img src="images/gems/gomed.png" alt="Gomed" class="gem-icon">
+              <span>Gomed</span>
+            </a>
+            <a href="rashi/blue-topaz.html" class="gem-card">
+              <img src="images/gems/blue-topaz.png" alt="Blue Topaz" class="gem-icon">
+              <span>Blue Topaz</span>
+            </a>
+            <a href="rashi/peridot.html" class="gem-card">
+              <img src="images/gems/peridot.png" alt="Peridot" class="gem-icon">
+              <span>Peridot</span>
+            </a>
+          </div>
+        </div>
+        <!-- Exclusive Gems -->
+        <div class="gems-category">
+          <h3>Exclusive Gems</h3>
+          <div class="gems-list">
+            <a href="rashi/alexandrite.html" class="gem-card">
+              <img src="images/gems/alexandrite.png" alt="Alexandrite" class="gem-icon">
+              <span>Alexandrite</span>
+            </a>
+            <a href="rashi/tanzanite.html" class="gem-card">
+              <img src="images/gems/tanzanite.png" alt="Tanzanite" class="gem-icon">
+              <span>Tanzanite</span>
+            </a>
+            <a href="rashi/aquamarine.html" class="gem-card">
+              <img src="images/gems/aquamarine.png" alt="Aquamarine" class="gem-icon">
+              <span>Aquamarine</span>
+            </a>
+            <a href="rashi/morganite.html" class="gem-card">
+              <img src="images/gems/morganite.png" alt="Morganite" class="gem-icon">
+              <span>Morganite</span>
+            </a>
+            <a href="rashi/pink-sapphire.html" class="gem-card">
+              <img src="images/gems/pink-sapphire.png" alt="Pink Sapphire" class="gem-icon">
+              <span>Pink Sapphire</span>
+            </a>
+            <a href="rashi/star-ruby.html" class="gem-card">
+              <img src="images/gems/star-ruby.png" alt="Star Ruby" class="gem-icon">
+              <span>Star Ruby</span>
+            </a>
+            <a href="rashi/star-sapphire.html" class="gem-card">
+              <img src="images/gems/star-sapphire.png" alt="Star Sapphire" class="gem-icon">
+              <span>Star Sapphire</span>
+            </a>
+          </div>
+        </div>
+        <!-- Other Gems -->
+        <div class="gems-category">
+          <h3>Other Gems</h3>
+          <div class="gems-list">
+            <a href="rashi/turquoise.html" class="gem-card">
+              <img src="images/gems/turquoise.png" alt="Turquoise" class="gem-icon">
+              <span>Turquoise</span>
+            </a>
+            <a href="rashi/moonstone.html" class="gem-card">
+              <img src="images/gems/moonstone.png" alt="Moonstone" class="gem-icon">
+              <span>Moonstone</span>
+            </a>
+            <a href="rashi/garnet.html" class="gem-card">
+              <img src="images/gems/garnet.png" alt="Garnet" class="gem-icon">
+              <span>Garnet</span>
+            </a>
+            <a href="rashi/amber.html" class="gem-card">
+              <img src="images/gems/amber.png" alt="Amber" class="gem-icon">
+              <span>Amber</span>
+            </a>
+            <a href="rashi/smoky-quartz.html" class="gem-card">
+              <img src="images/gems/smoky-quartz.png" alt="Smoky Quartz" class="gem-icon">
+              <span>Smoky Quartz</span>
+            </a>
+            <a href="rashi/tourmaline.html" class="gem-card">
+              <img src="images/gems/tourmaline.png" alt="Tourmaline" class="gem-icon">
+              <span>Tourmaline</span>
+            </a>
+            <a href="rashi/white-topaz.html" class="gem-card">
+              <img src="images/gems/white-topaz.png" alt="White Topaz" class="gem-icon">
+              <span>White Topaz</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <h2 class="gem-section-title">Vedic Gems</h2>
-      <div class="gemstone-row">
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Opal</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>White Sapphire</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Amethyst</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Citrine</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Gomed</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Blue Topaz</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Peridot</span></div>
-      </div>
-      <h2 class="gem-section-title">Exclusive Gems</h2>
-      <div class="gemstone-row">
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Alexandrite</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Tanzanite</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Aquamarine</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Morganite</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Pink Sapphire</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Star Ruby</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Star Sapphire</span></div>
-      </div>
-      <h2 class="gem-section-title">Other Gems</h2>
-      <div class="gemstone-row">
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Turquoise</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Moonstone</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Garnet</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Amber</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Smoky Quartz</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>Tourmaline</span></div>
-        <div class="gemstone-slot"><div class="gem-thumb"></div><span>White Topaz</span></div>
-      </div>
-    </div>
+    </section>
   </main>
+
+  <!-- Footer (unchanged, same as index.html) -->
   <footer>
     <div class="quick-links">
       <a href="index.html">Home</a>
@@ -169,8 +217,9 @@
       &copy; 2025 The Consultant - GuptaJi. All rights reserved.
     </div>
   </footer>
+
   <script>
-    // Hamburger menu toggle
+    // Hamburger menu toggle (unchanged, same as index.html)
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', function() {
@@ -185,26 +234,6 @@
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
         }
-      });
-    });
-
-    // Dropdown for mobile/touch
-    document.querySelectorAll('.dropdown > a').forEach(drop => {
-      drop.addEventListener('click', function(e) {
-        if(window.innerWidth <= 900) {
-          e.preventDefault();
-          this.parentElement.classList.toggle('open');
-        }
-      });
-    });
-
-    // Dropdown hover for desktop
-    document.querySelectorAll('.dropdown').forEach(drop => {
-      drop.addEventListener('mouseenter', function() {
-        if(window.innerWidth > 900) this.classList.add('open');
-      });
-      drop.addEventListener('mouseleave', function() {
-        if(window.innerWidth > 900) this.classList.remove('open');
       });
     });
   </script>
