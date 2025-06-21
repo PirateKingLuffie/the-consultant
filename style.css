@@ -1,3 +1,4 @@
+/* ====== BASE RESET AND LAYOUT ====== */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,8 @@ html, body {
   color: #e8f1ff;
   overflow-x: hidden;
 }
+
+/* ====== ZODIAC WHEEL BACKGROUND ====== */
 .zodiac-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -47,6 +50,8 @@ html, body {
 @keyframes spin {
   100% { transform: rotate(360deg);}
 }
+
+/* ====== NAVIGATION BAR ====== */
 nav {
   width: 100%;
   background: rgba(10, 20, 40, 0.95);
@@ -101,6 +106,98 @@ nav {
   box-shadow: 0 0 8px #5ee7ff44;
   transform: scale(1.07);
 }
+
+/* ====== MEGA DROPDOWN FOR RASHI RATNA ====== */
+nav .dropdown {
+  position: relative;
+}
+nav .dropdown > a {
+  cursor: pointer;
+}
+nav .mega-dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+  background: #101a2c;
+  box-shadow: 0 4px 24px #0b1c2c88;
+  border-radius: 14px;
+  min-width: 760px;
+  max-width: 95vw;
+  padding: 1.5em 2.2em;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  flex-wrap: nowrap;
+  gap: 2em;
+  justify-content: space-between;
+}
+nav .dropdown.open > .mega-dropdown-menu,
+nav .dropdown:hover > .mega-dropdown-menu {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.mega-dropdown-menu .dropdown-section {
+  min-width: 150px;
+  margin-right: 1em;
+}
+.mega-dropdown-menu .dropdown-section:last-child {
+  margin-right: 0;
+}
+.mega-dropdown-menu .dropdown-section h4 {
+  color: #5ee7ff;
+  margin-bottom: 0.5em;
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #223;
+  padding-bottom: 4px;
+  text-shadow: 0 0 8px #5ee7ff44;
+}
+.mega-dropdown-menu .dropdown-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu .dropdown-section li {
+  color: #e8f1ff;
+  font-size: 1em;
+  margin-bottom: 0.35em;
+  padding: 3px 0 3px 0.5em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  text-align: left;
+}
+.mega-dropdown-menu .dropdown-section li:hover {
+  background: #5ee7ff22;
+  color: #5ee7ff;
+}
+@media (max-width: 900px) {
+  nav .mega-dropdown-menu {
+    position: static;
+    left: 0;
+    top: 0;
+    transform: none;
+    min-width: 100vw;
+    max-width: 100vw;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1.2em 0.5em;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .mega-dropdown-menu .dropdown-section {
+    min-width: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+}
+
+/* ====== HAMBURGER MENU ====== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -159,6 +256,8 @@ nav {
     display: flex;
   }
 }
+
+/* ====== HEADER ====== */
 header {
   position: relative;
   z-index: 5;
@@ -208,7 +307,8 @@ header {
   color: #e8f1ff;
   line-height: 1.6;
 }
-/* HOMEPAGE MAIN CONTENT STYLES */
+
+/* ====== HOMEPAGE MAIN CONTENT STYLES ====== */
 main {
   position: relative;
   z-index: 2;
@@ -312,7 +412,7 @@ section h3 {
   background: #5ee7ff22;
   color: #5ee7ff;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   main {
     padding: 1em 0.3em 0.5em 0.3em;
   }
