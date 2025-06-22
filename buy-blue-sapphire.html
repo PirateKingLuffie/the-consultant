@@ -4,87 +4,187 @@
   <meta charset="UTF-8" />
   <title>Buy Blue Sapphire - Customize & Purchase</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    .gallery9 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1em; margin: 2em auto; max-width: 600px;}
-    .gallery9 img { width: 100%; border-radius: 12px; box-shadow: 0 0 12px #5ee7ff44;}
-    .jewelry-options { display: flex; gap: 2em; justify-content: center; margin: 2em 0;}
-    .jewelry-choice { cursor:pointer; transition:transform 0.2s; border-radius: 10px; padding:1em 1.5em; background:#16243a; color:#5ee7ff; font-size:1.1em; display:flex; flex-direction:column; align-items:center;}
-    .jewelry-choice.selected { background:#5ee7ff; color:#16243a; transform:scale(1.08);}
-    .jewelry-choice i { font-size:2em; margin-bottom:0.2em;}
-    .material-options { margin: 1.5em 0; display:flex; gap:1em; flex-wrap:wrap;}
-    .material-choice { cursor:pointer; padding:0.7em 1.2em; border-radius:8px; background:#223c5a; color:#fff; margin-bottom:0.5em;}
-    .material-choice.selected { background:#ffd700; color:#16243a; font-weight:bold;}
-    .order-summary { background:#1a2d48; border-radius:10px; padding:1em; margin:2em 0;}
-    .order-summary span { color:#ffd700; font-weight:bold;}
-    .buyer-form label { display:block; margin-top:1em; color:#5ee7ff;}
-    .buyer-form input, .buyer-form textarea { width:100%; padding:0.5em; margin-top:0.2em; border-radius:5px; border:none; background:#223c5a; color:#fff;}
-    .buyer-form button { margin-top:1.5em; padding:0.9em 2em; background:#5ee7ff; color:#16243a; border:none; border-radius:8px; font-size:1.1em; font-weight:bold; cursor:pointer;}
-    .qr-section { margin:2em 0; text-align:center;}
-    .qr-section img { width:150px; border-radius:12px; box-shadow:0 0 12px #5ee7ff55;}
-    .tracking-section { margin:2em 0; background:#223c5a; border-radius:10px; padding:1em;}
-    .tracking-section input { margin-top:0.5em;}
-    .hidden { display:none; }
-    @media(max-width:700px){ .gallery9{grid-template-columns:1fr 1fr;} }
-  </style>
-  <script>
-    function getParam(name) {
-      const url = new URL(window.location.href);
-      return url.searchParams.get(name);
+    body { background: #101b2d; color: #eaf6ff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
+    .zodiac-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 60% 40%, #1a2d48 60%, #101b2d 100%);
+      overflow: hidden;
     }
-    document.addEventListener('DOMContentLoaded', function(){
-      const shape = getParam('shape') || 'Oval';
-      const basePrice = parseInt(getParam('price')) || 2500;
-      const perCarat = parseInt(getParam('percarat')) || 7000;
-      document.getElementById('selected-shape').textContent = shape;
-      document.getElementById('base-price').textContent = '₹'+basePrice.toLocaleString();
-      document.getElementById('price-per-carat').textContent = '₹'+perCarat.toLocaleString();
-      document.getElementById('stone-shape').value = shape;
-      document.getElementById('stone-price').value = basePrice;
-      document.getElementById('stone-percarat').value = perCarat;
-
-      document.querySelectorAll('.jewelry-choice').forEach(el=>{
-        el.onclick = function(){
-          document.querySelectorAll('.jewelry-choice').forEach(e=>e.classList.remove('selected'));
-          el.classList.add('selected');
-          document.getElementById('jewelry-type').value = el.dataset.type;
-          updateSummary();
-        }
-      });
-      document.querySelectorAll('.material-choice').forEach(el=>{
-        el.onclick = function(){
-          document.querySelectorAll('.material-choice').forEach(e=>e.classList.remove('selected'));
-          el.classList.add('selected');
-          document.getElementById('material-type').value = el.dataset.material;
-          document.getElementById('material-extra').value = el.dataset.extra;
-          updateSummary();
-        }
-      });
-      document.getElementById('carat-input').oninput = updateSummary;
-      function updateSummary(){
-        const carat = parseFloat(document.getElementById('carat-input').value) || 1;
-        const pricePerCarat = perCarat;
-        const materialExtra = parseInt(document.getElementById('material-extra').value) || 0;
-        let total = (carat * pricePerCarat) + materialExtra;
-        document.getElementById('total-price').textContent = '₹'+total.toLocaleString();
-        document.getElementById('final-price').value = total;
-      }
-      updateSummary();
-    });
-  </script>
+    .zodiac-wheel-container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.09;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .zodiac-wheel-img {
+      width: 700px;
+      max-width: 90vw;
+      height: auto;
+      display: block;
+    }
+    header {
+      padding: 1.5em 0 1em 0;
+      background: #16243a;
+      box-shadow: 0 2px 12px #0003;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.3em;
+      color: #5ee7ff;
+      font-weight: bold;
+      gap: 0.6em;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5em;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: #eaf6ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #5ee7ff;
+    }
+    .header-content {
+      text-align: center;
+      margin-top: 1em;
+    }
+    .profile-photo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #5ee7ff;
+      margin-bottom: 0.6em;
+      box-shadow: 0 0 18px #5ee7ff33;
+    }
+    h1 {
+      color: #5ee7ff;
+      margin-bottom: 0.2em;
+    }
+    .intro {
+      color: #b3d2ff;
+      font-size: 1.15em;
+      margin-bottom: 1.5em;
+    }
+    main {
+      max-width: 700px;
+      margin: 2.5em auto 0 auto;
+      background: #16243aee;
+      border-radius: 18px;
+      box-shadow: 0 0 18px #5ee7ff22;
+      padding: 2.2em 1.2em 2em 1.2em;
+      position: relative;
+      z-index: 1;
+    }
+    .form-section {
+      margin-bottom: 2em;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      margin-bottom: 1.3em;
+    }
+    .form-group {
+      flex: 1 1 180px;
+      min-width: 150px;
+    }
+    label {
+      color: #5ee7ff;
+      font-size: 1.04em;
+      font-weight: 500;
+      margin-bottom: 0.3em;
+      display: block;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 0.6em;
+      border-radius: 7px;
+      border: none;
+      background: #223c5a;
+      color: #fff;
+      font-size: 1.08em;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+      box-sizing: border-box;
+    }
+    .price-summary {
+      margin: 2em 0 1.5em 0;
+      background: #1a2d48;
+      border-radius: 10px;
+      padding: 1.2em 1em;
+      font-size: 1.13em;
+      color: #fff;
+      box-shadow: 0 0 10px #5ee7ff22;
+    }
+    .price-summary span {
+      color: #ffd700;
+      font-weight: bold;
+    }
+    .purchase-btn {
+      display: block;
+      width: 100%;
+      margin: 2em 0 0 0;
+      padding: 1em 0;
+      background: linear-gradient(90deg, #5ee7ff 60%, #4dc7fa 100%);
+      color: #16243a;
+      font-weight: bold;
+      font-size: 1.19em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 0 10px #5ee7ff33;
+    }
+    .purchase-btn:hover {
+      background: linear-gradient(90deg, #4dc7fa 60%, #5ee7ff 100%);
+    }
+    @media (max-width: 800px) {
+      main { padding: 1.2em 0.5em 2em 0.5em; }
+      .zodiac-wheel-img { width: 99vw; }
+    }
+    @media (max-width: 500px) {
+      nav { flex-direction: column; gap: 1em;}
+      .form-row { flex-direction: column; gap: 0.7em;}
+      main { padding: 0.7em 0.2em 1em 0.2em;}
+    }
+  </style>
 </head>
 <body>
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img" />
+    </div>
+  </div>
   <header>
     <nav>
       <div class="logo">
         <i class="fa-solid fa-star-of-david"></i>
         <span>The Consultant</span>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="#">Vaastu Shastra</a></li>
@@ -94,101 +194,72 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-    <div class="header-content fade-in">
+    <div class="header-content">
       <div class="profile-photo">
         <img src="p.jpg" alt="Blue Sapphire" />
       </div>
       <h1>Buy Blue Sapphire</h1>
-      <p class="intro">Shape selected: <span id="selected-shape"></span></p>
+      <p class="intro">Customize your Blue Sapphire gemstone and see the total price instantly. Complete your order by filling out the Google Form after checking your selection.</p>
     </div>
   </header>
   <main>
-    <section>
-      <div class="gallery9">
-        <img src="Blue-Sapphire-Oval.avif" alt="Oval" />
-        <img src="Blue-Sapphire-Round.avif" alt="Round" />
-        <img src="Blue-Sapphire-Pear.avif" alt="Pear" />
-        <img src="Blue-Sapphire-Emerald.avif" alt="Emerald Cut" />
-        <img src="Blue-Sapphire-Cushion.avif" alt="Cushion" />
-        <img src="Blue-Sapphire-Heart.avif" alt="Heart" />
-        <img src="Blue-Sapphire-Marquise.avif" alt="Marquise" />
-        <img src="Blue-Sapphire-Princess.avif" alt="Princess" />
-        <img src="Blue-Sapphire-Trillion.avif" alt="Trillion" />
-      </div>
-      <div class="order-summary">
-        <div>Shape: <span id="selected-shape"></span></div>
-        <div>Base Price: <span id="base-price"></span></div>
-        <div>Price per Carat: <span id="price-per-carat"></span></div>
-        <div>
-          Carat: 
-          <input id="carat-input" type="number" value="1" min="0.5" step="0.01" style="width:70px;" />
+    <form id="customizeForm" class="form-section" autocomplete="off" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="shape">Shape</label>
+          <select id="shape" name="shape" required>
+            <option value="Oval" data-base="2500" data-percarat="7000">Oval</option>
+            <option value="Round" data-base="2700" data-percarat="7000">Round</option>
+            <option value="Pear" data-base="2800" data-percarat="7000">Pear</option>
+            <option value="Emerald Cut" data-base="2900" data-percarat="7000">Emerald Cut</option>
+            <option value="Cushion" data-base="3000" data-percarat="7000">Cushion</option>
+            <option value="Heart" data-base="3100" data-percarat="7000">Heart</option>
+            <option value="Marquise" data-base="3200" data-percarat="7000">Marquise</option>
+            <option value="Princess" data-base="3300" data-percarat="7000">Princess</option>
+            <option value="Trillion" data-base="3400" data-percarat="7000">Trillion</option>
+            <option value="Radiant" data-base="3500" data-percarat="7000">Radiant</option>
+          </select>
         </div>
-        <div>
-          Material: 
-          <span id="selected-material"></span>
-        </div>
-        <div>
-          Total Price: <span id="total-price"></span>
+        <div class="form-group">
+          <label for="carat">Carat (1.00 - 10.00)</label>
+          <input type="number" id="carat" name="carat" min="1" max="10" step="0.01" value="5.25" required>
         </div>
       </div>
-      <div>
-        <h3 style="color:#5ee7ff;">Choose Jewelry Type</h3>
-        <div class="jewelry-options">
-          <div class="jewelry-choice selected" data-type="Ring"><i class="fa-solid fa-gem"></i>Ring</div>
-          <div class="jewelry-choice" data-type="Pendant"><i class="fa-solid fa-necklace"></i>Pendant</div>
-          <div class="jewelry-choice" data-type="Bracelet"><i class="fa-solid fa-link"></i>Bracelet</div>
-          <div class="jewelry-choice" data-type="Loose"><i class="fa-solid fa-cube"></i>Loose Stone</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="jewelry">Jewelry Type</label>
+          <select id="jewelry" name="jewelry" required>
+            <option value="Loose Stone" data-extra="0">Loose Stone (+₹0)</option>
+            <option value="Ring" data-extra="3500">Ring (+₹3,500)</option>
+            <option value="Pendant" data-extra="2000">Pendant (+₹2,000)</option>
+            <option value="Bracelet" data-extra="4000">Bracelet (+₹4,000)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="material">Material</label>
+          <select id="material" name="material" required>
+            <option value="22K Gold" data-extra="3500">22K Gold (+₹3,500)</option>
+            <option value="18K Gold" data-extra="2200">18K Gold (+₹2,200)</option>
+            <option value="Silver" data-extra="500">Silver (+₹500)</option>
+            <option value="Platinum" data-extra="5000">Platinum (+₹5,000)</option>
+            <option value="Panchdhatu" data-extra="900">Panchdhatu (+₹900)</option>
+          </select>
         </div>
       </div>
-      <div>
-        <h3 style="color:#5ee7ff;">Choose Material</h3>
-        <div class="material-options">
-          <div class="material-choice selected" data-material="22K Gold" data-extra="3500">22K Gold (+₹3,500)</div>
-          <div class="material-choice" data-material="18K Gold" data-extra="2200">18K Gold (+₹2,200)</div>
-          <div class="material-choice" data-material="Silver" data-extra="500">Silver (+₹500)</div>
-          <div class="material-choice" data-material="Platinum" data-extra="5000">Platinum (+₹5,000)</div>
-          <div class="material-choice" data-material="Panchdhatu" data-extra="900">Panchdhatu (+₹900)</div>
+      <div class="price-summary" id="priceSummary">
+        <div>Base Price: <span id="basePrice">₹2,500</span></div>
+        <div>Price per Carat: <span id="perCaratPrice">₹7,000</span></div>
+        <div>Jewelry Extra: <span id="jewelryExtra">₹0</span></div>
+        <div>Material Extra: <span id="materialExtra">₹3,500</span></div>
+        <div style="margin-top:0.7em; font-size:1.19em;">
+          <strong>Total Price: <span id="totalPrice">₹40,000</span></strong>
         </div>
       </div>
-    </section>
-    <section>
-      <form class="buyer-form" id="orderForm" method="POST" action="https://formspree.io/f/your_form_id">
-        <input type="hidden" name="Stone Shape" id="stone-shape" />
-        <input type="hidden" name="Base Price" id="stone-price" />
-        <input type="hidden" name="Price Per Carat" id="stone-percarat" />
-        <input type="hidden" name="Jewelry Type" id="jewelry-type" value="Ring" />
-        <input type="hidden" name="Material" id="material-type" value="22K Gold" />
-        <input type="hidden" name="Material Extra" id="material-extra" value="3500" />
-        <input type="hidden" name="Total Price" id="final-price" />
-        <label>Your Name</label>
-        <input type="text" name="Name" required />
-        <label>Email</label>
-        <input type="email" name="Email" required />
-        <label>Phone</label>
-        <input type="tel" name="Phone" required />
-        <label>Shipping Address</label>
-        <textarea name="Address" required></textarea>
-        <label>Additional Notes</label>
-        <textarea name="Notes"></textarea>
-        <button type="submit">Place Order & Proceed to Payment</button>
-      </form>
-    </section>
-    <section class="qr-section">
-      <h3>Pay Securely via UPI QR</h3>
-      <img src="your-qr-code.png" alt="UPI QR Code" />
-      <div style="color:#b3d2ff; margin-top:0.7em;">Scan the code to pay. After payment, enter your UPI transaction ID in the notes for faster processing.</div>
-    </section>
-    <section class="tracking-section hidden" id="trackingSection">
-      <h3>Track Your Order</h3>
-      <div>
-        Courier: <span id="courierName"></span><br>
-        Tracking Number: <span id="trackingNumber"></span>
-      </div>
-      <a id="trackingLink" href="#" target="_blank">Track Now</a>
-    </section>
+      <button class="purchase-btn" id="purchaseBtn" type="button">Purchase Now</button>
+    </form>
   </main>
   <footer>
-    <div class="quick-links">
+    <div class="quick-links" style="text-align:center; margin-bottom:0.7em;">
       <a href="index.html">Home</a>
       <a href="#">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
@@ -196,34 +267,110 @@
       <a href="#">Matrimonial</a>
       <a href="#">Contact</a>
     </div>
-    <div class="copyright">
+    <div class="copyright" style="text-align:center; color:#5ee7ff;">
       &copy; 2025 The Consultant - GuptaJi. All rights reserved.
     </div>
   </footer>
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 900) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-    // Optional: After order, show tracking info (you update manually or via backend)
-    function setTracking(courier, number, link){
-      document.getElementById('trackingSection').classList.remove('hidden');
-      document.getElementById('courierName').textContent = courier;
-      document.getElementById('trackingNumber').textContent = number;
-      document.getElementById('trackingLink').href = link;
+    // --- Pricing Data ---
+    const jewelryPrices = {
+      "Loose Stone": 0,
+      "Ring": 3500,
+      "Pendant": 2000,
+      "Bracelet": 4000
+    };
+    const materialPrices = {
+      "22K Gold": 3500,
+      "18K Gold": 2200,
+      "Silver": 500,
+      "Platinum": 5000,
+      "Panchdhatu": 900
+    };
+
+    // --- Elements ---
+    const shapeEl = document.getElementById('shape');
+    const caratEl = document.getElementById('carat');
+    const jewelryEl = document.getElementById('jewelry');
+    const materialEl = document.getElementById('material');
+    const basePriceEl = document.getElementById('basePrice');
+    const perCaratPriceEl = document.getElementById('perCaratPrice');
+    const jewelryExtraEl = document.getElementById('jewelryExtra');
+    const materialExtraEl = document.getElementById('materialExtra');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const purchaseBtn = document.getElementById('purchaseBtn');
+
+    // --- Google Form Pre-fill IDs ---
+    // Replace these with your actual Google Form entry IDs!
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform"; // <-- Replace!
+    const ENTRY_SHAPE = "entry.1234567890";      // Shape
+    const ENTRY_CARAT = "entry.0987654321";      // Carat
+    const ENTRY_JEWELRY = "entry.1122334455";    // Jewelry Type
+    const ENTRY_MATERIAL = "entry.2233445566";   // Material
+    const ENTRY_BASEPRICE = "entry.3344556677";  // Base Price
+    const ENTRY_PERCARAT = "entry.4455667788";   // Price Per Carat
+    const ENTRY_JEWELRYEXTRA = "entry.5566778899"; // Jewelry Extra
+    const ENTRY_MATERIALEXTRA = "entry.6677889900"; // Material Extra
+    const ENTRY_TOTALPRICE = "entry.7788990011";  // Total Price
+
+    // --- Price Calculation ---
+    function updatePrice() {
+      const shapeOption = shapeEl.options[shapeEl.selectedIndex];
+      const basePrice = parseInt(shapeOption.getAttribute('data-base'), 10);
+      const perCarat = parseInt(shapeOption.getAttribute('data-percarat'), 10);
+      const carat = parseFloat(caratEl.value) || 1;
+      const jewelry = jewelryEl.value;
+      const material = materialEl.value;
+      const jewelryExtra = jewelryPrices[jewelry] || 0;
+      const materialExtra = materialPrices[material] || 0;
+
+      // Calculation
+      const total = Math.round((basePrice + (perCarat * carat) + jewelryExtra + materialExtra));
+
+      // Update UI
+      basePriceEl.textContent = `₹${basePrice.toLocaleString()}`;
+      perCaratPriceEl.textContent = `₹${perCarat.toLocaleString()}`;
+      jewelryExtraEl.textContent = `₹${jewelryExtra.toLocaleString()}`;
+      materialExtraEl.textContent = `₹${materialExtra.toLocaleString()}`;
+      totalPriceEl.textContent = `₹${total.toLocaleString()}`;
     }
+
+    shapeEl.addEventListener('change', updatePrice);
+    caratEl.addEventListener('input', updatePrice);
+    jewelryEl.addEventListener('change', updatePrice);
+    materialEl.addEventListener('change', updatePrice);
+
+    // --- Purchase Button Handler ---
+    purchaseBtn.addEventListener('click', function() {
+      // Build Google Form prefill URL
+      const shape = shapeEl.value;
+      const carat = caratEl.value;
+      const jewelry = jewelryEl.value;
+      const material = materialEl.value;
+      const shapeOption = shapeEl.options[shapeEl.selectedIndex];
+      const basePrice = shapeOption.getAttribute('data-base');
+      const perCarat = shapeOption.getAttribute('data-percarat');
+      const jewelryExtra = jewelryPrices[jewelry] || 0;
+      const materialExtra = materialPrices[material] || 0;
+      const total = Math.round((parseInt(basePrice) + (parseInt(perCarat) * parseFloat(carat)) + jewelryExtra + materialExtra));
+
+      // Build pre-filled Google Form link
+      const params = new URLSearchParams();
+      params.set(ENTRY_SHAPE, shape);
+      params.set(ENTRY_CARAT, carat);
+      params.set(ENTRY_JEWELRY, jewelry);
+      params.set(ENTRY_MATERIAL, material);
+      params.set(ENTRY_BASEPRICE, basePrice);
+      params.set(ENTRY_PERCARAT, perCarat);
+      params.set(ENTRY_JEWELRYEXTRA, jewelryExtra);
+      params.set(ENTRY_MATERIALEXTRA, materialExtra);
+      params.set(ENTRY_TOTALPRICE, total);
+
+      // Redirect to Google Form with pre-filled values
+      window.open(`${GOOGLE_FORM_URL}?${params.toString()}`, "_blank");
+    });
+
+    // --- Initial Price Update ---
+    updatePrice();
   </script>
 </body>
 </html>
