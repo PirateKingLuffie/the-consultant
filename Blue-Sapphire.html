@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Blue Sapphire - Buy Gemstone Online</title>
+  <title>Blue Sapphire (Neelam) - Buy Gemstone Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -78,6 +78,27 @@
       color: #b3d2ff;
       font-size: 1.08em;
     }
+    .price-per-carat-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1em;
+      font-size: 1.15em;
+      color: #ffd700;
+      font-weight: bold;
+      gap: 0.5em;
+    }
+    .price-per-carat-box input {
+      width: 90px;
+      padding: 0.2em 0.4em;
+      border-radius: 6px;
+      border: none;
+      background: #223c5a;
+      color: #ffd700;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: right;
+    }
     @media (max-width: 700px) {
       .gem-gallery {
         flex-direction: column;
@@ -88,6 +109,7 @@
         font-size: 0.98em;
         padding: 0.6em 0.3em;
       }
+      .price-per-carat-box { flex-direction: column; }
     }
     .fade-in {
       animation: fadeIn 1.1s cubic-bezier(.68,-0.55,.27,1.55) both;
@@ -103,6 +125,15 @@
       }
     }
   </style>
+  <script>
+    // Allow dynamic price per carat editing
+    function updatePricePerCarat() {
+      const input = document.getElementById('pricePerCaratInput');
+      const display = document.getElementById('pricePerCaratDisplay');
+      display.textContent = '₹' + parseInt(input.value).toLocaleString();
+      // Optionally, update all select links to include the new price per carat
+    }
+  </script>
 </head>
 <body>
   <div class="zodiac-bg">
@@ -130,12 +161,17 @@
     </nav>
     <div class="header-content fade-in">
       <div class="profile-photo">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=3" alt="GuptaJi" />
+        <img src="p.jpg" alt="Blue Sapphire" />
       </div>
-      <h1>Blue Sapphire</h1>
+      <h1>Blue Sapphire (Neelam)</h1>
       <p class="intro">
         Discover the beauty of natural Blue Sapphire gemstones. Available in 10 unique shapes and customizable for rings, pendants, bracelets, or as loose stones.
       </p>
+      <div class="price-per-carat-box">
+        <span>Price per Carat:</span>
+        <input id="pricePerCaratInput" type="number" value="7000" min="1000" onchange="updatePricePerCarat()" />
+        <span id="pricePerCaratDisplay">₹7,000</span>
+      </div>
     </div>
   </header>
   <main>
@@ -154,16 +190,56 @@
           <th>Price (INR)</th>
           <th>Buy</th>
         </tr>
-        <tr><td>Oval</td><td class="price">₹2,500</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Round</td><td class="price">₹2,700</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Pear</td><td class="price">₹2,800</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Emerald Cut</td><td class="price">₹2,900</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Cushion</td><td class="price">₹3,000</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Heart</td><td class="price">₹3,100</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Marquise</td><td class="price">₹3,200</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Princess</td><td class="price">₹3,300</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Trillion</td><td class="price">₹3,400</td><td><a class="shape-link" href="#">Select</a></td></tr>
-        <tr><td>Radiant</td><td class="price">₹3,500</td><td><a class="shape-link" href="#">Select</a></td></tr>
+        <tr>
+          <td>Oval</td>
+          <td class="price">₹2,500</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Oval&price=2500">Select</a></td>
+        </tr>
+        <tr>
+          <td>Round</td>
+          <td class="price">₹2,700</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Round&price=2700">Select</a></td>
+        </tr>
+        <tr>
+          <td>Pear</td>
+          <td class="price">₹2,800</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Pear&price=2800">Select</a></td>
+        </tr>
+        <tr>
+          <td>Emerald Cut</td>
+          <td class="price">₹2,900</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Emerald%20Cut&price=2900">Select</a></td>
+        </tr>
+        <tr>
+          <td>Cushion</td>
+          <td class="price">₹3,000</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Cushion&price=3000">Select</a></td>
+        </tr>
+        <tr>
+          <td>Heart</td>
+          <td class="price">₹3,100</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Heart&price=3100">Select</a></td>
+        </tr>
+        <tr>
+          <td>Marquise</td>
+          <td class="price">₹3,200</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Marquise&price=3200">Select</a></td>
+        </tr>
+        <tr>
+          <td>Princess</td>
+          <td class="price">₹3,300</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Princess&price=3300">Select</a></td>
+        </tr>
+        <tr>
+          <td>Trillion</td>
+          <td class="price">₹3,400</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Trillion&price=3400">Select</a></td>
+        </tr>
+        <tr>
+          <td>Radiant</td>
+          <td class="price">₹3,500</td>
+          <td><a class="shape-link" href="buy-blue-sapphire.html?shape=Radiant&price=3500">Select</a></td>
+        </tr>
       </table>
     </section>
     <section class="contact-section fade-in">
@@ -201,6 +277,11 @@
           hamburger.setAttribute('aria-expanded', 'false');
         }
       });
+    });
+
+    // Set initial price per carat display
+    document.addEventListener('DOMContentLoaded', function() {
+      updatePricePerCarat();
     });
   </script>
 </body>
