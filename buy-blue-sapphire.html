@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buy Blue Sapphire - Customize & Purchase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    .gallery9 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1em; margin: 2em auto; max-width: 600px;}
+    .gallery9 img { width: 100%; border-radius: 12px; box-shadow: 0 0 12px #5ee7ff44;}
+    .jewelry-options { display: flex; gap: 2em; justify-content: center; margin: 2em 0;}
+    .jewelry-choice { cursor:pointer; transition:transform 0.2s; border-radius: 10px; padding:1em 1.5em; background:#16243a; color:#5ee7ff; font-size:1.1em; display:flex; flex-direction:column; align-items:center;}
+    .jewelry-choice.selected { background:#5ee7ff; color:#16243a; transform:scale(1.08);}
+    .jewelry-choice i { font-size:2em; margin-bottom:0.2em;}
+    .material-options { margin: 1.5em 0; display:flex; gap:1em; flex-wrap:wrap;}
+    .material-choice { cursor:pointer; padding:0.7em 1.2em; border-radius:8px; background:#223c5a; color:#fff; margin-bottom:0.5em;}
+    .material-choice.selected { background:#ffd700; color:#16243a; font-weight:bold;}
+    .order-summary { background:#1a2d48; border-radius:10px; padding:1em; margin:2em 0;}
+    .order-summary span { color:#ffd700; font-weight:bold;}
+    .buyer-form label { display:block; margin-top:1em; color:#5ee7ff;}
+    .buyer-form input, .buyer-form textarea { width:100%; padding:0.5em; margin-top:0.2em; border-radius:5px; border:none; background:#223c5a; color:#fff;}
+    .buyer-form button { margin-top:1.5em; padding:0.9em 2em; background:#5ee7ff; color:#16243a; border:none; border-radius:8px; font-size:1.1em; font-weight:bold; cursor:pointer;}
+    .qr-section { margin:2em 0; text-align:center;}
+    .qr-section img { width:150px; border-radius:12px; box-shadow:0 0 12px #5ee7ff55;}
+    .tracking-section { margin:2em 0; background:#223c5a; border-radius:10px; padding:1em;}
+    .tracking-section input { margin-top:0.5em;}
+    .hidden { display:none; }
+    @media(max-width:700px){ .gallery9{grid-template-columns:1fr 1fr;} }
+  </style>
+  <script>
+    // Helper: get URL params
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    // On load: fill details
+    document.addEventListener('DOMContentLoaded', function(){
+      // Set shape and base price
+      const shape = getParam('shape') || 'Oval';
+      const basePrice = parseInt(getParam('price')) || 2500;
+      document.getElementById('selected-shape').textContent = shape;
+      document.getElementById('base-price').textContent = '₹'+basePrice.toLocaleString();
+      document.getElementById('stone-shape').value = shape;
+      document.getElementById('stone-price').value = basePrice;
+
+      // Price per carat (editable)
+      let pricePerCarat = 7000;
+      document.getElementById('price-per-carat').value = pricePerCarat;
+
+      // Jewelry selection
+      document.querySelectorAll('.jewelry-choice').forEach(el=>{
+        el.onclick = function(){
+          document.querySelectorAll('.jewelry-choice').forEach(e=>e.classList.remove('selected'));
+          el.classList.add('selected');
+          document.getElementById('jewelry-type').value = el.dataset.type;
+          updateSummary();
+        }
+      });
+      // Material selection
+      document.querySelectorAll('.material-choice').forEach(el=>{
+        el.onclick = function(){
+          document.querySelectorAll('.material-choice').forEach(e=>e.classList.remove('selected'));
+          el.classList.add('selected');
+          document.getElementById('material-type').value = el.dataset.material;
+          document.getElementById('material-extra').value = el.dataset.extra;
+          updateSummary();
+        }
+      });
+      // Carat input
+      document.getElementById('carat-input').oninput = updateSummary;
+      document.getElementById('price-per-carat').oninput = updateSummary;
+
+      function updateSummary(){
+        const carat = parseFloat(document.getElementById('carat-input').value) || 1;
+        const pricePerCarat = parseInt(document.getElementById('price-per-carat').value) || 7000;
+        const materialExtra = parseInt(document.getElementById('material-extra').value) || 0;
+        const base = basePrice;
+        let total = (carat * pricePerCarat) + materialExtra;
+        document.getElementById('total-price').textContent = '₹'+total.toLocaleString();
+        document.getElementById('final-price').value = total;
+      }
+      updateSummary();
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <!-- ...nav links as before... -->
+    </nav>
+    <div class="header-content fade-in">
+      <div class="profile-photo">
+        <img src="p.jpg" alt="Blue Sapphire" />
+      </div>
+      <h1>Buy Blue Sapphire</h1>
+      <p class="intro">Shape selected: <span id="selected-shape"></span></p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="gallery9">
+        <img src="Blue-Sapphire-Oval.avif" alt="Oval" />
+        <img src="Blue-Sapphire-Round.avif" alt="Round" />
+        <img src="Blue-Sapphire-Pear.avif" alt="Pear" />
+        <img src="Blue-Sapphire-Emerald.avif" alt="Emerald Cut" />
+        <img src="Blue-Sapphire-Cushion.avif" alt="Cushion" />
+        <img src="Blue-Sapphire-Heart.avif" alt="Heart" />
+        <img src="Blue-Sapphire-Marquise.avif" alt="Marquise" />
+        <img src="Blue-Sapphire-Princess.avif" alt="Princess" />
+        <img src="Blue-Sapphire-Trillion.avif" alt="Trillion" />
+      </div>
+      <div class="order-summary">
+        <div>Shape: <span id="selected-shape"></span></div>
+        <div>Base Price: <span id="base-price"></span></div>
+        <div>
+          Price per Carat: 
+          <input id="price-per-carat" type="number" value="7000" min="1000" style="width:90px;" /> 
+          <span style="color:#999;">(editable)</span>
+        </div>
+        <div>
+          Carat: 
+          <input id="carat-input" type="number" value="1" min="0.5" step="0.01" style="width:70px;" />
+        </div>
+        <div>
+          Material: 
+          <span id="selected-material"></span>
+        </div>
+        <div>
+          Total Price: <span id="total-price"></span>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:#5ee7ff;">Choose Jewelry Type</h3>
+        <div class="jewelry-options">
+          <div class="jewelry-choice selected" data-type="Ring"><i class="fa-solid fa-gem"></i>Ring</div>
+          <div class="jewelry-choice" data-type="Pendant"><i class="fa-solid fa-necklace"></i>Pendant</div>
+          <div class="jewelry-choice" data-type="Bracelet"><i class="fa-solid fa-link"></i>Bracelet</div>
+          <div class="jewelry-choice" data-type="Loose"><i class="fa-solid fa-cube"></i>Loose Stone</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:#5ee7ff;">Choose Material</h3>
+        <div class="material-options">
+          <div class="material-choice selected" data-material="22K Gold" data-extra="3500">22K Gold (+₹3,500)</div>
+          <div class="material-choice" data-material="18K Gold" data-extra="2200">18K Gold (+₹2,200)</div>
+          <div class="material-choice" data-material="Silver" data-extra="500">Silver (+₹500)</div>
+          <div class="material-choice" data-material="Platinum" data-extra="5000">Platinum (+₹5,000)</div>
+          <div class="material-choice" data-material="Panchdhatu" data-extra="900">Panchdhatu (+₹900)</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <form class="buyer-form" id="orderForm" method="POST" action="https://formspree.io/f/your_form_id">
+        <input type="hidden" name="Stone Shape" id="stone-shape" />
+        <input type="hidden" name="Base Price" id="stone-price" />
+        <input type="hidden" name="Jewelry Type" id="jewelry-type" value="Ring" />
+        <input type="hidden" name="Material" id="material-type" value="22K Gold" />
+        <input type="hidden" name="Material Extra" id="material-extra" value="3500" />
+        <input type="hidden" name="Total Price" id="final-price" />
+        <label>Your Name</label>
+        <input type="text" name="Name" required />
+        <label>Email</label>
+        <input type="email" name="Email" required />
+        <label>Phone</label>
+        <input type="tel" name="Phone" required />
+        <label>Shipping Address</label>
+        <textarea name="Address" required></textarea>
+        <label>Additional Notes</label>
+        <textarea name="Notes"></textarea>
+        <button type="submit">Place Order & Proceed to Payment</button>
+      </form>
+    </section>
+    <section class="qr-section">
+      <h3>Pay Securely via UPI QR</h3>
+      <img src="your-qr-code.png" alt="UPI QR Code" />
+      <div style="color:#b3d2ff; margin-top:0.7em;">Scan the code to pay. After payment, enter your UPI transaction ID in the notes for faster processing.</div>
+    </section>
+    <section class="tracking-section hidden" id="trackingSection">
+      <h3>Track Your Order</h3>
+      <div>
+        Courier: <span id="courierName"></span><br>
+        Tracking Number: <span id="trackingNumber"></span>
+      </div>
+      <a id="trackingLink" href="#" target="_blank">Track Now</a>
+    </section>
+  </main>
+  <footer>
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="#">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="#">Kundli</a>
+      <a href="#">Matrimonial</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    // Optional: After order, show tracking info (you update manually or via backend)
+    // Example: setTracking('Delhivery', '123456789', 'https://track.delhivery.com/123456789');
+    function setTracking(courier, number, link){
+      document.getElementById('trackingSection').classList.remove('hidden');
+      document.getElementById('courierName').textContent = courier;
+      document.getElementById('trackingNumber').textContent = number;
+      document.getElementById('trackingLink').href = link;
+    }
+  </script>
+</body>
+</html>
