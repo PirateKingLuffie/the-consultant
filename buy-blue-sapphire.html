@@ -30,26 +30,21 @@
     @media(max-width:700px){ .gallery9{grid-template-columns:1fr 1fr;} }
   </style>
   <script>
-    // Helper: get URL params
     function getParam(name) {
       const url = new URL(window.location.href);
       return url.searchParams.get(name);
     }
-    // On load: fill details
     document.addEventListener('DOMContentLoaded', function(){
-      // Set shape and base price
       const shape = getParam('shape') || 'Oval';
       const basePrice = parseInt(getParam('price')) || 2500;
+      const perCarat = parseInt(getParam('percarat')) || 7000;
       document.getElementById('selected-shape').textContent = shape;
       document.getElementById('base-price').textContent = '₹'+basePrice.toLocaleString();
+      document.getElementById('price-per-carat').textContent = '₹'+perCarat.toLocaleString();
       document.getElementById('stone-shape').value = shape;
       document.getElementById('stone-price').value = basePrice;
+      document.getElementById('stone-percarat').value = perCarat;
 
-      // Price per carat (editable)
-      let pricePerCarat = 7000;
-      document.getElementById('price-per-carat').value = pricePerCarat;
-
-      // Jewelry selection
       document.querySelectorAll('.jewelry-choice').forEach(el=>{
         el.onclick = function(){
           document.querySelectorAll('.jewelry-choice').forEach(e=>e.classList.remove('selected'));
@@ -58,7 +53,6 @@
           updateSummary();
         }
       });
-      // Material selection
       document.querySelectorAll('.material-choice').forEach(el=>{
         el.onclick = function(){
           document.querySelectorAll('.material-choice').forEach(e=>e.classList.remove('selected'));
@@ -68,15 +62,11 @@
           updateSummary();
         }
       });
-      // Carat input
       document.getElementById('carat-input').oninput = updateSummary;
-      document.getElementById('price-per-carat').oninput = updateSummary;
-
       function updateSummary(){
         const carat = parseFloat(document.getElementById('carat-input').value) || 1;
-        const pricePerCarat = parseInt(document.getElementById('price-per-carat').value) || 7000;
+        const pricePerCarat = perCarat;
         const materialExtra = parseInt(document.getElementById('material-extra').value) || 0;
-        const base = basePrice;
         let total = (carat * pricePerCarat) + materialExtra;
         document.getElementById('total-price').textContent = '₹'+total.toLocaleString();
         document.getElementById('final-price').value = total;
@@ -92,7 +82,17 @@
         <i class="fa-solid fa-star-of-david"></i>
         <span>The Consultant</span>
       </div>
-      <!-- ...nav links as before... -->
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="#">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="#">Kundli</a></li>
+        <li><a href="#">Matrimonial</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
     <div class="header-content fade-in">
       <div class="profile-photo">
@@ -118,11 +118,7 @@
       <div class="order-summary">
         <div>Shape: <span id="selected-shape"></span></div>
         <div>Base Price: <span id="base-price"></span></div>
-        <div>
-          Price per Carat: 
-          <input id="price-per-carat" type="number" value="7000" min="1000" style="width:90px;" /> 
-          <span style="color:#999;">(editable)</span>
-        </div>
+        <div>Price per Carat: <span id="price-per-carat"></span></div>
         <div>
           Carat: 
           <input id="carat-input" type="number" value="1" min="0.5" step="0.01" style="width:70px;" />
@@ -159,6 +155,7 @@
       <form class="buyer-form" id="orderForm" method="POST" action="https://formspree.io/f/your_form_id">
         <input type="hidden" name="Stone Shape" id="stone-shape" />
         <input type="hidden" name="Base Price" id="stone-price" />
+        <input type="hidden" name="Price Per Carat" id="stone-percarat" />
         <input type="hidden" name="Jewelry Type" id="jewelry-type" value="Ring" />
         <input type="hidden" name="Material" id="material-type" value="22K Gold" />
         <input type="hidden" name="Material Extra" id="material-extra" value="3500" />
@@ -204,8 +201,23 @@
     </div>
   </footer>
   <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
     // Optional: After order, show tracking info (you update manually or via backend)
-    // Example: setTracking('Delhivery', '123456789', 'https://track.delhivery.com/123456789');
     function setTracking(courier, number, link){
       document.getElementById('trackingSection').classList.remove('hidden');
       document.getElementById('courierName').textContent = courier;
