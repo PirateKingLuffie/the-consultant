@@ -158,9 +158,13 @@
       cursor: pointer;
       transition: background 0.2s;
       box-shadow: 0 0 10px #5ee7ff33;
+      text-align: center;
+      text-decoration: none;
     }
     .purchase-btn:hover {
       background: linear-gradient(90deg, #4dc7fa 60%, #5ee7ff 100%);
+      color: #16243a;
+      text-decoration: none;
     }
     @media (max-width: 800px) {
       main { padding: 1.2em 0.5em 2em 0.5em; }
@@ -255,7 +259,11 @@
           <strong>Total Price: <span id="totalPrice">₹40,000</span></strong>
         </div>
       </div>
-      <button class="purchase-btn" id="purchaseBtn" type="button">Purchase Now</button>
+      <a class="purchase-btn" id="purchaseBtn"
+         href="https://docs.google.com/forms/d/1lEnFk0YjSRp4X1R63y7oBEtSEQtEiXnsyKeQ4a5dF6M/viewform"
+         target="_blank" rel="noopener">
+        Purchase Now
+      </a>
     </form>
   </main>
   <footer>
@@ -297,20 +305,6 @@
     const jewelryExtraEl = document.getElementById('jewelryExtra');
     const materialExtraEl = document.getElementById('materialExtra');
     const totalPriceEl = document.getElementById('totalPrice');
-    const purchaseBtn = document.getElementById('purchaseBtn');
-
-    // --- Google Form Pre-fill IDs ---
-    // Replace these with your actual Google Form entry IDs!
-    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1lEnFk0YjSRp4X1R63y7oBEtSEQtEiXnsyKeQ4a5dF6M/viewform"; // <-- Replace!
-    const ENTRY_SHAPE = "entry.1234567890";      // Shape
-    const ENTRY_CARAT = "entry.0987654321";      // Carat
-    const ENTRY_JEWELRY = "entry.1122334455";    // Jewelry Type
-    const ENTRY_MATERIAL = "entry.2233445566";   // Material
-    const ENTRY_BASEPRICE = "entry.3344556677";  // Base Price
-    const ENTRY_PERCARAT = "entry.4455667788";   // Price Per Carat
-    const ENTRY_JEWELRYEXTRA = "entry.5566778899"; // Jewelry Extra
-    const ENTRY_MATERIALEXTRA = "entry.6677889900"; // Material Extra
-    const ENTRY_TOTALPRICE = "entry.7788990011";  // Total Price
 
     // --- Price Calculation ---
     function updatePrice() {
@@ -338,36 +332,6 @@
     caratEl.addEventListener('input', updatePrice);
     jewelryEl.addEventListener('change', updatePrice);
     materialEl.addEventListener('change', updatePrice);
-
-    // --- Purchase Button Handler ---
-    purchaseBtn.addEventListener('click', function() {
-      // Build Google Form prefill URL
-      const shape = shapeEl.value;
-      const carat = caratEl.value;
-      const jewelry = jewelryEl.value;
-      const material = materialEl.value;
-      const shapeOption = shapeEl.options[shapeEl.selectedIndex];
-      const basePrice = shapeOption.getAttribute('data-base');
-      const perCarat = shapeOption.getAttribute('data-percarat');
-      const jewelryExtra = jewelryPrices[jewelry] || 0;
-      const materialExtra = materialPrices[material] || 0;
-      const total = Math.round((parseInt(basePrice) + (parseInt(perCarat) * parseFloat(carat)) + jewelryExtra + materialExtra));
-
-      // Build pre-filled Google Form link
-      const params = new URLSearchParams();
-      params.set(ENTRY_SHAPE, shape);
-      params.set(ENTRY_CARAT, carat);
-      params.set(ENTRY_JEWELRY, jewelry);
-      params.set(ENTRY_MATERIAL, material);
-      params.set(ENTRY_BASEPRICE, basePrice);
-      params.set(ENTRY_PERCARAT, perCarat);
-      params.set(ENTRY_JEWELRYEXTRA, jewelryExtra);
-      params.set(ENTRY_MATERIALEXTRA, materialExtra);
-      params.set(ENTRY_TOTALPRICE, total);
-
-      // Redirect to Google Form with pre-filled values
-      window.open(`${GOOGLE_FORM_URL}?${params.toString()}`, "_blank");
-    });
 
     // --- Initial Price Update ---
     updatePrice();
