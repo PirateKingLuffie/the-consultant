@@ -11,23 +11,34 @@
     .zodiac-bg {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
+      width: 100vw;
+      height: 100vh;
       background: radial-gradient(circle at 60% 40%, #1a2d48 60%, #101b2d 100%);
       overflow: hidden;
     }
     .zodiac-wheel-container {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.09;
       z-index: -1;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       pointer-events: none;
     }
     .zodiac-wheel-img {
       width: 700px;
-      max-width: 90vw;
+      max-width: 95vw;
       height: auto;
+      opacity: 0.10;
       display: block;
+      margin: 0 auto;
+      pointer-events: none;
+      user-select: none;
     }
     header {
       padding: 1.5em 0 1em 0;
@@ -75,14 +86,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 0.6em;
+      margin-bottom: 0.8em;
     }
     .profile-photo img {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      border: 3px solid #5ee7ff;
-      box-shadow: 0 0 18px #5ee7ff33;
+      border: 4px solid #5ee7ff;
+      box-shadow: 0 0 24px #5ee7ff33;
       object-fit: cover;
       background: #223c5a;
       display: block;
@@ -90,6 +101,9 @@
     h1 {
       color: #5ee7ff;
       margin-bottom: 0.2em;
+      font-size: 2.2em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
     }
     .intro {
       color: #b3d2ff;
@@ -189,20 +203,20 @@
     @media (max-width: 800px) {
       main { padding: 1.2em 0.5em 2em 0.5em; }
       .zodiac-wheel-img { width: 99vw; }
+      .profile-photo img { width: 110px; height: 110px; }
     }
     @media (max-width: 500px) {
       nav { flex-direction: column; gap: 1em;}
       .form-row { flex-direction: column; gap: 0.7em;}
       main { padding: 0.7em 0.2em 1em 0.2em;}
-      .profile-photo img { width: 90px; height: 90px; }
+      .profile-photo img { width: 80px; height: 80px; }
     }
   </style>
 </head>
 <body>
-  <div class="zodiac-bg">
-    <div class="zodiac-wheel-container">
-      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img" onerror="this.onerror=null;this.src='astro-wheel.png';" />
-    </div>
+  <div class="zodiac-bg"></div>
+  <div class="zodiac-wheel-container">
+    <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img" />
   </div>
   <header>
     <nav>
