@@ -5,7 +5,6 @@
   <title>Buy Blue Sapphire - Customize & Purchase</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
     body { background: #101b2d; color: #eaf6ff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
@@ -72,13 +71,21 @@
       text-align: center;
       margin-top: 1em;
     }
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.6em;
+    }
     .profile-photo img {
-      width: 90px;
-      height: 90px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid #5ee7ff;
-      margin-bottom: 0.6em;
       box-shadow: 0 0 18px #5ee7ff33;
+      object-fit: cover;
+      background: #223c5a;
+      display: block;
     }
     h1 {
       color: #5ee7ff;
@@ -166,6 +173,19 @@
       color: #16243a;
       text-decoration: none;
     }
+    .contact-details {
+      margin-top: 2.5em;
+      background: #1a2d48;
+      border-radius: 10px;
+      padding: 1.2em 1em;
+      color: #b3d2ff;
+      font-size: 1.08em;
+      text-align: center;
+      box-shadow: 0 0 10px #5ee7ff22;
+    }
+    .contact-details strong {
+      color: #5ee7ff;
+    }
     @media (max-width: 800px) {
       main { padding: 1.2em 0.5em 2em 0.5em; }
       .zodiac-wheel-img { width: 99vw; }
@@ -174,6 +194,7 @@
       nav { flex-direction: column; gap: 1em;}
       .form-row { flex-direction: column; gap: 0.7em;}
       main { padding: 0.7em 0.2em 1em 0.2em;}
+      .profile-photo img { width: 90px; height: 90px; }
     }
   </style>
 </head>
@@ -242,6 +263,7 @@
         <div class="form-group">
           <label for="material">Material</label>
           <select id="material" name="material" required>
+            <option value="None" data-extra="0">None (+₹0)</option>
             <option value="22K Gold" data-extra="3500">22K Gold (+₹3,500)</option>
             <option value="18K Gold" data-extra="2200">18K Gold (+₹2,200)</option>
             <option value="Silver" data-extra="500">Silver (+₹500)</option>
@@ -254,7 +276,7 @@
         <div>Base Price: <span id="basePrice">₹2,500</span></div>
         <div>Price per Carat: <span id="perCaratPrice">₹7,000</span></div>
         <div>Jewelry Extra: <span id="jewelryExtra">₹0</span></div>
-        <div>Material Extra: <span id="materialExtra">₹3,500</span></div>
+        <div>Material Extra: <span id="materialExtra">₹0</span></div>
         <div style="margin-top:0.7em; font-size:1.19em;">
           <strong>Total Price: <span id="totalPrice">₹40,000</span></strong>
         </div>
@@ -265,6 +287,12 @@
         Purchase Now
       </a>
     </form>
+    <div class="contact-details">
+      <strong>Contact us for any queries or purchases:</strong><br>
+      📞 <a href="tel:+911234567890" style="color:#5ee7ff;">+91 12345 67890</a><br>
+      📧 <a href="mailto:info@the-consultant.co.in" style="color:#5ee7ff;">info@the-consultant.co.in</a><br>
+      <span>We are happy to assist you with your order!</span>
+    </div>
   </main>
   <footer>
     <div class="quick-links" style="text-align:center; margin-bottom:0.7em;">
@@ -288,6 +316,7 @@
       "Bracelet": 4000
     };
     const materialPrices = {
+      "None": 0,
       "22K Gold": 3500,
       "18K Gold": 2200,
       "Silver": 500,
