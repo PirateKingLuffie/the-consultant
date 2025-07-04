@@ -11,37 +11,42 @@
     body {
       background: #101c2c;
       color: #fff;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
     .zodiac-bg {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: 0;
-      overflow: hidden;
-      background: transparent;
       pointer-events: none;
       user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      /* Blended, animated background */
+      background:
+        url('astro-wheel.webp') center center/contain no-repeat,
+        radial-gradient(ellipse at center, #00e0ff44 0%, #101c2c 100%);
+      background-blend-mode: lighten;
+      animation: rotateBg 40s linear infinite;
     }
+    @keyframes rotateBg {
+      from { background-position: center center; background-size: contain; }
+      to { background-position: center center; background-size: contain; }
+    }
+    /* For extra smoothness, also animate a hidden spinning image for browsers that don't blend backgrounds well */
     .zodiac-wheel-img {
-      width: 700px !important;
-      max-width: 90vw !important;
-      opacity: 0.22 !important;
-      filter: drop-shadow(0 0 60px #00e0ff88) blur(0.5px) !important;
-      animation: rotateWheel 40s linear infinite !important;
-      display: block !important;
-      z-index: 1 !important;
-      transform-origin: 50% 50% !important;
-      position: relative !important;
-      pointer-events: none !important;
-      user-select: none !important;
+      display: none;
     }
-    @keyframes rotateWheel {
-      from { transform: rotate(0deg);}
-      to   { transform: rotate(360deg);}
+    @media (max-width: 900px) {
+      .zodiac-bg {
+        background-size: 120vw auto;
+      }
     }
-    /* -- the rest of your original CSS -- */
+    @media (max-width: 600px) {
+      .zodiac-bg {
+        background-size: 180vw auto;
+      }
+    }
+    /* --- Rest of your original CSS --- */
     @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
@@ -169,13 +174,23 @@
       margin: 2.5rem 0 1.5rem 0;
     }
     .purusha-img {
+      display: none !important;
+    }
+    .purusha-placeholder {
       width: 230px;
       max-width: 90vw;
       margin: 0 auto 1rem auto;
       border-radius: 7px;
       box-shadow: 0 3px 18px rgba(0,0,0,0.09);
+      background: #222a38;
+      color: #ffe09b;
+      font-size: 1.2em;
+      padding: 2.5em 1em;
+      font-style: italic;
+      letter-spacing: 1px;
+      text-align: center;
+      opacity: 0.85;
       animation: floatAnim 4.5s alternate infinite;
-      background: #fff2;
     }
     .purusha-mandala div {
       color: #ffe09b;
@@ -198,7 +213,7 @@
     @media (max-width: 900px) {
       .vaastu-grid { grid-template-columns: 1fr; }
       .vaastu-section { padding: 1.3rem 0.3rem; }
-      .purusha-img { width: 90vw; }
+      .purusha-placeholder { width: 90vw; }
     }
     @media (max-width: 600px) {
       .vaastu-section { margin: 1.1rem 0.1rem 1rem 0.1rem; }
@@ -214,10 +229,7 @@
   </style>
 </head>
 <body>
-  <!-- Zodiac Wheel Animated Background -->
-  <div class="zodiac-bg">
-    <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
-  </div>
+  <div class="zodiac-bg"></div>
 
   <!-- Contact for Consultation (top for phones) -->
   <div id="consult-top">
@@ -335,9 +347,11 @@
         </table>
       </div>
 
-      <!-- Vastu Purusha Mandala Animation -->
+      <!-- Vastu Purusha Mandala Placeholder -->
       <div class="purusha-mandala">
-        <img src="vastu-purusha-mandala.png" alt="Vastu Purusha Mandala" class="purusha-img vaastu-anim">
+        <div class="purusha-placeholder">
+          <b>Vastu Purusha Mandala</b>
+        </div>
         <div style="max-width:600px; margin:0 auto;">
           <b>Vastu Purusha Mandala</b> is the cosmic blueprint for architecture, representing the energy grid on which every structure is planned. Each section of the Mandala corresponds to a part of the house and a specific energy, ensuring optimal placement of rooms for harmony and prosperity.
         </div>
