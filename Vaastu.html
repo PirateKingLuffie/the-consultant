@@ -8,6 +8,41 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    /* Zodiac Wheel Animated Background */
+    .zodiac-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: radial-gradient(ellipse at center, #00e0ff55 0%, #101c2c 100%);
+    }
+    .zodiac-wheel-container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw; max-width: 900px;
+      height: 80vw; max-height: 900px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .zodiac-wheel-img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      opacity: 0.22;
+      animation: zodiac-spin 40s linear infinite;
+      will-change: transform;
+    }
+    @keyframes zodiac-spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    /* Ensure main content is above the background */
+    body, .vaastu-section, header, main, footer {
+      position: relative;
+      z-index: 1;
+      background: none !important;
+    }
     html, body {
       height: 100%;
       margin: 0;
@@ -15,26 +50,8 @@
       min-height: 100vh;
       width: 100vw;
       overflow-x: hidden;
-    }
-    body {
-      /* Animated, blended background for the zodiac wheel */
-      background:
-        url('astro-wheel.webp') center center/contain no-repeat,
-        radial-gradient(ellipse at center, #00e0ff55 0%, #101c2c 100%);
-      background-blend-mode: lighten;
-      animation: bgspin 40s linear infinite;
-      background-color: #101c2c;
       color: #fff;
     }
-    @keyframes bgspin {
-      0% { background-position: center center; background-size: contain, cover; }
-      100% { background-position: center center; background-size: contain, cover; }
-    }
-    /* Remove the zodiac-bg and wheel image containers from the DOM */
-    .zodiac-bg, .zodiac-wheel-img, .purusha-img, .purusha-placeholder {
-      display: none !important;
-    }
-    /* Rest of your original CSS (unchanged) */
     @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
@@ -190,7 +207,12 @@
   </style>
 </head>
 <body>
-  <!-- No zodiac-bg, no wheel image, no purusha-mandala, no placeholder -->
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
+    </div>
+  </div>
 
   <!-- Contact for Consultation (top for phones) -->
   <div id="consult-top">
@@ -307,8 +329,6 @@
           </tr>
         </table>
       </div>
-
-      <!-- Vastu Purusha Mandala and placeholder REMOVED as requested -->
 
       <!-- Vaastu Tips and Animations -->
       <div class="vaastu-tips">
