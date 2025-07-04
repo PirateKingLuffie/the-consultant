@@ -26,13 +26,13 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
-      background: radial-gradient(ellipse at center, #0a1a2f 0%, #050a16 100%);
+      background: radial-gradient(ellipse at center, #0a1a2f 0%, #101c2c 100%);
     }
     .zodiac-bg::after {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(10, 20, 40, 0.8);
+      background: rgba(10, 20, 40, 0.65);
       z-index: 1;
       pointer-events: none;
     }
@@ -48,10 +48,10 @@
     .zodiac-wheel-img {
       width: 100%; height: 100%;
       object-fit: contain;
-      opacity: 0.15;
+      opacity: 0.17;
       animation: zodiac-spin 40s linear infinite;
       will-change: transform;
-      filter: brightness(0.9) blur(0.5px);
+      filter: brightness(0.95) blur(0.5px);
     }
     @keyframes zodiac-spin {
       0% { transform: rotate(0deg);}
@@ -61,7 +61,27 @@
       position: relative;
       z-index: 2;
     }
-    /* Navigation */
+    /* Profile photo centered at top */
+    .profile-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #2eefff;
+      box-shadow: 0 4px 24px #0008;
+      margin: 2.2rem auto 1.1rem auto;
+      background: #12203a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Navigation bar (unchanged) */
     header, nav {
       background: #12203a;
       color: #fff;
@@ -120,7 +140,7 @@
     }
     /* Vaastu Section */
     .vaastu-section {
-      background: rgba(10,18,32,0.97);
+      background: rgba(18, 32, 58, 0.92);
       border-radius: 22px;
       box-shadow: 0 8px 48px #000a;
       padding: 2.5rem 1.5rem 2.5rem 1.5rem;
@@ -129,7 +149,7 @@
       position: relative;
       z-index: 2;
       animation: fadeIn 1.2s;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(1.5px);
     }
     .vaastu-title {
       font-size: 2.2em;
@@ -155,15 +175,15 @@
       margin: 2.5rem 0;
     }
     .vaastu-element {
-      background: rgba(22,36,58,0.93);
+      background: rgba(28, 45, 70, 0.88);
       border-radius: 14px;
       padding: 1.2rem 1rem;
-      box-shadow: 0 2px 16px #000a;
+      box-shadow: 0 2px 16px #0007;
       transition: transform 0.2s;
       position: relative;
       color: #ffe09b;
       font-size: 1.07em;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(1px);
     }
     .vaastu-element:hover {
       transform: scale(1.03) translateY(-4px);
@@ -184,11 +204,11 @@
     .vaastu-directions {
       margin: 2.5rem 0 1.5rem 0;
       padding: 1.3rem 1rem;
-      background: rgba(22,36,58,0.93);
+      background: rgba(28, 45, 70, 0.88);
       border-radius: 12px;
-      box-shadow: 0 2px 16px #000a;
+      box-shadow: 0 2px 16px #0007;
       color: #ffe09b;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(1px);
     }
     .vaastu-directions h3 {
       color: #2eefff;
@@ -213,11 +233,11 @@
     .vaastu-tips {
       margin: 2.5rem 0 1.5rem 0;
       padding: 1.3rem 1rem;
-      background: rgba(22,36,58,0.93);
+      background: rgba(28, 45, 70, 0.88);
       border-radius: 12px;
-      box-shadow: 0 2px 16px #000a;
+      box-shadow: 0 2px 16px #0007;
       color: #ffe09b;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(1px);
     }
     .vaastu-tips ul {
       margin: 0; padding: 0 0 0 1.2em;
@@ -272,6 +292,7 @@
       .vaastu-section { margin: 1.1rem 0.1rem 1rem 0.1rem; }
       .vaastu-title { font-size: 1.45em; }
       .consult-btn { font-size: 1em; padding: 12px 18px; }
+      .profile-photo { width: 80px; height: 80px; }
     }
     #consult-top { display: none; }
     #consult-below-nav { display: block; text-align: center; }
@@ -291,6 +312,11 @@
     <div class="zodiac-wheel-container">
       <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
     </div>
+  </div>
+
+  <!-- Profile photo centered at top -->
+  <div class="profile-photo">
+    <img src="p.jpg" alt="GuptaJi">
   </div>
 
   <!-- Contact for Consultation (top for phones) -->
