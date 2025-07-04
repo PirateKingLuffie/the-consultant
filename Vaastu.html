@@ -33,11 +33,13 @@
       max-width: 90vw;
       opacity: 0.22;
       filter: drop-shadow(0 0 60px #00e0ff88) blur(0.5px);
+      /* Ensure transform-origin is center for proper spinning */
+      transform-origin: 50% 50%;
       animation: rotateWheel 40s linear infinite;
     }
     @keyframes rotateWheel {
-      0% { transform: translate(-50%, -50%) rotate(0deg);}
-      100% { transform: translate(-50%, -50%) rotate(360deg);}
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
     @keyframes fadeIn {
       from { opacity: 0;}
@@ -60,7 +62,6 @@
     .nav-links a:hover, .nav-links a.active {
       color: #2eefff;
     }
-    /* Contact button styling */
     .vaastu-consult-btn {
       display: inline-block;
       margin: 2em auto 1.5em auto;
@@ -79,7 +80,6 @@
       background: #a07a2c;
       color: #fff;
     }
-    /* Main content panel */
     .vaastu-section {
       background: rgba(18,32,58,0.94);
       border-radius: 18px;
@@ -194,7 +194,6 @@
       margin-bottom: 0.7em;
       line-height: 1.7;
     }
-    /* Responsive for phone alignment */
     @media (max-width: 900px) {
       .vaastu-grid { grid-template-columns: 1fr; }
       .vaastu-section { padding: 1.3rem 0.3rem; }
@@ -205,7 +204,6 @@
       .vaastu-title { font-size: 1.45em; }
       .vaastu-consult-btn { font-size: 1em; padding: 12px 18px; }
     }
-    /* Show consult button at top for phones, below nav for desktop */
     #consult-top { display: none; }
     #consult-below-nav { display: block; text-align: center; }
     @media (max-width: 900px) {
