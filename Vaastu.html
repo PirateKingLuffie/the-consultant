@@ -8,45 +8,33 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    body {
-      background: #101c2c;
-      color: #fff;
-      min-height: 100vh;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
     }
-    .zodiac-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      /* Blended, animated background */
+    body {
+      /* Animated, blended background for the zodiac wheel */
       background:
         url('astro-wheel.webp') center center/contain no-repeat,
-        radial-gradient(ellipse at center, #00e0ff44 0%, #101c2c 100%);
+        radial-gradient(ellipse at center, #00e0ff55 0%, #101c2c 100%);
       background-blend-mode: lighten;
-      animation: rotateBg 40s linear infinite;
+      animation: bgspin 40s linear infinite;
+      background-color: #101c2c;
+      color: #fff;
     }
-    @keyframes rotateBg {
-      from { background-position: center center; background-size: contain; }
-      to { background-position: center center; background-size: contain; }
+    @keyframes bgspin {
+      0% { background-position: center center; background-size: contain, cover; }
+      100% { background-position: center center; background-size: contain, cover; }
     }
-    /* For extra smoothness, also animate a hidden spinning image for browsers that don't blend backgrounds well */
-    .zodiac-wheel-img {
-      display: none;
+    /* Remove the zodiac-bg and wheel image containers from the DOM */
+    .zodiac-bg, .zodiac-wheel-img, .purusha-img, .purusha-placeholder {
+      display: none !important;
     }
-    @media (max-width: 900px) {
-      .zodiac-bg {
-        background-size: 120vw auto;
-      }
-    }
-    @media (max-width: 600px) {
-      .zodiac-bg {
-        background-size: 180vw auto;
-      }
-    }
-    /* --- Rest of your original CSS --- */
+    /* Rest of your original CSS (unchanged) */
     @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
@@ -169,32 +157,6 @@
       background: #1b2c47;
       color: #2eefff;
     }
-    .purusha-mandala {
-      text-align: center;
-      margin: 2.5rem 0 1.5rem 0;
-    }
-    .purusha-img {
-      display: none !important;
-    }
-    .purusha-placeholder {
-      width: 230px;
-      max-width: 90vw;
-      margin: 0 auto 1rem auto;
-      border-radius: 7px;
-      box-shadow: 0 3px 18px rgba(0,0,0,0.09);
-      background: #222a38;
-      color: #ffe09b;
-      font-size: 1.2em;
-      padding: 2.5em 1em;
-      font-style: italic;
-      letter-spacing: 1px;
-      text-align: center;
-      opacity: 0.85;
-      animation: floatAnim 4.5s alternate infinite;
-    }
-    .purusha-mandala div {
-      color: #ffe09b;
-    }
     .vaastu-tips {
       margin: 2.5rem 0 1.5rem 0;
       padding: 1.3rem 1rem;
@@ -213,7 +175,6 @@
     @media (max-width: 900px) {
       .vaastu-grid { grid-template-columns: 1fr; }
       .vaastu-section { padding: 1.3rem 0.3rem; }
-      .purusha-placeholder { width: 90vw; }
     }
     @media (max-width: 600px) {
       .vaastu-section { margin: 1.1rem 0.1rem 1rem 0.1rem; }
@@ -229,7 +190,7 @@
   </style>
 </head>
 <body>
-  <div class="zodiac-bg"></div>
+  <!-- No zodiac-bg, no wheel image, no purusha-mandala, no placeholder -->
 
   <!-- Contact for Consultation (top for phones) -->
   <div id="consult-top">
@@ -347,15 +308,7 @@
         </table>
       </div>
 
-      <!-- Vastu Purusha Mandala Placeholder -->
-      <div class="purusha-mandala">
-        <div class="purusha-placeholder">
-          <b>Vastu Purusha Mandala</b>
-        </div>
-        <div style="max-width:600px; margin:0 auto;">
-          <b>Vastu Purusha Mandala</b> is the cosmic blueprint for architecture, representing the energy grid on which every structure is planned. Each section of the Mandala corresponds to a part of the house and a specific energy, ensuring optimal placement of rooms for harmony and prosperity.
-        </div>
-      </div>
+      <!-- Vastu Purusha Mandala and placeholder REMOVED as requested -->
 
       <!-- Vaastu Tips and Animations -->
       <div class="vaastu-tips">
