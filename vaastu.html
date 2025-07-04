@@ -1,48 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Consultant GuptaJi!</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vaastu Shastra - GuptaJi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: #101c2c;
+      color: #fff;
+    }
+    .zodiac-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      background: transparent;
+    }
+    .zodiac-wheel-container {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw; height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      pointer-events: none;
+      user-select: none;
+    }
+    .zodiac-wheel-img {
+      width: 700px;
+      max-width: 90vw;
+      opacity: 0.22;
+      filter: drop-shadow(0 0 60px #00e0ff88) blur(0.5px);
+      animation: rotateWheel 40s linear infinite;
+    }
+    @keyframes rotateWheel {
+      0% { transform: translate(-50%, -50%) rotate(0deg);}
+      100% { transform: translate(-50%, -50%) rotate(360deg);}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    header, nav {
+      background: #12203a;
+      color: #fff;
+    }
+    .logo span {
+      color: #2eefff;
+      font-weight: bold;
+      font-size: 1.25em;
+      letter-spacing: 1px;
+    }
+    .nav-links a {
+      color: #fff;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #2eefff;
+    }
+    /* Contact button styling */
+    .vaastu-consult-btn {
+      display: inline-block;
+      margin: 2em auto 1.5em auto;
+      background: #b88c3b;
+      color: #fff;
+      font-size: 1.15em;
+      padding: 14px 38px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(180,140,60,0.13);
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .vaastu-consult-btn:hover {
+      background: #a07a2c;
+      color: #fff;
+    }
+    /* Main content panel */
+    .vaastu-section {
+      background: rgba(18,32,58,0.94);
+      border-radius: 18px;
+      box-shadow: 0 6px 40px rgba(0,0,0,0.22);
+      padding: 2.5rem 1.5rem;
+      margin: 2.5rem auto 2rem auto;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1.2s;
+    }
+    .vaastu-title {
+      font-size: 2.2em;
+      color: #ffe09b;
+      text-align: center;
+      margin-bottom: 0.7em;
+      letter-spacing: 1px;
+      font-family: 'Georgia', serif;
+    }
+    .vaastu-anim {
+      animation: floatAnim 3.5s ease-in-out infinite alternate;
+    }
+    @keyframes floatAnim {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-10px);}
+    }
+    .vaastu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .vaastu-element {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      transition: transform 0.2s;
+      position: relative;
+      color: #ffe09b;
+    }
+    .vaastu-element:hover {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.13);
+    }
+    .vaastu-element .icon {
+      font-size: 2.3em;
+      color: #2eefff;
+      margin-bottom: 0.5em;
+      display: block;
+      animation: iconPulse 2.5s infinite alternate;
+    }
+    @keyframes iconPulse {
+      0% { filter: brightness(1);}
+      100% { filter: brightness(1.23);}
+    }
+    .vaastu-directions {
+      margin: 2.5rem 0 1.5rem 0;
+      padding: 1.3rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      color: #ffe09b;
+    }
+    .vaastu-directions h3 {
+      color: #2eefff;
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+    .direction-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .direction-table th, .direction-table td {
+      padding: 0.7em 0.5em;
+      text-align: left;
+      border-bottom: 1px solid #2eefff33;
+    }
+    .direction-table th {
+      background: #1b2c47;
+      color: #2eefff;
+    }
+    .purusha-mandala {
+      text-align: center;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    .purusha-img {
+      width: 230px;
+      max-width: 90vw;
+      margin: 0 auto 1rem auto;
+      border-radius: 7px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.09);
+      animation: floatAnim 4.5s alternate infinite;
+      background: #fff2;
+    }
+    .purusha-mandala div {
+      color: #ffe09b;
+    }
+    .vaastu-tips {
+      margin: 2.5rem 0 1.5rem 0;
+      padding: 1.3rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      color: #ffe09b;
+    }
+    .vaastu-tips ul {
+      margin: 0; padding: 0 0 0 1.2em;
+    }
+    .vaastu-tips li {
+      margin-bottom: 0.7em;
+      line-height: 1.7;
+    }
+    /* Responsive for phone alignment */
+    @media (max-width: 900px) {
+      .vaastu-grid { grid-template-columns: 1fr; }
+      .vaastu-section { padding: 1.3rem 0.3rem; }
+      .purusha-img { width: 90vw; }
+    }
+    @media (max-width: 600px) {
+      .vaastu-section { margin: 1.1rem 0.1rem 1rem 0.1rem; }
+      .vaastu-title { font-size: 1.45em; }
+      .vaastu-consult-btn { font-size: 1em; padding: 12px 18px; }
+    }
+    /* Show consult button at top for phones, below nav for desktop */
+    #consult-top { display: none; }
+    #consult-below-nav { display: block; text-align: center; }
+    @media (max-width: 900px) {
+      #consult-top { display: block; text-align: center; margin: 1.2em 0 0.8em 0; }
+      #consult-below-nav { display: none; }
+    }
+  </style>
 </head>
 <body>
-
-  <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
-      <h1>The Consultant GuptaJi!</h1>
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.png" alt="Zodiac Wheel" class="zodiac-wheel-img">
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Contact for Consultation (top for phones) -->
+  <div id="consult-top">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" class="vaastu-consult-btn">
+      Contact for Consultation
+    </a>
+  </div>
+
+  <!-- Navigation and Header (same as other pages) -->
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="#">Kundli</a></li>
+        <li><a href="#">Matrimonial</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
-    </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
-    </div>
-  </section>
+  <!-- Contact for Consultation (below nav for desktop) -->
+  <div id="consult-below-nav">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" class="vaastu-consult-btn">
+      Contact for Consultation
+    </a>
+  </div>
+
+  <main>
+    <section class="vaastu-section">
+      <h1 class="vaastu-title vaastu-anim">Vaastu Shastra: Ancient Science of Harmony & Architecture</h1>
+      <p style="text-align:center; font-size:1.15em; margin-bottom:2.2em;">
+        Vaastu Shastra is the traditional Indian system of architecture and design, focusing on aligning your living and working spaces with the natural forces and elements of the universe. Its principles are believed to bring <b>peace, prosperity, and well-being</b> to the inhabitants by harnessing positive energies and minimizing negative influences.<br>
+        <span style="color:#2eefff;">Discover the secrets of Vaastu and how you can apply them to your home and life!</span>
+      </p>
+
+      <!-- Five Elements Animation -->
+      <div class="vaastu-grid">
+        <div class="vaastu-element vaastu-anim">
+          <span class="icon"><i class="fa-solid fa-mountain"></i></span>
+          <b>Earth (Bhumi)</b><br>
+          Symbolizes <b>stability</b> and <b>support</b>. The land on which a structure is built is crucial for its energy. Balanced earth element brings harmony, strength, and maturity.<br>
+          <span style="color:#2eefff;">Tip:</span> Choose a regular-shaped plot for best results.
+        </div>
+        <div class="vaastu-element vaastu-anim" style="animation-delay:0.2s;">
+          <span class="icon"><i class="fa-solid fa-water"></i></span>
+          <b>Water (Jal)</b><br>
+          Represents <b>purity</b>, <b>flow</b>, and <b>prosperity</b>. Placement of water sources (tanks, wells) is key. Water in the right direction brings clarity and new opportunities.<br>
+          <span style="color:#2eefff;">Tip:</span> Place water features in the North-East for abundance.
+        </div>
+        <div class="vaastu-element vaastu-anim" style="animation-delay:0.4s;">
+          <span class="icon"><i class="fa-solid fa-fire"></i></span>
+          <b>Fire (Agni)</b><br>
+          Symbolizes <b>energy</b>, <b>passion</b>, and <b>transformation</b>. The kitchen and electricals should be in the South-East for optimal energy.<br>
+          <span style="color:#2eefff;">Tip:</span> Avoid placing fire sources in the North-East.
+        </div>
+        <div class="vaastu-element vaastu-anim" style="animation-delay:0.6s;">
+          <span class="icon"><i class="fa-solid fa-wind"></i></span>
+          <b>Air (Vayu)</b><br>
+          Denotes <b>movement</b>, <b>freshness</b>, and <b>health</b>. Proper ventilation and window placement ensure vibrant energy.<br>
+          <span style="color:#2eefff;">Tip:</span> Ensure windows open to the North and East for fresh air.
+        </div>
+        <div class="vaastu-element vaastu-anim" style="animation-delay:0.8s;">
+          <span class="icon"><i class="fa-solid fa-cloud"></i></span>
+          <b>Space (Akash)</b><br>
+          Represents <b>expansion</b> and <b>openness</b>. Open spaces and clutter-free centers allow energy to flow.<br>
+          <span style="color:#2eefff;">Tip:</span> Keep the center of your home open and light.
+        </div>
+      </div>
+
+      <!-- Directions Table -->
+      <div class="vaastu-directions">
+        <h3 class="vaastu-anim">Vaastu Directions & Their Significance</h3>
+        <table class="direction-table">
+          <tr>
+            <th>Direction</th>
+            <th>Ideal Use</th>
+            <th>Element</th>
+          </tr>
+          <tr>
+            <td>North-East (Ishan)</td>
+            <td>Pooja/Prayer Room, Water Source</td>
+            <td>Water</td>
+          </tr>
+          <tr>
+            <td>South-East (Agneya)</td>
+            <td>Kitchen, Electricals</td>
+            <td>Fire</td>
+          </tr>
+          <tr>
+            <td>South-West (Nairutya)</td>
+            <td>Master Bedroom, Heavy Storage</td>
+            <td>Earth</td>
+          </tr>
+          <tr>
+            <td>North-West (Vayavya)</td>
+            <td>Guest Room, Storage</td>
+            <td>Air</td>
+          </tr>
+          <tr>
+            <td>Center (Brahmasthan)</td>
+            <td>Open Space, Living Room</td>
+            <td>Space</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Vastu Purusha Mandala Animation -->
+      <div class="purusha-mandala">
+        <img src="vastu-purusha-mandala.png" alt="Vastu Purusha Mandala" class="purusha-img vaastu-anim">
+        <div style="max-width:600px; margin:0 auto;">
+          <b>Vastu Purusha Mandala</b> is the cosmic blueprint for architecture, representing the energy grid on which every structure is planned. Each section of the Mandala corresponds to a part of the house and a specific energy, ensuring optimal placement of rooms for harmony and prosperity.
+        </div>
+      </div>
+
+      <!-- Vaastu Tips and Animations -->
+      <div class="vaastu-tips">
+        <h3 class="vaastu-anim" style="text-align:left;">Quick Vaastu Tips for a Positive Home</h3>
+        <ul>
+          <li><b>Entrance:</b> Main door should face East or North for positive energy.</li>
+          <li><b>Kitchen:</b> Place in the South-East; avoid North-East.</li>
+          <li><b>Bedroom:</b> Master bedroom in South-West; avoid North-East for bedrooms.</li>
+          <li><b>Living Room:</b> Should be in the North or East part of the house.</li>
+          <li><b>Bathrooms:</b> Place in West or North-West; avoid South-East and North-East.</li>
+          <li><b>Mirrors:</b> Avoid mirrors facing the bed or main door.</li>
+          <li><b>Colors:</b> Use light, earthy tones for walls; avoid too much black or red.</li>
+          <li><b>Plants:</b> Keep Tulsi or money plant in the North or East; avoid cactus indoors.</li>
+          <li><b>Declutter:</b> Keep the center of your home open and free of heavy objects.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2025 The Consultant GuptaJi!
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="Vaastu.html">Vaastu Shastra</a>
+      <a href="rashi.html">Rashi Ratna</a>
+      <a href="#">Kundli</a>
+      <a href="#">Matrimonial</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="contact-details">
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9876543210</p>
+      <p><i class="fa-solid fa-location-dot"></i> Varanasi, Uttar Pradesh, India</p>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   </script>
 </body>
 </html>
