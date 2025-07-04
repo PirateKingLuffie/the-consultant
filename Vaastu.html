@@ -29,10 +29,16 @@
       width: 360px; max-width: 80vw; opacity: 0.18;
       filter: blur(0.5px);
       animation: rotateWheel 40s linear infinite;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
     }
     @keyframes rotateWheel {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
+      0% { transform: translate(-50%, -50%) rotate(0deg);}
+      100% { transform: translate(-50%, -50%) rotate(360deg);}
     }
     @keyframes fadeIn {
       from { opacity: 0;}
@@ -187,7 +193,7 @@
   <!-- Zodiac Wheel Animated Background -->
   <div class="zodiac-bg">
     <div class="zodiac-wheel-container">
-      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
+      <img src="astro-wheel.png" alt="Zodiac Wheel" class="zodiac-wheel-img">
     </div>
   </div>
 
