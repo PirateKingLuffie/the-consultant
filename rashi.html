@@ -8,7 +8,17 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    /* Ensure the photo is perfectly centered and circular */
+    /* Center the logo container in nav */
+    nav .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 1.5em;
+      gap: 6px;
+    }
+    /* Centered circular profile photo */
     .profile-photo-centered {
       display: flex;
       justify-content: center;
@@ -25,7 +35,7 @@
       background: #f5f5f5;
       display: block;
     }
-    /* Make purchase button extra bold and visually prominent */
+    /* Always-bold, no-animation purchase button */
     .purchase-btn {
       display: inline-block;
       background: #007bff;
@@ -37,16 +47,127 @@
       font-weight: 900;
       letter-spacing: 1px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
       margin-bottom: 20px;
       border: 2px solid #0056b3;
+      /* Remove all transitions/animations */
+      transition: none !important;
     }
     .purchase-btn:hover,
     .purchase-btn:focus {
-      background: #0056b3;
+      background: #007bff;
       color: #fff;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.16);
-      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      transform: none;
+    }
+    /* Responsive nav hamburger (optional, for mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      background: none;
+      border: none;
+      margin-left: auto;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #333;
+      margin: 5px 0;
+      border-radius: 2px;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      nav {
+        position: relative;
+      }
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0 12px;
+      min-height: 60px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin-left: auto;
+      align-items: center;
+    }
+    .nav-links li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background: #f0f4ff;
+    }
+    /* Gems grid styling (optional, for visual clarity) */
+    .gems-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin: 32px 0;
+    }
+    .gems-category {
+      min-width: 220px;
+      flex: 1 1 220px;
+    }
+    .gems-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .gem-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: #f7f7fa;
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      transition: background 0.13s;
+      cursor: pointer;
+    }
+    .gem-card:hover {
+      background: #eaf2ff;
+    }
+    .gem-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
   </style>
 </head>
@@ -74,14 +195,14 @@
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="Vaastu.html">Vaastu Shastra</a></li>
         <li><a href="rashi.html">Rashi Ratna</a></li>
-        <li><a href="#">Kundli</a></li>
-        <li><a href="#">Matrimonial</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="kundli.html">Kundli</a></li>
+        <li><a href="matrimonial.html">Matrimonial</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Centered Circular Profile Photo (p.png) -->
+  <!-- Centered Circular Profile Photo (p.jpg) -->
   <div class="profile-photo-centered">
     <img src="p.jpg" alt="GuptaJi">
   </div>
@@ -255,9 +376,9 @@
       <a href="index.html">Home</a>
       <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
-      <a href="#">Kundli</a>
-      <a href="#">Matrimonial</a>
-      <a href="#">Contact</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="contact-details">
       <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
