@@ -8,54 +8,49 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    /* Center the profile photo and button in a column */
+    /* Center profile photo container */
     .profile-photo-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      margin: 32px 0 0 0;
+      margin: 32px 0 16px 0;
     }
+    /* Profile photo styling: sharp, circular, no border */
     .profile-photo-section img {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.16);
-      border: 3px solid #ffe66d;
-      background: #162447;
       display: block;
-      margin-bottom: 18px;
-      /* Make image sharp on all browsers */
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: -o-crisp-edges;
-      image-rendering: pixelated;
-      -ms-interpolation-mode: nearest-neighbor;
+      margin-bottom: 20px;
+      filter: none;
+      opacity: 1;
+      box-shadow: none;
+      border: none;
     }
+    /* Purchase button styling: bold, sharp, consistent with theme */
     .purchase-btn {
       display: inline-block;
-      background: #fbc02d;
-      color: #162447;
-      font-size: 1.08em;
-      padding: 13px 32px;
+      background-color: #fbc02d;
+      color: #222;
+      font-size: 1.2em;
+      font-weight: 900;
+      padding: 14px 40px;
       border-radius: 25px;
       text-decoration: none;
-      font-weight: 900;
       letter-spacing: 1px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      margin-bottom: 20px;
-      border: none;
-      transition: background 0.18s, color 0.18s;
-      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, color 0.3s ease;
       text-transform: uppercase;
+      cursor: pointer;
+      user-select: none;
     }
     .purchase-btn:hover,
     .purchase-btn:focus {
-      background: #ffe66d;
-      color: #162447;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+      background-color: #e6b800;
+      color: #111;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+      outline: none;
     }
   </style>
 </head>
@@ -89,7 +84,7 @@
     </nav>
   </header>
 
-  <!-- Centered Profile Photo and Button -->
+  <!-- Centered Profile Photo and Purchase Button -->
   <div class="profile-photo-section">
     <img src="p.jpg" alt="GuptaJi" />
     <a
