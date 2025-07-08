@@ -71,7 +71,7 @@
 
     body > *:not(.zodiac-bg) {
       position: relative;
-      z-index: 10; /* Increased to ensure nav and content are above background */
+      z-index: 10;
     }
 
     /* Navigation bar at the very top */
@@ -79,7 +79,7 @@
       background: #12203a;
       color: #fff;
       position: relative;
-      z-index: 20; /* Higher z-index to stay on top */
+      z-index: 20;
     }
     .logo span {
       color: #2eefff;
@@ -106,6 +106,7 @@
       position: static;
       box-shadow: none;
       z-index: 20;
+      transition: none;
     }
     .nav-links a {
       color: #fff;
@@ -161,21 +162,21 @@
       .nav-links {
         flex-direction: column;
         background: #12203a;
-        position: fixed; /* Changed from absolute to fixed to stay on top */
+        position: fixed;
         left: 0;
         right: 0;
         top: 60px;
         display: none;
         width: 100vw;
         box-shadow: 0 8px 32px #0003;
-        z-index: 1000; /* Very high to stay above all */
+        z-index: 1000;
         padding-bottom: 1.5em;
         max-height: calc(100vh - 60px);
         overflow-y: auto;
+        transition: none;
       }
       .nav-links.open {
         display: flex;
-        /* Removed fadeIn animation to avoid flicker */
       }
       .hamburger {
         display: flex;
@@ -583,38 +584,25 @@
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', function () {
+    hamburger.addEventListener('click', function() {
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-      // Prevent body scroll when nav is open on mobile
-      if (navLinks.classList.contains('open')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
     });
-
-    // Close nav on link click (mobile)
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
           navLinks.classList.remove('open');
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
         }
       });
     });
-
-    // Close nav if window resized to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) {
         navLinks.classList.remove('open');
         hamburger.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
       }
     });
   </script>
