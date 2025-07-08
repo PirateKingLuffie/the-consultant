@@ -1,48 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Consultant GuptaJi!</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kundli - The Consultant GuptaJi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
+    </div>
+  </div>
 
   <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
-      <h1>The Consultant GuptaJi!</h1>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="kundli.html">Kundli</a></li>
+        <li><a href="matrimonial.html">Matrimonial</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <div class="profile-photo">
+        <img src="p.jpg" alt="GuptaJi">
+      </div>
+      <h1>Kundli Analysis - <span class="highlight">GuptaJi</span></h1>
+      <p class="intro">
+        Unlock the mysteries of your destiny with a comprehensive Kundli (Janam Patrika) reading.<br>
+        At The Consultant GuptaJi, we offer authentic and personalized Kundli analysis based on the ancient wisdom of Vedic astrology.<br><br>
+        Discover your life's blueprint, strengths, challenges, and the path to fulfillment!
+      </p>
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
+  </header>
+
+  <main>
+    <section class="info-section">
+      <h2>What is a Kundli?</h2>
+      <p>
+        A <strong>Kundli</strong> (also known as Janam Kundli, Janampatri, or Birth Chart) is a detailed astrological chart created based on your exact date, time, and place of birth. It is a celestial map that captures the positions of planets, stars, and other astrological elements at the moment you were born.
+      </p>
+      <div class="astro-columns">
+        <div class="astro-box">
+          <h3>Key Elements of a Kundli</h3>
+          <ul>
+            <li><strong>Lagna (Ascendant):</strong> The rising sign at the time of birth, indicating your personality and life path.</li>
+            <li><strong>12 Bhavas (Houses):</strong> Each house governs different aspects of life such as health, wealth, career, relationships, etc.</li>
+            <li><strong>Navagrahas (Planets):</strong> Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, Ketu – each with unique influences.</li>
+            <li><strong>Rashis (Zodiac Signs):</strong> The twelve signs from Aries to Pisces, each with distinct characteristics.</li>
+            <li><strong>Yogas & Doshas:</strong> Special planetary combinations that can bring fortune or challenges.</li>
+            <li><strong>Dasha & Transit:</strong> Planetary periods and movements that affect timing of events in life.</li>
+          </ul>
+        </div>
+        <div class="astro-box">
+          <h3>Why is Kundli Important?</h3>
+          <ul>
+            <li>Reveals your strengths, weaknesses, and unique potential.</li>
+            <li>Predicts important life events: marriage, career, health, finances, and more.</li>
+            <li>Helps in making informed decisions and planning for the future.</li>
+            <li>Identifies planetary afflictions and suggests remedies.</li>
+            <li>Essential for Kundli Milan (compatibility check) in marriage.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="kundli-types-section">
+      <h2>Types of Kundli</h2>
+      <div class="astro-columns">
+        <div class="astro-box">
+          <h3>North Indian Kundli</h3>
+          <p>
+            The chart is diamond-shaped and houses are fixed, while signs rotate. Popular in Northern India.
+          </p>
+        </div>
+        <div class="astro-box">
+          <h3>South Indian Kundli</h3>
+          <p>
+            The chart is square-shaped and signs are fixed, while houses rotate. Common in Southern India.
+          </p>
+        </div>
+        <div class="astro-box">
+          <h3>Western/Chalit Chart</h3>
+          <p>
+            Used for advanced analysis, especially for planetary degrees and house cusps.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detailed-kundli-section">
+      <h2>Components of a Detailed Kundli</h2>
+      <ul class="services-list">
+        <li><strong>Planetary Positions:</strong> Exact location of each planet at birth.</li>
+        <li><strong>House Lordships:</strong> Which planet rules each house in your chart.</li>
+        <li><strong>Yogas & Doshas:</strong> Important combinations like Raj Yoga, Gaj Kesari Yoga, Manglik Dosha, Kaal Sarp Dosha, etc.</li>
+        <li><strong>Dasha System:</strong> Major and minor planetary periods that influence life events.</li>
+        <li><strong>Ashtakavarga:</strong> A system to analyze the strength of planets and houses.</li>
+        <li><strong>Divisional Charts (Vargas):</strong> Deeper analysis using charts like Navamsa (D9), Dashamsa (D10), etc.</li>
+      </ul>
+    </section>
+
+    <section class="kundli-faq-section">
+      <h2>Frequently Asked Questions about Kundli</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>How is a Kundli prepared?</h4>
+          <p>
+            A Kundli is prepared using your birth date, exact time, and place. Astrologers use this data to calculate planetary positions and create your unique birth chart.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Can Kundli predict my future?</h4>
+          <p>
+            Kundli provides insights into life patterns, strengths, challenges, and favorable periods. While it cannot predict every event, it helps you understand likely trends and timing.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>What if my birth time is unknown?</h4>
+          <p>
+            Even if the exact time is not known, astrologers can use Prashna Kundli (Horary astrology) or rectify the time using major life events.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>What is Kundli Milan?</h4>
+          <p>
+            Kundli Milan is the process of matching two birth charts to assess compatibility for marriage, considering factors like Guna Milan, Manglik Dosha, and planetary positions.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Are remedies possible for Doshas?</h4>
+          <p>
+            Yes, Vedic astrology offers various remedies such as gemstones, mantras, pujas, and donations to reduce the negative effects of Doshas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <h2>Our Kundli Services</h2>
+      <ul class="services-list">
+        <li>Personalized Kundli Analysis & Birth Chart Reading</li>
+        <li>Online Kundli Preparation</li>
+        <li>Marriage Compatibility (Kundli Milan)</li>
+        <li>Dasha & Transit Predictions</li>
+        <li>Remedies for Doshas (Manglik, Kaal Sarp, etc.)</li>
+        <li>Gemstone & Mantra Recommendations</li>
+        <li>Divisional Chart Analysis (Navamsa, Dashamsa, etc.)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
       <a href="kundli.html">Kundli</a>
       <a href="matrimonial.html">Matrimonial</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
     </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
+    <div class="contact-details">
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
+      <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
     </div>
-  </section>
-
-  <footer>
-    © 2025 The Consultant GuptaJi!
+    <div class="social-links">
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   </script>
 </body>
 </html>
