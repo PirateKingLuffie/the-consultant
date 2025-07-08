@@ -8,45 +8,113 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    /* Centered circular profile photo, matching index.html */
     .profile-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #2eefff;
+      box-shadow: 0 4px 24px #0008;
+      margin: 2.2rem auto 1.1rem auto;
+      background: #12203a;
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin: 32px 0 16px 0;
+      justify-content: center;
     }
     .profile-photo img {
-      width: 180px;
-      height: 180px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      border: 4px solid #fff;
-      background: #f5f5f5;
       display: block;
     }
-    /* Purchase button: always bold, no animation */
-    .purchase-btn {
-      display: inline-block;
-      background: #007bff;
-      color: #fff;
-      font-size: 1.3em;
-      padding: 18px 44px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-      margin-bottom: 20px;
-      border: 2px solid #0056b3;
-      transition: none;
+    .gems-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2.5rem 0;
     }
-    .purchase-btn:hover,
-    .purchase-btn:focus {
-      background: #0056b3;
+    .gems-category {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+      min-width: 260px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      margin-bottom: 1.5rem;
+    }
+    .gems-category h3 {
+      color: #2eefff;
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+    .gems-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1em;
+      justify-content: center;
+    }
+    .gem-card {
+      background: rgba(18,32,58,0.92);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.6em 0.8em;
+      text-decoration: none;
+      color: #ffe09b;
+      font-weight: 500;
+      font-size: 0.98em;
+      width: 90px;
+      cursor: pointer;
+      transition: transform 0.17s, box-shadow 0.17s;
+    }
+    .gem-card:hover {
+      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+      background: #203354;
       color: #fff;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.16);
-      transform: none;
+    }
+    .gem-icon {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 0.45em;
+      border-radius: 7px;
+      background: #fff2;
+      box-shadow: 0 2px 8px #0002;
+    }
+    @media (max-width: 900px) {
+      .gems-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .gems-category {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .profile-photo {
+        width: 80px;
+        height: 80px;
+        margin: 1.2rem auto 1rem auto;
+      }
+      .gems-category {
+        padding: 0.7rem 0.4rem;
+      }
+      .gem-card {
+        width: 72px;
+        font-size: 0.9em;
+        padding: 0.4em 0.3em;
+      }
+      .gem-icon {
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
@@ -58,6 +126,7 @@
     </div>
   </div>
 
+  <!-- Navigation and Header -->
   <header>
     <nav>
       <div class="logo">
@@ -80,18 +149,14 @@
     </nav>
   </header>
 
-  <!-- Centered Circular Profile Photo -->
+  <!-- Profile photo below nav bar -->
   <div class="profile-photo">
-    <img src="p.jpg" alt="GuptaJi">
+    <img src="p.jpg" alt="GuptaJi" />
   </div>
 
-  <!-- Purchase Now Button Below Profile Photo -->
-  <div style="text-align:center; margin: 0 0 32px 0;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform" 
-       target="_blank" 
-       class="purchase-btn">
-      Purchase Now
-    </a>
+  <!-- Purchase Now Button below profile photo -->
+  <div style="text-align:center; margin: 20px 0 0 0;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform" target="_blank" style="display:inline-block; background:#007bff; color:#fff; font-size:1.2em; padding:16px 36px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:background 0.2s;">Purchase Now</a>
   </div>
 
   <!-- Main Content -->
@@ -248,6 +313,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="quick-links">
       <a href="index.html">Home</a>
