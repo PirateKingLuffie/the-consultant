@@ -6,14 +6,9 @@
   <title>Vaastu Shastra - GuptaJi</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    /* Reset and basic */
-    html,
-    body {
+    html, body {
       height: 100%;
       margin: 0;
       padding: 0;
@@ -25,7 +20,6 @@
       background: none;
     }
 
-    /* Zodiac wheel background exactly like index.html */
     .zodiac-bg {
       position: fixed;
       top: 0;
@@ -35,11 +29,7 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
-      background: radial-gradient(
-        ellipse at center,
-        #00e0ff55 0%,
-        #101c2c 100%
-      );
+      background: radial-gradient(ellipse at center, #00e0ff55 0%, #101c2c 100%);
     }
     .zodiac-bg::after {
       content: '';
@@ -75,21 +65,121 @@
       will-change: transform;
     }
     @keyframes zodiac-spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
 
-    /* Ensure main content is above background */
     body > *:not(.zodiac-bg) {
       position: relative;
       z-index: 2;
     }
 
-    /* Profile photo centered at top */
+    /* Navigation bar at the very top */
+    header, nav {
+      background: #12203a;
+      color: #fff;
+      position: relative;
+      z-index: 10;
+    }
+    .logo span {
+      color: #2eefff;
+      font-weight: bold;
+      font-size: 1.25em;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5em 2em 0.5em 1em;
+      min-height: 60px;
+      position: relative;
+    }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1.5em;
+      align-items: center;
+      background: none;
+      position: static;
+      box-shadow: none;
+    }
+    .nav-links a {
+      color: #fff;
+      transition: color 0.2s;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      padding: 0.5em 0.6em;
+      border-radius: 5px;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #2eefff;
+      background: #203354;
+    }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      z-index: 101;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      margin: 4px 0;
+      background: #2eefff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 0.5em 0.7em;
+      }
+      .nav-links {
+        flex-direction: column;
+        background: #12203a;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        display: none;
+        width: 100vw;
+        box-shadow: 0 8px 32px #0003;
+        z-index: 100;
+        padding-bottom: 1.5em;
+      }
+      .nav-links.open {
+        display: flex;
+        animation: fadeIn 0.3s;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Profile photo below nav bar, centered */
     .profile-photo {
       width: 110px;
       height: 110px;
@@ -108,63 +198,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    /* Navigation bar exactly like index.html */
-    header,
-    nav {
-      background: #12203a;
-      color: #fff;
-    }
-    .logo span {
-      color: #2eefff;
-      font-weight: bold;
-      font-size: 1.25em;
-      letter-spacing: 1px;
-    }
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 1.5em;
-      align-items: center;
-    }
-    .nav-links a {
-      color: #fff;
-      transition: color 0.2s;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1em;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #2eefff;
-    }
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-    @media (max-width: 900px) {
-      .nav-links {
-        flex-direction: column;
-        background: #12203a;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 60px;
-        display: none;
-      }
-      .nav-links.open {
-        display: flex;
-      }
-      .hamburger {
-        display: inline-block;
-      }
     }
 
     /* Consultation button */
@@ -213,12 +246,8 @@
       animation: floatAnim 3.5s ease-in-out infinite alternate;
     }
     @keyframes floatAnim {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-10px);
-      }
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-10px);}
     }
     .vaastu-grid {
       display: grid;
@@ -247,12 +276,8 @@
       animation: iconPulse 2.5s infinite alternate;
     }
     @keyframes iconPulse {
-      0% {
-        filter: brightness(1);
-      }
-      100% {
-        filter: brightness(1.23);
-      }
+      0% { filter: brightness(1);}
+      100% { filter: brightness(1.23);}
     }
     .vaastu-directions,
     .vaastu-tips {
@@ -330,12 +355,8 @@
       }
     }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0;}
+      to { opacity: 1;}
     }
   </style>
 </head>
@@ -347,11 +368,6 @@
     </div>
   </div>
 
-  <!-- Profile photo centered at top -->
-  <div class="profile-photo">
-    <img src="p.jpg" alt="GuptaJi" />
-  </div>
-
   <!-- Navigation and Header -->
   <header>
     <nav>
@@ -359,45 +375,41 @@
         <i class="fa-solid fa-star-of-david"></i>
         <span>The Consultant</span>
       </div>
-      <button
-        class="hamburger"
-        id="hamburger"
-        aria-label="Open navigation"
-        aria-expanded="false"
-      >
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
-        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
-        <li><a href="rashi.html">Rashi Ratna</a></li>
-        <li><a href="#">Kundli</a></li>
-        <li><a href="#">Matrimonial</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="Vaastu.html" class="nav-anim active">Vaastu Shastra</a></li>
+        <li><a href="rashi.html" class="nav-anim">Rashi Ratna</a></li>
+        <li><a href="kundli.html" class="nav-anim">Kundli</a></li>
+        <li><a href="matrimonial.html" class="nav-anim">Matrimonial</a></li>
+        <li><a href="contact.html" class="nav-anim">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Profile photo below nav bar -->
+  <div class="profile-photo">
+    <img src="p.jpg" alt="GuptaJi" />
+  </div>
+
   <!-- Contact for Consultation (top for phones) -->
   <div id="consult-top">
-    <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform"
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform"
       target="_blank"
       class="consult-btn"
-      >Contact for Consultation</a
-    >
+    >Contact for Consultation</a>
   </div>
 
   <!-- Contact for Consultation (below nav for desktop) -->
   <div id="consult-below-nav">
-    <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform"
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform"
       target="_blank"
       class="consult-btn"
-      >Contact for Consultation</a
-    >
+    >Contact for Consultation</a>
   </div>
 
   <main>
@@ -547,9 +559,9 @@
       <a href="index.html">Home</a>
       <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
-      <a href="#">Kundli</a>
-      <a href="#">Matrimonial</a>
-      <a href="#">Contact</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="contact-details">
       <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
@@ -557,45 +569,52 @@
       <p><i class="fa-solid fa-location-dot"></i> Varanasi, Uttar Pradesh, India</p>
     </div>
     <div class="social-links">
-      <a
-        href="https://instagram.com/"
-        target="_blank"
-        class="social-icon insta"
-        ><i class="fab fa-instagram"></i
-      ></a>
-      <a
-        href="https://facebook.com/"
-        target="_blank"
-        class="social-icon fb"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-      <a
-        href="https://youtube.com/"
-        target="_blank"
-        class="social-icon yt"
-        ><i class="fab fa-youtube"></i
-      ></a>
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="copyright">&copy; 2025 The Consultant - GuptaJi. All rights reserved.</div>
   </footer>
 
   <script>
-    // Hamburger menu toggle
+    // Hamburger menu toggle with overlay fix for mobile
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+
+    function closeNav() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     hamburger.addEventListener('click', function () {
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+      if (navLinks.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
+
     document.querySelectorAll('.nav-links a').forEach((link) => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
+          closeNav();
         }
       });
+    });
+
+    // Close nav when resizing window to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
     });
   </script>
 </body>
