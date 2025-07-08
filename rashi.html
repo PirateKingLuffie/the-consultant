@@ -3,11 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Consultant - GuptaJi</title>
+  <title>Rashi Ratna - GuptaJi</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
-  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Profile photo centered and styled as index.html */
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 32px 0 16px 0;
+    }
+    .profile-photo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      border: 4px solid #fff;
+      background: #f5f5f5;
+      display: block;
+    }
+    /* Purchase button: always bold, no animation */
+    .purchase-btn {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      font-size: 1.3em;
+      padding: 18px 44px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      margin-bottom: 20px;
+      border: 2px solid #0056b3;
+      /* Remove animation */
+      transition: none;
+    }
+    .purchase-btn:hover,
+    .purchase-btn:focus {
+      background: #0056b3;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+      /* Remove transform animation */
+      transform: none;
+    }
+  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
@@ -37,226 +80,10 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <div class="header-content">
-      <div class="profile-photo">
-        <img src="p.jpg" alt="GuptaJi">
-      </div>
-      <h1>The Consultant - <span class="highlight">GuptaJi</span></h1>
-      <p class="intro">
-        At The Consultant GuptaJi, we guide your life using the timeless wisdom of Vedic astrology.<br>
-        With years of experience in Kundli reading, gemstone recommendations, and Vaastu, we provide authentic and personalized insights for your journey.<br><br>
-        Whether you're looking for spiritual growth, compatibility insights, or direction in career or relationships— <span class="highlight">you're in the right place.</span>
-      </p>
-    </div>
   </header>
 
-  <main>
-    <section class="info-section">
-      <h2>WHY ASTROLOGY?</h2>
-      <h3>The Divine Science</h3>
-      <p>
-        Astrology reveals the will of the Gods. It is a predictive science with its own methods, claims and findings that have forever inspired and allowed people with insights into different aspects of their life.
-      </p>
-      <div class="astro-columns">
-        <div class="astro-box">
-          <h3>The Nine Planets (Navagrahas)</h3>
-          <ul>
-            <li><strong>Sun (Surya)</strong></li>
-            <li><strong>Moon (Chandra)</strong></li>
-            <li><strong>Mars (Mangala)</strong></li>
-            <li><strong>Mercury (Budha)</strong></li>
-            <li><strong>Jupiter (Brihaspati)</strong></li>
-            <li><strong>Venus (Shukra)</strong></li>
-            <li><strong>Saturn (Shani)</strong></li>
-            <li><strong>Rahu (North Node)</strong></li>
-            <li><strong>Ketu (South Node)</strong></li>
-          </ul>
-          <p>
-            Each planet has unique influences - some bring positivity while others like Rahu and Ketu can bring challenges depending on their position in your Kundli.
-          </p>
-        </div>
-        <div class="astro-box">
-          <h3>The 12 Houses</h3>
-          <ul>
-            <li><strong>1st House (Ascendant):</strong> Self, personality, physical traits</li>
-            <li><strong>5th House (Putra Bhava):</strong> Creativity, romance, pleasure</li>
-            <li><strong>7th House:</strong> Marriage and partnerships</li>
-            <li><strong>10th House:</strong> Career and social status</li>
-          </ul>
-          <p>
-            The placement of planets in these houses determines their influence on your life.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h4>Why is astrology so accurate?</h4>
-          <p>Astrology is based on scientific principles established thousands of years ago. Our astrologers study planetary movements and their influences on human life with precision.</p>
-        </div>
-        <div class="faq-item">
-          <h4>What can astrology predict?</h4>
-          <p>Astrology can provide insights about career, relationships, health, finances, and more by analyzing planetary positions and their interactions.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Can astrology predictions change?</h4>
-          <p>Predictions may change based on your actions (karma), incorrect birth data, or astrological remedies that alter planetary influences.</p>
-        </div>
-        <div class="faq-item">
-          <h4>How can I benefit from astrology?</h4>
-          <p>Astrology helps you understand life challenges, optimal timings for important decisions, and remedies to overcome obstacles.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-section">
-      <h2>Our Astrology Services</h2>
-      <ul class="services-list">
-        <li>Kundli Analysis &amp; Birth Chart Reading</li>
-        <li>Planetary Transit Predictions</li>
-        <li>Marriage Compatibility (Kundli Milan)</li>
-        <li>Gemstone Recommendations (Rashi Ratna)</li>
-        <li>Vaastu Consultations</li>
-        <li>Numerology Guidance</li>
-        <li>Remedies for Planetary Afflictions</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <div class="quick-links">
-      <a href="index.html">Home</a>
-      <a href="Vaastu.html">Vaastu Shastra</a>
-      <a href="rashi.html">Rashi Ratna</a>
-      <a href="kundli.html">Kundli</a>
-      <a href="matrimonial.html">Matrimonial</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="contact-details">
-      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
-      <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
-      <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
-    </div>
-    <div class="social-links">
-      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
-    </div>
-    <div class="copyright">
-      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', function() {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 900) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
-make the icon in the centre, and the purchase now button same as the one i gave u code for
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rashi Ratna - GuptaJi</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <style>
-    /* Ensure the photo is perfectly centered and circular */
-    .profile-photo-centered {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 32px 0 16px 0;
-    }
-    .profile-photo-centered img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      border: 4px solid #fff;
-      background: #f5f5f5;
-      display: block;
-    }
-    /* Make purchase button extra bold and visually prominent */
-    .purchase-btn {
-      display: inline-block;
-      background: #007bff;
-      color: #fff;
-      font-size: 1.3em;
-      padding: 18px 44px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-      margin-bottom: 20px;
-      border: 2px solid #0056b3;
-    }
-    .purchase-btn:hover,
-    .purchase-btn:focus {
-      background: #0056b3;
-      color: #fff;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.16);
-      transform: translateY(-2px) scale(1.03);
-    }
-  </style>
-</head>
-<body>
-  <!-- Zodiac Wheel Animated Background -->
-  <div class="zodiac-bg">
-    <div class="zodiac-wheel-container">
-      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
-    </div>
-  </div>
-
-  <!-- Navigation and Header -->
-  <header>
-    <nav>
-      <div class="logo">
-        <i class="fa-solid fa-star-of-david"></i>
-        <span>The Consultant</span>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-anim">Home</a></li>
-        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
-        <li><a href="rashi.html">Rashi Ratna</a></li>
-        <li><a href="#">Kundli</a></li>
-        <li><a href="#">Matrimonial</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Centered Circular Profile Photo (p.png) -->
-  <div class="profile-photo-centered">
+  <!-- Centered Circular Profile Photo (as index.html) -->
+  <div class="profile-photo">
     <img src="p.jpg" alt="GuptaJi">
   </div>
 
@@ -423,15 +250,14 @@ make the icon in the centre, and the purchase now button same as the one i gave 
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="quick-links">
       <a href="index.html">Home</a>
       <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
-      <a href="#">Kundli</a>
-      <a href="#">Matrimonial</a>
-      <a href="#">Contact</a>
+      <a href="kundli.html">Kundli</a>
+      <a href="matrimonial.html">Matrimonial</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="contact-details">
       <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
