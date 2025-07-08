@@ -8,31 +8,40 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    body {
+      background: #162447;
+      color: #fff;
+    }
+    .zodiac-bg,
+    .zodiac-bg .zodiac-wheel-container,
+    .zodiac-bg .zodiac-wheel-img {
+      /* Keep your existing background/animation styles here */
+    }
     .vaastu-section {
       max-width: 900px;
       margin: 36px auto 0 auto;
       padding: 0 12px;
     }
     .vaastu-box {
-      background: rgba(255, 236, 139, 0.92); /* soft vastu yellow, not white */
+      background: rgba(30, 41, 99, 0.98); /* dark blue box */
       border-radius: 16px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.17);
       margin-bottom: 36px;
       padding: 34px 28px 28px 28px;
       border-left: 7px solid #fbc02d;
       transition: box-shadow 0.2s;
     }
     .vaastu-box:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.24);
     }
     .vaastu-box h2, .vaastu-box h3 {
       margin-top: 0;
-      color: #b28704;
+      color: #ffe66d;
       margin-bottom: 16px;
       font-weight: 800;
     }
     .vaastu-box h3 {
-      color: #e09f1f;
+      color: #fbc02d;
       margin-bottom: 12px;
       margin-top: 12px;
       font-weight: 700;
@@ -55,28 +64,28 @@
       margin: 0 auto 48px auto;
     }
     .faq-box {
-      background: rgba(255, 236, 139, 0.92); /* same vastu yellow */
+      background: rgba(30, 41, 99, 0.98); /* dark blue box */
       border-radius: 16px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.17);
       margin-bottom: 28px;
       padding: 28px 24px;
       border-left: 7px solid #fbc02d;
     }
     .faq-box h2 {
-      color: #b28704;
+      color: #ffe66d;
       margin-bottom: 18px;
       font-weight: 800;
     }
     .faq-item {
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 1px solid #f5e5b8;
+      border-bottom: 1px solid #23325b;
     }
     .faq-item:last-child {
       border-bottom: none;
     }
     .faq-item h4 {
-      color: #e09f1f;
+      color: #fbc02d;
       margin-bottom: 7px;
       font-weight: 700;
     }
@@ -90,6 +99,32 @@
     }
     .profile-photo {
       margin-bottom: 18px;
+    }
+    .highlight {
+      color: #ffe66d;
+    }
+    a, a:visited {
+      color: #ffe66d;
+    }
+    a:hover, a:focus {
+      color: #fbc02d;
+    }
+    .quick-links a {
+      color: #ffe66d;
+    }
+    .quick-links a:hover {
+      color: #fbc02d;
+    }
+    footer {
+      background: #1b1b3a;
+      color: #fff;
+    }
+    .contact-details i,
+    .social-links i {
+      color: #ffe66d;
+    }
+    .social-links a:hover i {
+      color: #fbc02d;
     }
     @media (max-width: 600px) {
       .vaastu-box, .faq-box {
@@ -135,7 +170,7 @@
       </div>
       <h1>The Consultant - <span class="highlight">GuptaJi</span></h1>
       <div style="text-align: center; margin: 26px 0 24px 0;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" style="display: inline-block; background: #ffcc00; color: #333; font-weight: bold; padding: 13px 32px; border-radius: 25px; text-decoration: none; font-size: 1.12em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transition: background 0.2s;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" style="display: inline-block; background: #fbc02d; color: #222; font-weight: bold; padding: 13px 32px; border-radius: 25px; text-decoration: none; font-size: 1.12em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transition: background 0.2s;">
           <i class="fa-solid fa-phone"></i> Contact for Consultation
         </a>
       </div>
