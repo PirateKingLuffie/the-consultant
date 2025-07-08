@@ -81,9 +81,6 @@
     nav {
       background: #12203a;
       color: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 100vw;
       min-height: 60px;
       z-index: 2000;
@@ -91,6 +88,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.5em 2em 0.5em 1em;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
     .logo span {
       color: #2eefff;
@@ -98,33 +98,7 @@
       font-size: 1.25em;
       letter-spacing: 1px;
     }
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 1.5em;
-      align-items: center;
-      background: none;
-      position: static;
-      box-shadow: none;
-      z-index: 2001;
-      transition: none;
-    }
-    .nav-links a {
-      color: #fff;
-      transition: color 0.2s;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1em;
-      padding: 0.5em 0.6em;
-      border-radius: 5px;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #2eefff;
-      background: #203354;
-    }
+    /* Hamburger button always on top */
     .hamburger {
       display: none;
       background: none;
@@ -137,7 +111,7 @@
       align-items: center;
       height: 40px;
       width: 40px;
-      z-index: 2100;
+      z-index: 10001;
       position: fixed;
       top: 10px;
       right: 18px;
@@ -161,40 +135,71 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
+    /* Overlay menu styling */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(18,32,58,0.98);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 80px;
+      transition: opacity 0.2s;
+    }
+    .menu-overlay.open {
+      display: flex;
+    }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 1.5em;
+      align-items: center;
+      background: none;
+      position: static;
+      box-shadow: none;
+      z-index: 2001;
+      transition: none;
+    }
+    .nav-links a {
+      color: #fff;
+      transition: color 0.2s;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      padding: 0.5em 0.6em;
+      border-radius: 5px;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #2eefff;
+      background: #203354;
+    }
     @media (max-width: 900px) {
       nav {
         padding: 0.5em 0.7em;
       }
-      .nav-links {
-        flex-direction: column;
-        background: #12203a;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 60px;
-        display: none;
-        width: 100vw;
-        box-shadow: 0 8px 32px #0003;
-        z-index: 2001;
-        padding-bottom: 1.5em;
-        max-height: calc(100vh - 60px);
-        overflow-y: auto;
-        transition: none;
-      }
-      .nav-links.open {
-        display: flex;
-      }
       .hamburger {
         display: flex;
       }
+      .nav-links {
+        flex-direction: column;
+        gap: 2em;
+        font-size: 1.3em;
+      }
     }
-
     /* Push down content so it's not hidden behind the fixed nav */
     .push-down {
       height: 60px;
       width: 100%;
     }
-
     /* Profile photo below nav bar, centered */
     .profile-photo {
       width: 110px;
@@ -398,6 +403,9 @@
         <span></span>
         <span></span>
       </button>
+    </nav>
+    <!-- Overlay menu for mobile -->
+    <div class="menu-overlay" id="menuOverlay">
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="Vaastu.html" class="nav-anim active">Vaastu Shastra</a></li>
@@ -406,7 +414,7 @@
         <li><a href="matrimonial.html" class="nav-anim">Matrimonial</a></li>
         <li><a href="contact.html" class="nav-anim">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <!-- Push down content so it's not hidden behind fixed nav -->
@@ -598,28 +606,41 @@
   </footer>
 
   <script>
-    // Hamburger menu toggle - same as index.html
+    // Hamburger menu overlay logic
     const hamburger = document.getElementById('hamburger');
+    const menuOverlay = document.getElementById('menuOverlay');
     const navLinks = document.getElementById('navLinks');
+    function openMenu() {
+      menuOverlay.classList.add('open');
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+    function closeMenu() {
+      menuOverlay.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Restore scroll
+    }
     hamburger.addEventListener('click', function() {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+      if (menuOverlay.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Close menu when a link is clicked (mobile only)
+    navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
+          closeMenu();
         }
       });
     });
+    // Close menu on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        closeMenu();
       }
     });
   </script>
