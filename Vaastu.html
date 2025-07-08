@@ -74,26 +74,29 @@
       z-index: 10;
     }
 
-    /* Navigation bar at the very top */
-    header, nav {
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+    nav {
       background: #12203a;
       color: #fff;
-      position: relative;
-      z-index: 20;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      min-height: 60px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5em 2em 0.5em 1em;
     }
     .logo span {
       color: #2eefff;
       font-weight: bold;
       font-size: 1.25em;
       letter-spacing: 1px;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5em 2em 0.5em 1em;
-      min-height: 60px;
-      position: relative;
     }
     .nav-links {
       list-style: none;
@@ -105,7 +108,7 @@
       background: none;
       position: static;
       box-shadow: none;
-      z-index: 20;
+      z-index: 2001;
       transition: none;
     }
     .nav-links a {
@@ -122,7 +125,6 @@
       color: #2eefff;
       background: #203354;
     }
-    /* Hamburger menu button exactly like index.html */
     .hamburger {
       display: none;
       background: none;
@@ -135,7 +137,10 @@
       align-items: center;
       height: 40px;
       width: 40px;
-      z-index: 101;
+      z-index: 2100;
+      position: fixed;
+      top: 10px;
+      right: 18px;
     }
     .hamburger span {
       display: block;
@@ -170,7 +175,7 @@
         display: none;
         width: 100vw;
         box-shadow: 0 8px 32px #0003;
-        z-index: 1000;
+        z-index: 2001;
         padding-bottom: 1.5em;
         max-height: calc(100vh - 60px);
         overflow-y: auto;
@@ -182,6 +187,12 @@
       .hamburger {
         display: flex;
       }
+    }
+
+    /* Push down content so it's not hidden behind the fixed nav */
+    .push-down {
+      height: 60px;
+      width: 100%;
     }
 
     /* Profile photo below nav bar, centered */
@@ -197,6 +208,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 10;
     }
     .profile-photo img {
       width: 100%;
@@ -395,6 +408,9 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Push down content so it's not hidden behind fixed nav -->
+  <div class="push-down"></div>
 
   <!-- Profile photo below nav bar -->
   <div class="profile-photo">
