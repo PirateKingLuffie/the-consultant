@@ -8,6 +8,84 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Extra spacing for better readability */
+    main {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .info-section {
+      margin: 40px auto 40px auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 38px 28px;
+      line-height: 1.8;
+      font-size: 1.08em;
+      letter-spacing: 0.01em;
+    }
+    .info-section h2, .info-section h3 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-weight: bold;
+      color: #b28704;
+    }
+    .info-section h3 {
+      margin-top: 28px;
+      color: #e09f1f;
+    }
+    .info-section ul {
+      margin-top: 12px;
+      margin-bottom: 24px;
+      padding-left: 22px;
+    }
+    .info-section ul li {
+      margin-bottom: 10px;
+    }
+    .header-content {
+      margin-bottom: 32px;
+    }
+    .header-content .intro {
+      margin-top: 20px;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+    .profile-photo {
+      margin-bottom: 18px;
+    }
+    .faq-section {
+      margin: 48px auto 48px auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 38px 28px;
+      line-height: 1.8;
+      font-size: 1.08em;
+    }
+    .faq-section h2 {
+      color: #b28704;
+      margin-bottom: 24px;
+    }
+    .faq-list .faq-item {
+      margin-bottom: 26px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #f5e5b8;
+    }
+    .faq-list .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h4 {
+      margin-bottom: 8px;
+      color: #e09f1f;
+    }
+    @media (max-width: 600px) {
+      .info-section, .faq-section {
+        padding: 18px 8px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
@@ -42,8 +120,10 @@
         <img src="p.jpg" alt="GuptaJi">
       </div>
       <h1>The Consultant - <span class="highlight">GuptaJi</span></h1>
-      <div style="text-align: center; margin: 20px 0;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" style="display: inline-block; background: #ffcc00; color: #333; font-weight: bold; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-size: 1.1em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transition: background 0.2s;">Contact for Consultation</a>
+      <div style="text-align: center; margin: 26px 0 24px 0;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgEqxZQaDw2ea4_c78L3n8-c2EFH_QNxkWhZdq1YXxaKJOdw/viewform" target="_blank" style="display: inline-block; background: #ffcc00; color: #333; font-weight: bold; padding: 13px 32px; border-radius: 25px; text-decoration: none; font-size: 1.12em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transition: background 0.2s;">
+          <i class="fa-solid fa-phone"></i> Contact for Consultation
+        </a>
       </div>
       <p class="intro">
         At The Consultant GuptaJi, we guide your life using the timeless wisdom of Vedic astrology and Vaastu Shastra.<br>
@@ -58,7 +138,8 @@
       <h2>Vaastu Shastra: The Science of Architecture</h2>
       <h3>What is Vaastu Shastra?</h3>
       <p>
-        Vaastu Shastra is the ancient Indian science of architecture and spatial harmony. Rooted in the Vedas, it prescribes principles for designing buildings and environments that promote health, prosperity, and well-being. Vaastu integrates the five elements—Earth, Water, Fire, Air, and Space—to create balanced and positive living and working spaces.
+        Vaastu Shastra is the ancient Indian science of architecture and spatial harmony. Rooted in the Vedas, it prescribes principles for designing buildings and environments that promote health, prosperity, and well-being.<br><br>
+        Vaastu integrates the five elements—Earth, Water, Fire, Air, and Space—to create balanced and positive living and working spaces.
       </p>
 
       <h3>Key Principles of Vaastu</h3>
@@ -107,8 +188,31 @@
 
       <h3>Why Consult a Vaastu Expert?</h3>
       <p>
-        Every property is unique. A personalized Vaastu consultation considers your birth details, property layout, and specific challenges to provide targeted remedies and lasting results. Our expert guidance ensures your home or workplace supports your goals and well-being.
+        Every property is unique. A personalized Vaastu consultation considers your birth details, property layout, and specific challenges to provide targeted remedies and lasting results.<br><br>
+        Our expert guidance ensures your home or workplace supports your goals and well-being.
       </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions (Vaastu)</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>Can Vaastu be applied to existing buildings?</h4>
+          <p>Yes, with appropriate remedies and adjustments, Vaastu can improve energy even in existing structures.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is Vaastu relevant for apartments?</h4>
+          <p>Absolutely. While some factors are fixed, many Vaastu principles can be adapted for flats and modern homes.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How soon can results be seen?</h4>
+          <p>Many clients notice positive changes within weeks of implementing Vaastu corrections.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do I need to demolish walls for Vaastu compliance?</h4>
+          <p>Usually not. Most Vaastu corrections are non-invasive and involve rearrangement, use of colors, symbols, or objects.</p>
+        </div>
+      </div>
     </section>
   </main>
 
