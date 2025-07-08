@@ -24,22 +24,25 @@
       border: 4px solid #fff;
       background: #f5f5f5;
       display: block;
+      margin: 0 auto;
     }
-    /* Purchase button: always bold, no animation */
+    /* Purchase button: always bold, no animation, extra boldness */
     .purchase-btn {
       display: inline-block;
       background: #007bff;
       color: #fff;
-      font-size: 1.3em;
-      padding: 18px 44px;
-      border-radius: 10px;
+      font-size: 1.35em;
+      padding: 20px 54px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-weight: 1000;
+      letter-spacing: 1.2px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-      margin-bottom: 20px;
-      border: 2px solid #0056b3;
+      margin-bottom: 24px;
+      border: 2.5px solid #0056b3;
       transition: none;
+      text-transform: uppercase;
+      text-align: center;
     }
     .purchase-btn:hover,
     .purchase-btn:focus {
@@ -47,6 +50,88 @@
       color: #fff;
       box-shadow: 0 6px 24px rgba(0,0,0,0.16);
       transform: none;
+    }
+    /* Gems grid styling */
+    .gems-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      margin: 38px 0 0 0;
+    }
+    .gems-category {
+      background: rgba(255,255,255,0.93);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      padding: 26px 22px;
+      min-width: 230px;
+      max-width: 260px;
+      flex: 1 1 230px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .gems-category h3 {
+      margin-bottom: 16px;
+      color: #b28704;
+      font-size: 1.15em;
+      font-weight: bold;
+    }
+    .gems-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .gem-card {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 8px 0;
+      border-radius: 8px;
+      background: #f7f7f7;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      font-size: 1.04em;
+      transition: background 0.15s;
+      justify-content: flex-start;
+    }
+    .gem-card:hover, .gem-card:focus {
+      background: #e3f0ff;
+      color: #0056b3;
+    }
+    .gem-icon {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid #e0e0e0;
+      background: #fff;
+    }
+    section > h2 {
+      text-align: center;
+      margin-top: 24px;
+      color: #b28704;
+      font-size: 2em;
+      font-weight: 900;
+    }
+    section > p {
+      text-align: center;
+      font-size: 1.13em;
+      margin-bottom: 18px;
+      color: #333;
+    }
+    @media (max-width: 900px) {
+      .gems-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .gems-category {
+        max-width: 98vw;
+        min-width: 0;
+        width: 98vw;
+      }
     }
   </style>
 </head>
@@ -86,7 +171,7 @@
   </div>
 
   <!-- Purchase Now Button Below Profile Photo -->
-  <div style="text-align:center; margin: 0 0 32px 0;">
+  <div style="text-align:center; margin: 0 0 36px 0;">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform" 
        target="_blank" 
        class="purchase-btn">
