@@ -83,7 +83,7 @@
       color: #fff;
       width: 100vw;
       min-height: 60px;
-      z-index: 2000;
+      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -98,7 +98,6 @@
       font-size: 1.25em;
       letter-spacing: 1px;
     }
-    /* Hamburger button always on top */
     .hamburger {
       display: none;
       background: none;
@@ -111,10 +110,8 @@
       align-items: center;
       height: 40px;
       width: 40px;
-      z-index: 10001;
-      position: fixed;
-      top: 10px;
-      right: 18px;
+      z-index: 10000;
+      position: relative;
     }
     .hamburger span {
       display: block;
@@ -135,37 +132,17 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Overlay menu styling */
-    .menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(18,32,58,0.98);
-      z-index: 9999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding-top: 80px;
-      transition: opacity 0.2s;
-    }
-    .menu-overlay.open {
-      display: flex;
-    }
     .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      flex-direction: row;
       gap: 1.5em;
       align-items: center;
       background: none;
       position: static;
       box-shadow: none;
-      z-index: 2001;
+      z-index: 9999;
       transition: none;
     }
     .nav-links a {
@@ -191,16 +168,28 @@
       }
       .nav-links {
         flex-direction: column;
-        gap: 2em;
-        font-size: 1.3em;
+        background: #12203a;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 60px;
+        display: none;
+        width: 100vw;
+        box-shadow: 0 8px 32px #0003;
+        z-index: 9999;
+        padding-bottom: 1.5em;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+      }
+      .nav-links.open {
+        display: flex;
       }
     }
-    /* Push down content so it's not hidden behind the fixed nav */
+
     .push-down {
       height: 60px;
       width: 100%;
     }
-    /* Profile photo below nav bar, centered */
     .profile-photo {
       width: 110px;
       height: 110px;
@@ -222,8 +211,6 @@
       object-fit: cover;
       display: block;
     }
-
-    /* Consultation button */
     .consult-btn {
       display: inline-block;
       background: #b88c3b;
@@ -244,8 +231,6 @@
       background: #a07a2c;
       color: #fff;
     }
-
-    /* Vaastu section styling */
     .vaastu-section {
       background: rgba(18, 32, 58, 0.94);
       border-radius: 18px;
@@ -403,9 +388,6 @@
         <span></span>
         <span></span>
       </button>
-    </nav>
-    <!-- Overlay menu for mobile -->
-    <div class="menu-overlay" id="menuOverlay">
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-anim">Home</a></li>
         <li><a href="Vaastu.html" class="nav-anim active">Vaastu Shastra</a></li>
@@ -414,10 +396,9 @@
         <li><a href="matrimonial.html" class="nav-anim">Matrimonial</a></li>
         <li><a href="contact.html" class="nav-anim">Contact</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
-  <!-- Push down content so it's not hidden behind fixed nav -->
   <div class="push-down"></div>
 
   <!-- Profile photo below nav bar -->
@@ -606,41 +587,36 @@
   </footer>
 
   <script>
-    // Hamburger menu overlay logic
+    // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
-    const menuOverlay = document.getElementById('menuOverlay');
     const navLinks = document.getElementById('navLinks');
-    function openMenu() {
-      menuOverlay.classList.add('open');
-      hamburger.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
-    }
-    function closeMenu() {
-      menuOverlay.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = ''; // Restore scroll
-    }
     hamburger.addEventListener('click', function() {
-      if (menuOverlay.classList.contains('open')) {
-        closeMenu();
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+      // Prevent background scroll when menu is open
+      if (navLinks.classList.contains('open') && window.innerWidth <= 900) {
+        document.body.style.overflow = 'hidden';
       } else {
-        openMenu();
+        document.body.style.overflow = '';
       }
     });
-    // Close menu when a link is clicked (mobile only)
-    navLinks.querySelectorAll('a').forEach(link => {
+    document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
-          closeMenu();
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         }
       });
     });
-    // Close menu on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) {
-        closeMenu();
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
     });
   </script>
