@@ -8,49 +8,53 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    /* Center profile photo container */
+    body {
+      background: #162447;
+      color: #fff;
+    }
     .profile-photo-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 32px 0 16px 0;
+      margin: 32px 0 20px 0;
     }
-    /* Profile photo styling: sharp, circular, no border */
     .profile-photo-section img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
       display: block;
-      margin-bottom: 20px;
-      filter: none;
-      opacity: 1;
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      margin-bottom: 18px;
       box-shadow: none;
       border: none;
+      filter: none;
+      opacity: 1;
+      object-fit: cover;
+      background: #162447;
+      /* Prevent blurring on retina/high-dpi screens */
+      image-rendering: auto;
     }
-    /* Purchase button styling: bold, sharp, consistent with theme */
     .purchase-btn {
       display: inline-block;
       background-color: #fbc02d;
       color: #222;
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 900;
-      padding: 14px 40px;
+      padding: 13px 36px;
       border-radius: 25px;
       text-decoration: none;
       letter-spacing: 1px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
       text-transform: uppercase;
       cursor: pointer;
-      user-select: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
     }
     .purchase-btn:hover,
     .purchase-btn:focus {
-      background-color: #e6b800;
-      color: #111;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.25);
-      outline: none;
+      background-color: #ffe66d;
+      color: #162447;
     }
   </style>
 </head>
@@ -86,7 +90,7 @@
 
   <!-- Centered Profile Photo and Purchase Button -->
   <div class="profile-photo-section">
-    <img src="p.jpg" alt="GuptaJi" />
+    <img src="p.jpg" alt="GuptaJi" width="120" height="120" />
     <a
       href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform"
       target="_blank"
