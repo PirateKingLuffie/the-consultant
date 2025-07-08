@@ -8,112 +8,112 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    /* Centered circular profile photo */
     .profile-photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #2eefff;
-      box-shadow: 0 4px 24px #0008;
-      margin: 2.2rem auto 1.1rem auto;
-      background: #12203a;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      margin: 32px 0 16px 0;
     }
     .profile-photo img {
-      width: 100%;
-      height: 100%;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      border: 4px solid #fff;
+      background: #f5f5f5;
       display: block;
     }
+    /* Bolder Purchase button */
+    .purchase-btn {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      font-size: 1.3em;
+      padding: 18px 44px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      margin-bottom: 20px;
+      border: 2px solid #0056b3;
+      transition: none;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+    .purchase-btn:hover,
+    .purchase-btn:focus {
+      background: #0056b3;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+      transform: none;
+    }
+    /* Gem grid (restored to original look: responsive grid, no flexbox or masonry) */
     .gems-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
     .gems-category {
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 1.1rem 1.2rem;
-      min-width: 260px;
-      max-width: 320px;
-      flex: 1 1 260px;
+      background: #fff;
+      border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.09);
-      margin-bottom: 1.5rem;
-    }
-    .gems-category h3 {
-      color: #2eefff;
-      margin-bottom: 0.7em;
+      padding: 20px 16px 16px 16px;
       text-align: center;
     }
+    .gems-category h3 {
+      margin-top: 0;
+      color: #007bff;
+      font-size: 1.15em;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
     .gems-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.1em;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
     .gem-card {
-      background: rgba(18,32,58,0.92);
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.6em 0.8em;
+      padding: 10px 0;
+      background: #f7faff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
       text-decoration: none;
-      color: #ffe09b;
-      font-weight: 500;
-      font-size: 0.98em;
-      width: 90px;
+      color: #222;
+      font-weight: 600;
+      transition: box-shadow 0.2s;
       cursor: pointer;
-      transition: transform 0.17s, box-shadow 0.17s;
     }
     .gem-card:hover {
-      transform: scale(1.07) translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.13);
-      background: #203354;
-      color: #fff;
+      box-shadow: 0 2px 12px rgba(0,123,255,0.13);
+      background: #eaf4ff;
     }
     .gem-icon {
       width: 48px;
       height: 48px;
       object-fit: contain;
-      margin-bottom: 0.45em;
-      border-radius: 7px;
-      background: #fff2;
-      box-shadow: 0 2px 8px #0002;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
     }
-    @media (max-width: 900px) {
+    @media (max-width: 700px) {
+      .gems-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 500px) {
       .gems-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      .gems-category {
-        max-width: 100%;
-        min-width: 0;
-        width: 100%;
-      }
-    }
-    @media (max-width: 600px) {
-      .profile-photo {
-        width: 80px;
-        height: 80px;
-        margin: 1.2rem auto 1rem auto;
-      }
-      .gems-category {
-        padding: 0.7rem 0.4rem;
-      }
-      .gem-card {
-        width: 72px;
-        font-size: 0.9em;
-        padding: 0.4em 0.3em;
-      }
-      .gem-icon {
-        width: 36px;
-        height: 36px;
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
     }
   </style>
@@ -126,7 +126,6 @@
     </div>
   </div>
 
-  <!-- Navigation and Header -->
   <header>
     <nav>
       <div class="logo">
@@ -149,14 +148,18 @@
     </nav>
   </header>
 
-  <!-- Profile photo below nav bar -->
+  <!-- Centered Circular Profile Photo -->
   <div class="profile-photo">
-    <img src="p.jpg" alt="GuptaJi" />
+    <img src="p.jpg" alt="GuptaJi">
   </div>
 
-  <!-- Purchase Now Button below profile photo -->
-  <div style="text-align:center; margin: 20px 0 0 0;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform" target="_blank" style="display:inline-block; background:#007bff; color:#fff; font-size:1.2em; padding:16px 36px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:background 0.2s;">Purchase Now</a>
+  <!-- Purchase Now Button Below Profile Photo -->
+  <div style="text-align:center; margin: 0 0 32px 0;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJSTTKmAF4Z8cm3ttPaglGSZn7yvoScujl9ZricF-AaX6CZg/viewform" 
+       target="_blank" 
+       class="purchase-btn">
+      Purchase Now
+    </a>
   </div>
 
   <!-- Main Content -->
@@ -313,7 +316,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="quick-links">
       <a href="index.html">Home</a>
