@@ -7,6 +7,139 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: #162447;
+      color: #fff;
+    }
+    .zodiac-bg,
+    .zodiac-bg .zodiac-wheel-container,
+    .zodiac-bg .zodiac-wheel-img {
+      /* Your animated background styles */
+    }
+    .vaastu-section {
+      max-width: 900px;
+      margin: 36px auto 0 auto;
+      padding: 0 12px;
+    }
+    .vaastu-box {
+      background: rgba(30, 41, 99, 0.98);
+      border-radius: 16px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.17);
+      margin-bottom: 36px;
+      padding: 34px 28px 28px 28px;
+      border-left: 7px solid #fbc02d;
+      transition: box-shadow 0.2s;
+    }
+    .vaastu-box:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.24);
+    }
+    .vaastu-box h2, .vaastu-box h3 {
+      margin-top: 0;
+      color: #ffe66d;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .vaastu-box h3 {
+      color: #fbc02d;
+      margin-bottom: 12px;
+      margin-top: 12px;
+      font-weight: 700;
+    }
+    .vaastu-box ul {
+      margin: 15px 0 15px 18px;
+      padding: 0;
+    }
+    .vaastu-box ul li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .vaastu-box p {
+      margin-bottom: 12px;
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+    /* FAQ Card Style */
+    .faq-section {
+      max-width: 900px;
+      margin: 0 auto 48px auto;
+      padding: 0 12px;
+    }
+    .faq-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .faq-card {
+      background: rgba(22, 36, 71, 0.90);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      padding: 22px 26px 18px 26px;
+      border-left: 5px solid #00bcd4;
+      transition: box-shadow 0.18s, border-color 0.18s;
+    }
+    .faq-card:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-left: 5px solid #fbc02d;
+    }
+    .faq-card h4 {
+      color: #4dd0e1;
+      font-size: 1.18em;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+    }
+    .faq-card p {
+      color: #fff;
+      font-size: 1.04em;
+      margin: 0;
+      opacity: 0.93;
+    }
+    .header-content {
+      margin-bottom: 32px;
+    }
+    .header-content .intro {
+      margin-top: 20px;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+    .profile-photo {
+      margin-bottom: 18px;
+    }
+    .highlight {
+      color: #ffe66d;
+    }
+    a, a:visited {
+      color: #ffe66d;
+    }
+    a:hover, a:focus {
+      color: #fbc02d;
+    }
+    .quick-links a {
+      color: #ffe66d;
+    }
+    .quick-links a:hover {
+      color: #fbc02d;
+    }
+    footer {
+      background: #1b1b3a;
+      color: #fff;
+    }
+    .contact-details i,
+    .social-links i {
+      color: #ffe66d;
+    }
+    .social-links a:hover i {
+      color: #fbc02d;
+    }
+    @media (max-width: 600px) {
+      .vaastu-box, .faq-card {
+        padding: 14px 7px;
+      }
+      .vaastu-section, .faq-section {
+        padding: 0 3px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
@@ -55,13 +188,12 @@
   </header>
 
   <main>
-    <div class="vaastu-section" style="max-width: 900px; margin: 36px auto 0 auto; padding: 0 12px;">
+    <div class="vaastu-section">
       <div class="vaastu-box">
         <h2>Vaastu Shastra: The Science of Architecture</h2>
         <p>
           Vaastu Shastra is the ancient Indian science of architecture and spatial harmony. Rooted in the Vedas, it prescribes principles for designing buildings and environments that promote health, prosperity, and well-being.<br><br>
-          Vaastu integrates the five elements—Earth, Water, Fire, Air, and Space—to create balanced and positive living and working spaces.<br><br>
-          <b>Core Principles:</b> The five elements (earth, water, fire, air, space) and cardinal directions are balanced to maximize positive energy and harmony in your home and life[1][2][5].
+          Vaastu integrates the five elements—Earth, Water, Fire, Air, and Space—to create balanced and positive living and working spaces.
         </p>
       </div>
 
@@ -69,9 +201,9 @@
         <h2>Key Principles of Vaastu</h2>
         <ul>
           <li><strong>Panchabhutas (Five Elements):</strong> Harmonizing Earth, Water, Fire, Air, and Space within a structure.</li>
-          <li><strong>Directional Alignment:</strong> Each direction (North, East, South, West) is associated with specific energies and deities. North and East are considered most auspicious for entrances and living spaces[1][2][7].</li>
+          <li><strong>Directional Alignment:</strong> Each direction (North, East, South, West) is associated with specific energies and deities.</li>
           <li><strong>Site Selection:</strong> The shape, slope, and soil of a plot influence the energy flow and auspiciousness.</li>
-          <li><strong>Room Placement:</strong> Placement of rooms (kitchen, bedroom, temple, etc.) according to directional principles for maximum benefit. Kitchen in the South-East, bedroom in South-West, pooja room in North-East[1][2][3].</li>
+          <li><strong>Room Placement:</strong> Placement of rooms (kitchen, bedroom, temple, etc.) according to directional principles for maximum benefit.</li>
           <li><strong>Entrance and Exits:</strong> Main doors and windows should align with positive energy flow, usually in the North or East.</li>
         </ul>
       </div>
@@ -90,10 +222,10 @@
       <div class="vaastu-box">
         <h2>Essential Vaastu Tips for Your Home</h2>
         <ul>
-          <li><strong>Main Entrance:</strong> Should face North or East for maximum positive energy[2][7].</li>
-          <li><strong>Kitchen:</strong> Ideally located in the South-East (Agni corner). Avoid North-East for kitchens[2].</li>
-          <li><strong>Bedroom:</strong> Master bedroom in South-West; avoid North-East for bedrooms[2].</li>
-          <li><strong>Pooja Room:</strong> Place in North-East for spiritual growth and peace[1][2].</li>
+          <li><strong>Main Entrance:</strong> Should face North or East for maximum positive energy.</li>
+          <li><strong>Kitchen:</strong> Ideally located in the South-East (Agni corner). Avoid North-East for kitchens.</li>
+          <li><strong>Bedroom:</strong> Master bedroom in South-West; avoid North-East for bedrooms.</li>
+          <li><strong>Pooja Room:</strong> Place in North-East for spiritual growth and peace.</li>
           <li><strong>Bathrooms:</strong> Should be in the West or North-West; avoid North-East and South-West.</li>
           <li><strong>Living Room:</strong> Should be in the North or East part of the house.</li>
         </ul>
@@ -128,22 +260,23 @@
       </div>
     </div>
 
-    <div class="faq-section" style="max-width: 900px; margin: 0 auto 48px auto;">
-      <div class="faq-box">
-        <h2>Frequently Asked Questions (Vaastu)</h2>
-        <div class="faq-item">
+    <!-- FAQ Cards Section -->
+    <div class="faq-section">
+      <h2 style="font-size: 1.6em; font-weight: 800; margin-bottom: 18px;">Frequently Asked Questions (Vaastu)</h2>
+      <div class="faq-cards">
+        <div class="faq-card">
           <h4>Can Vaastu be applied to existing buildings?</h4>
           <p>Yes, with appropriate remedies and adjustments, Vaastu can improve energy even in existing structures.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-card">
           <h4>Is Vaastu relevant for apartments?</h4>
           <p>Absolutely. While some factors are fixed, many Vaastu principles can be adapted for flats and modern homes.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-card">
           <h4>How soon can results be seen?</h4>
           <p>Many clients notice positive changes within weeks of implementing Vaastu corrections.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-card">
           <h4>Do I need to demolish walls for Vaastu compliance?</h4>
           <p>Usually not. Most Vaastu corrections are non-invasive and involve rearrangement, use of colors, symbols, or objects.</p>
         </div>
