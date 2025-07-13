@@ -7,179 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <style>
-    body {
-      background: linear-gradient(135deg, #1f2b4d 0%, #2d184e 100%);
-      color: #fff;
-    }
-    .contact-section h2 {
-      color: #fbc02d;
-      letter-spacing: 1px;
-      font-size: 2.1em;
-      margin-bottom: 0.8em;
-    }
-    .contact-cards {
-      gap: 32px;
-      justify-content: center;
-      margin: 36px 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .contact-card {
-      background: linear-gradient(120deg, #232b4d 60%, #3d206c 100%);
-      border-radius: 22px;
-      padding: 32px 36px;
-      min-width: 260px;
-      max-width: 340px;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(60,0,120,0.13);
-      position: relative;
-      transition: transform 0.18s, box-shadow 0.18s;
-    }
-    .contact-card:hover {
-      transform: translateY(-7px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(60,0,120,0.22);
-    }
-    .contact-card i {
-      margin-bottom: 16px;
-      font-size: 2.4em;
-      background: linear-gradient(90deg, #fbc02d 40%, #7c4dff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .contact-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.28em;
-      color: #fbc02d;
-      letter-spacing: 0.5px;
-    }
-    .contact-card a {
-      display: inline-block;
-      color: #fff;
-      font-size: 1.18em;
-      font-weight: bold;
-      background: linear-gradient(90deg, #7c4dff 0%, #00bcd4 100%);
-      padding: 0.7em 1.7em;
-      border-radius: 30px;
-      margin-top: 10px;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(60,0,120,0.11);
-      transition: background 0.2s, transform 0.15s;
-    }
-    .contact-card a:hover {
-      background: linear-gradient(90deg, #00bcd4 0%, #7c4dff 100%);
-      transform: scale(1.07);
-      color: #fff;
-    }
-    .social-contact h3 {
-      color: #fbc02d;
-      font-size: 1.2em;
-      letter-spacing: 0.5px;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .social-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      transition: transform 0.18s;
-    }
-    .social-icon span:first-child {
-      width: 62px;
-      height: 62px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin-bottom: 6px;
-      box-shadow: 0 2px 10px rgba(60,0,120,0.13);
-      transition: box-shadow 0.18s;
-    }
-    .social-icon.insta span:first-child {
-      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    }
-    .social-icon.fb span:first-child {
-      background: linear-gradient(135deg, #1877f3 60%, #3b5998 100%);
-    }
-    .social-icon.yt span:first-child {
-      background: linear-gradient(120deg, #ff0000 60%, #ff5757 100%);
-    }
-    .social-icon i {
-      font-size: 2.2em;
-      color: #fff;
-      transition: color 0.18s;
-    }
-    .social-icon span:last-child {
-      color: #fff;
-      margin-top: 7px;
-      font-size: 1.08em;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      transition: color 0.18s;
-    }
-    .social-icon:hover {
-      transform: translateY(-5px) scale(1.09);
-    }
-    .social-icon.insta:hover span:last-child {
-      color: #fd5949;
-    }
-    .social-icon.fb:hover span:last-child {
-      color: #1877f3;
-    }
-    .social-icon.yt:hover span:last-child {
-      color: #ff5757;
-    }
-    .social-icon.insta:hover i {
-      color: #fd5949;
-    }
-    .social-icon.fb:hover i {
-      color: #1877f3;
-    }
-    .social-icon.yt:hover i {
-      color: #ff5757;
-    }
-    .location-contact h3,
-    .privacy-section h3 {
-      color: #fbc02d;
-      font-size: 1.15em;
-      letter-spacing: 0.5px;
-    }
-    .location-contact p {
-      font-size: 1.18em;
-      color: #fff;
-      margin-top: 8px;
-    }
-    .privacy-section p {
-      color: #eee;
-      font-size: 1.07em;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    @media (max-width: 700px) {
-      .contact-section {
-        padding: 0 10px;
-      }
-      .contact-cards {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .contact-card {
-        min-width: 0;
-        width: 100%;
-        max-width: none;
-        padding: 24px 10px;
-      }
-      .social-links {
-        gap: 20px;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
@@ -224,21 +51,21 @@
   <main>
     <section class="contact-section" style="max-width: 700px; margin: 0 auto;">
       <h2 style="text-align:center;">Get in Touch</h2>
-      <div class="contact-cards">
+      <div class="contact-cards" style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; margin: 36px 0;">
         <!-- Phone -->
-        <div class="contact-card">
-          <i class="fa-solid fa-phone"></i>
-          <h3>Call / WhatsApp</h3>
-          <a href="tel:+919899952569">
+        <div class="contact-card" style="background: linear-gradient(120deg, #232b4d 60%, #3d206c 100%); border-radius: 22px; padding: 32px 36px; min-width: 260px; max-width: 340px; text-align: center; box-shadow: 0 4px 24px rgba(60,0,120,0.13); position: relative;">
+          <i class="fa-solid fa-phone" style="margin-bottom: 16px; font-size: 2.4em; background: linear-gradient(90deg, #fbc02d 40%, #7c4dff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+          <h3 style="margin-bottom: 12px; font-size: 1.28em; color: #fbc02d; letter-spacing: 0.5px;">Call / WhatsApp</h3>
+          <a href="tel:+919899952569" style="display: inline-block; color: #fff; font-size: 1.18em; font-weight: bold; background: linear-gradient(90deg, #7c4dff 0%, #00bcd4 100%); padding: 0.7em 1.7em; border-radius: 30px; margin-top: 10px; text-decoration: none; box-shadow: 0 2px 8px rgba(60,0,120,0.11); transition: background 0.2s, transform 0.15s;">
             <i class="fa-brands fa-whatsapp" style="margin-right:0.5em;"></i>
             +91-9899952569
           </a>
         </div>
         <!-- Email -->
-        <div class="contact-card">
-          <i class="fa-solid fa-envelope"></i>
-          <h3>Email</h3>
-          <a href="mailto:consultantguptaji@gmail.com">
+        <div class="contact-card" style="background: linear-gradient(120deg, #232b4d 60%, #3d206c 100%); border-radius: 22px; padding: 32px 36px; min-width: 260px; max-width: 340px; text-align: center; box-shadow: 0 4px 24px rgba(60,0,120,0.13); position: relative;">
+          <i class="fa-solid fa-envelope" style="margin-bottom: 16px; font-size: 2.4em; background: linear-gradient(90deg, #fbc02d 40%, #7c4dff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+          <h3 style="margin-bottom: 12px; font-size: 1.28em; color: #fbc02d; letter-spacing: 0.5px;">Email</h3>
+          <a href="mailto:consultantguptaji@gmail.com" style="display: inline-block; color: #fff; font-size: 1.18em; font-weight: bold; background: linear-gradient(90deg, #7c4dff 0%, #00bcd4 100%); padding: 0.7em 1.7em; border-radius: 30px; margin-top: 10px; text-decoration: none; box-shadow: 0 2px 8px rgba(60,0,120,0.11); transition: background 0.2s, transform 0.15s;">
             <i class="fa-solid fa-paper-plane" style="margin-right:0.5em;"></i>
             consultantguptaji@gmail.com
           </a>
@@ -246,28 +73,28 @@
       </div>
 
       <div class="social-contact" style="margin: 36px 0 0 0; text-align: center;">
-        <h3 style="margin-bottom: 18px;">Connect with Us on Social Media</h3>
-        <div class="social-links">
+        <h3 style="margin-bottom: 18px; color: #fbc02d; font-size: 1.2em; letter-spacing: 0.5px;">Connect with Us on Social Media</h3>
+        <div class="social-links" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
           <!-- Instagram -->
-          <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta">
-            <span>
-              <i class="fab fa-instagram"></i>
+          <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.18s;">
+            <span style="width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 6px; box-shadow: 0 2px 10px rgba(60,0,120,0.13); background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+              <i class="fab fa-instagram" style="font-size: 2.2em; color: #fff;"></i>
             </span>
-            <span>@the.consultant_guptaji</span>
+            <span style="color: #fff; margin-top: 7px; font-size: 1.08em; font-weight: 600; letter-spacing: 0.2px;">@the.consultant_guptaji</span>
           </a>
           <!-- Facebook -->
-          <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb">
-            <span>
-              <i class="fab fa-facebook-f"></i>
+          <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.18s;">
+            <span style="width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 6px; box-shadow: 0 2px 10px rgba(60,0,120,0.13); background: linear-gradient(135deg, #1877f3 60%, #3b5998 100%);">
+              <i class="fab fa-facebook-f" style="font-size: 2.2em; color: #fff;"></i>
             </span>
-            <span>TheConsultant:Guptaji</span>
+            <span style="color: #fff; margin-top: 7px; font-size: 1.08em; font-weight: 600; letter-spacing: 0.2px;">TheConsultant:Guptaji</span>
           </a>
           <!-- YouTube -->
-          <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt">
-            <span>
-              <i class="fab fa-youtube"></i>
+          <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.18s;">
+            <span style="width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 6px; box-shadow: 0 2px 10px rgba(60,0,120,0.13); background: linear-gradient(120deg, #ff0000 60%, #ff5757 100%);">
+              <i class="fab fa-youtube" style="font-size: 2.2em; color: #fff;"></i>
             </span>
-            <span>@TheConsultant-Guptaji</span>
+            <span style="color: #fff; margin-top: 7px; font-size: 1.08em; font-weight: 600; letter-spacing: 0.2px;">@TheConsultant-Guptaji</span>
           </a>
         </div>
         <p style="margin-top: 24px; color: #ccc; font-size: 1em;">
@@ -276,15 +103,15 @@
       </div>
 
       <div class="location-contact" style="margin: 48px 0 0 0; text-align: center;">
-        <h3 style="margin-bottom: 10px;">Location</h3>
-        <p>
+        <h3 style="margin-bottom: 10px; color: #fbc02d; font-size: 1.15em; letter-spacing: 0.5px;">Location</h3>
+        <p style="font-size: 1.18em; color: #fff; margin-top: 8px;">
           <i class="fa-solid fa-location-dot" style="color: #fbc02d;"></i>
           Delhi, India
         </p>
       </div>
       <div class="privacy-section" style="margin: 48px 0 0 0; text-align: center;">
-        <h3 style="margin-bottom: 10px;">Your Privacy Matters</h3>
-        <p>
+        <h3 style="margin-bottom: 10px; color: #fbc02d; font-size: 1.15em; letter-spacing: 0.5px;">Your Privacy Matters</h3>
+        <p style="color: #eee; font-size: 1.07em; max-width: 600px; margin: 0 auto;">
           At The Consultant - GuptaJi, we deeply value your privacy and confidentiality. Any information you share with us—whether through calls, emails, or social media—is kept strictly private and used only to provide you with the best possible astrological guidance.<br><br>
           We never share your details with third parties. Your trust is our foundation, and your journey with us is always secure and respected.<br><br>
           For any queries or concerns regarding privacy, feel free to reach out directly.
@@ -307,12 +134,12 @@
       <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
       <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
     </div>
-    <div class="social-links">
-      <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    <div class="social-links" style="display: flex; justify-content: center; gap: 40px; margin-top: 16px;">
+      <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta" style="font-size: 2em;"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb" style="font-size: 2em;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt" style="font-size: 2em;"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="copyright">
+    <div class="copyright" style="text-align: center; margin-top: 16px; color: #bbb;">
       &copy; 2025 The Consultant - GuptaJi. All rights reserved.
     </div>
   </footer>
