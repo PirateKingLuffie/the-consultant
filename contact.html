@@ -2,47 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Consultant GuptaJi!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - The Consultant GuptaJi</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img" />
+    </div>
+  </div>
 
   <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
-      <h1>The Consultant GuptaJi!</h1>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="kundli.html">Kundli</a></li>
+        <li><a href="matrimonial.html">Matrimonial</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <div class="profile-photo">
+        <img src="p.jpg" alt="GuptaJi">
+      </div>
+      <h1>Contact <span class="highlight">The Consultant - GuptaJi</span></h1>
+      <p class="intro">
+        Reach out for personalized astrology consultations, gemstone recommendations, Kundli readings, and more.<br>
+        We are here to guide you on your spiritual and life journey.
+      </p>
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
+  </header>
+
+  <main>
+    <section class="contact-section" style="max-width: 700px; margin: 0 auto;">
+      <h2 style="text-align:center;">Get in Touch</h2>
+      <div class="contact-cards" style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; margin: 36px 0;">
+        <!-- Phone -->
+        <div class="contact-card" style="background: #1f2b4d; border-radius: 18px; padding: 24px 32px; min-width: 240px; flex: 1 1 240px; max-width: 320px; text-align: center;">
+          <i class="fa-solid fa-phone fa-2x" style="color: #fbc02d; margin-bottom: 12px;"></i>
+          <h3>Call / WhatsApp</h3>
+          <a href="tel:+919899952569" style="color: #fff; font-size: 1.15em; text-decoration: none; font-weight: bold;">+91-9899952569</a>
+        </div>
+        <!-- Email -->
+        <div class="contact-card" style="background: #1f2b4d; border-radius: 18px; padding: 24px 32px; min-width: 240px; flex: 1 1 240px; max-width: 320px; text-align: center;">
+          <i class="fa-solid fa-envelope fa-2x" style="color: #fbc02d; margin-bottom: 12px;"></i>
+          <h3>Email</h3>
+          <a href="mailto:consultantguptaji@gmail.com" style="color: #fff; font-size: 1.15em; text-decoration: none; font-weight: bold;">consultantguptaji@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="social-contact" style="margin: 36px 0 0 0; text-align: center;">
+        <h3 style="margin-bottom: 18px;">Connect on Social Media</h3>
+        <div class="social-links" style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+          <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta" style="font-size: 2em; color: #e1306c;">
+            <i class="fab fa-instagram"></i>
+            <div style="font-size:0.85em; color:#fff; margin-top:4px;">@the.consultant_guptaji</div>
+          </a>
+          <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb" style="font-size: 2em; color: #1877f3;">
+            <i class="fab fa-facebook-f"></i>
+            <div style="font-size:0.85em; color:#fff; margin-top:4px;">TheConsultant:Guptaji</div>
+          </a>
+          <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt" style="font-size: 2em; color: #ff0000;">
+            <i class="fab fa-youtube"></i>
+            <div style="font-size:0.85em; color:#fff; margin-top:4px;">@TheConsultant-Guptaji</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="location-contact" style="margin: 48px 0 0 0; text-align: center;">
+        <h3 style="margin-bottom: 10px;">Location</h3>
+        <p style="font-size: 1.1em; color: #fff;">
+          <i class="fa-solid fa-location-dot" style="color: #fbc02d;"></i>
+          Delhi, India
+        </p>
+      </div>
+      <div class="contact-form-section" style="margin: 48px 0 0 0;">
+        <h3 style="text-align:center; margin-bottom: 12px;">Send a Message</h3>
+        <form action="mailto:consultantguptaji@gmail.com" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: 14px; max-width: 400px; margin: 0 auto;">
+          <input type="text" name="Name" placeholder="Your Name" required style="padding:10px; border-radius:6px; border:none; background:#232d4b; color:#fff;">
+          <input type="email" name="Email" placeholder="Your Email" required style="padding:10px; border-radius:6px; border:none; background:#232d4b; color:#fff;">
+          <textarea name="Message" placeholder="Your Message" rows="4" required style="padding:10px; border-radius:6px; border:none; background:#232d4b; color:#fff;"></textarea>
+          <button type="submit" style="background:#fbc02d; color:#162447; font-weight:900; border:none; border-radius:6px; padding:12px; cursor:pointer; transition:background 0.2s;">Send</button>
+        </form>
+        <p style="text-align:center; color:#aaa; font-size:0.95em; margin-top:10px;">Or email us directly at <a href="mailto:consultantguptaji@gmail.com" style="color:#fbc02d;">consultantguptaji@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
       <a href="kundli.html">Kundli</a>
       <a href="matrimonial.html">Matrimonial</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
     </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
+    <div class="contact-details">
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
+      <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
     </div>
-  </section>
-
-  <footer>
-    © 2025 The Consultant GuptaJi!
+    <div class="social-links">
+      <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/TheConsultant:Guptaji" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    // Hamburger menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    hamburger.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
+      hamburger.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", navLinks.classList.contains("open"));
+    });
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove("open");
+          hamburger.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
   </script>
 </body>
 </html>
