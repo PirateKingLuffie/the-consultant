@@ -8,6 +8,45 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    .golden {
+      color: #fbc02d !important;
+      font-weight: bold;
+    }
+    .contact-card a.golden-link {
+      color: #fbc02d !important;
+      font-weight: bold;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      font-size: 1.18em;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .social-link {
+      color: #fff;
+      font-size: 1.25em;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.18s;
+    }
+    .social-link.insta:hover { color: #fd5949; }
+    .social-link.fb:hover { color: #1877f3; }
+    .social-link.yt:hover { color: #ff5757; }
+    @media (max-width: 700px) {
+      .social-links {
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Zodiac Wheel Animated Background -->
@@ -57,7 +96,7 @@
         <div class="contact-card">
           <i class="fa-solid fa-phone"></i>
           <h3>Call / WhatsApp</h3>
-          <a href="tel:+919899952569">
+          <a href="tel:+919899952569" class="golden-link golden">
             <i class="fa-brands fa-whatsapp" style="margin-right:0.5em;"></i>
             +91-9899952569
           </a>
@@ -66,7 +105,7 @@
         <div class="contact-card">
           <i class="fa-solid fa-envelope"></i>
           <h3>Email</h3>
-          <a href="mailto:consultantguptaji@gmail.com">
+          <a href="mailto:consultantguptaji@gmail.com" class="golden-link golden">
             <i class="fa-solid fa-paper-plane" style="margin-right:0.5em;"></i>
             consultantguptaji@gmail.com
           </a>
@@ -75,27 +114,18 @@
 
       <div class="social-contact" style="margin: 36px 0 0 0; text-align: center;">
         <h3 style="margin-bottom: 18px;">Connect with Us on Social Media</h3>
-        <div class="social-links" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-          <!-- Instagram -->
-          <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta">
-            <span>
-              <i class="fab fa-instagram"></i>
-            </span>
-            <span>@the.consultant_guptaji</span>
+        <div class="social-links">
+          <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-link insta">
+            <i class="fab fa-instagram"></i>
+            Instagram
           </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/profile.php?id=61578329035171" target="_blank" class="social-icon fb">
-            <span>
-              <i class="fab fa-facebook-f"></i>
-            </span>
-            <span>Facebook</span>
+          <a href="https://www.facebook.com/profile.php?id=61578329035171" target="_blank" class="social-link fb">
+            <i class="fab fa-facebook-f"></i>
+            Facebook
           </a>
-          <!-- YouTube -->
-          <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt">
-            <span>
-              <i class="fab fa-youtube"></i>
-            </span>
-            <span>@TheConsultant-Guptaji</span>
+          <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-link yt">
+            <i class="fab fa-youtube"></i>
+            YouTube
           </a>
         </div>
         <p style="margin-top: 24px; color: #ccc; font-size: 1em;">
@@ -131,14 +161,14 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="contact-details">
-      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
-      <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
+      <p><i class="fa-solid fa-envelope"></i> <span class="golden">consultantguptaji@gmail.com</span></p>
+      <p><i class="fa-brands fa-whatsapp"></i> <span class="golden">+91-9899952569</span></p>
       <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
     </div>
-    <div class="social-links" style="display: flex; justify-content: center; gap: 40px; margin-top: 16px;">
-      <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-icon insta" style="font-size: 2em;"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61578329035171" target="_blank" class="social-icon fb" style="font-size: 2em;"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-icon yt" style="font-size: 2em;"><i class="fab fa-youtube"></i></a>
+    <div class="social-links">
+      <a href="https://instagram.com/the.consultant_guptaji" target="_blank" class="social-link insta" style="font-size: 1.5em;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61578329035171" target="_blank" class="social-link fb" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@theconsultant-guptaji?si=Yxs6eS3R5_MFNif6" target="_blank" class="social-link yt" style="font-size: 1.5em;"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="copyright" style="text-align: center; margin-top: 16px; color: #bbb;">
       &copy; 2025 The Consultant - GuptaJi. All rights reserved.
