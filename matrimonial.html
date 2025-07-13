@@ -1,48 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Consultant GuptaJi!</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matrimonial Services - GuptaJi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <!-- Zodiac Wheel Animated Background -->
+  <div class="zodiac-bg">
+    <div class="zodiac-wheel-container">
+      <img src="astro-wheel.webp" alt="Zodiac Wheel" class="zodiac-wheel-img">
+    </div>
+  </div>
 
   <header>
-    <div class="logo-container">
-      <img src="ganesh.webp" alt="Ganesh Icon" class="ganesh-icon">
-      <h1>The Consultant GuptaJi!</h1>
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-star-of-david"></i>
+        <span>The Consultant</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-anim">Home</a></li>
+        <li><a href="Vaastu.html">Vaastu Shastra</a></li>
+        <li><a href="rashi.html">Rashi Ratna</a></li>
+        <li><a href="kundli.html">Kundli</a></li>
+        <li><a href="matrimonial.html">Matrimonial</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <div class="profile-photo">
+        <img src="p.jpg" alt="GuptaJi">
+      </div>
+      <h1>Matrimonial Services - <span class="highlight">GuptaJi</span></h1>
+      <p class="intro">
+        Find your perfect life partner with the guidance of Vedic astrology.<br>
+        Our expert matchmaking and Kundli Milan services ensure compatibility, harmony, and happiness in your marital journey.<br><br>
+        <span class="highlight">Personalized, confidential, and trusted matrimonial consultations.</span>
+      </p>
+      <a href="contact.html" class="consult-btn">Contact for Consultation</a>
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links" id="nav">
-      <a href="index.html">🏠 Home</a>
-      <a href="vaastu.html">Vaastu Shastra</a>
+  </header>
+
+  <main>
+    <section class="info-section">
+      <h2>Our Matrimonial Services</h2>
+      <ul class="services-list">
+        <li>Astrological Matchmaking (Kundli Milan)</li>
+        <li>Detailed Compatibility Reports (Guna Milan, Dosha Analysis)</li>
+        <li>Personalized Partner Search Assistance</li>
+        <li>Remedies for Marriage Delays or Obstacles</li>
+        <li>Confidential Profile Handling</li>
+        <li>Guidance for Inter-caste and Inter-religion Marriages</li>
+      </ul>
+      <p>
+        We blend traditional wisdom with modern privacy standards to help you make the most important decision of your life. Share your details and let us guide you towards a harmonious and prosperous union.
+      </p>
+    </section>
+
+    <section class="kundli-upload-section">
+      <h2>Upload Your Kundli</h2>
+      <p>
+        For a personalized matrimonial consultation, upload your Kundli (birth chart) securely. Our astrologer will review your details and contact you with insights and recommendations.
+      </p>
+      <form action="mailto:consultantguptaji@gmail.com" method="POST" enctype="multipart/form-data" class="kundli-upload-form">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="kundli">Upload Kundli (PDF/JPG/PNG):</label>
+        <input type="file" id="kundli" name="kundli" accept=".pdf,.jpg,.jpeg,.png" required>
+
+        <label for="message">Additional Details (optional):</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit" class="upload-btn"><i class="fa-solid fa-upload"></i> Upload & Send</button>
+      </form>
+      <p class="note">
+        <i class="fa-solid fa-lock"></i> Your information is kept strictly confidential and used only for consultation purposes.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="quick-links">
+      <a href="index.html">Home</a>
+      <a href="Vaastu.html">Vaastu Shastra</a>
       <a href="rashi.html">Rashi Ratna</a>
       <a href="kundli.html">Kundli</a>
       <a href="matrimonial.html">Matrimonial</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Astrologer</h2>
-      <p>Get personalized guidance based on ancient Vedic astrology.</p>
     </div>
-    <div class="hero-photo">
-      <div class="photo-placeholder">[Future Image]</div>
+    <div class="contact-details">
+      <p><i class="fa-solid fa-envelope"></i> consultantguptaji@gmail.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> +91-9899952569</p>
+      <p><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
     </div>
-  </section>
-
-  <footer>
-    © 2025 The Consultant GuptaJi!
+    <div class="social-links">
+      <a href="https://instagram.com/" target="_blank" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 The Consultant - GuptaJi. All rights reserved.
+    </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   </script>
 </body>
 </html>
