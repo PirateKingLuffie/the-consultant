@@ -34,7 +34,7 @@ export default function Booking() {
   const handleSubmit = async () => {
     setLoading(true)
     try {
-      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      await fetch('https://formspree.io/f/mojyvlly', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

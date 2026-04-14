@@ -18,7 +18,7 @@ export default function Matrimonial() {
     if (!form.name1 || !form.dob1 || !form.phone) { toast.error('Please fill required fields'); return }
     setLoading(true)
     try {
-      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      await fetch('https://formspree.io/f/mojyvlly', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, _subject: 'Kundli Milan Request' }),
       })
