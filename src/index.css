@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-sans;
+    background: #04080f;
+    min-height: 100vh;
+    color: #cbd5e1;
+    overflow-x: hidden;
+  }
+  #root { width: 100%; max-width: 100%; margin: 0; border: none; text-align: left; min-height: 100vh; }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #04080f; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #5ee7ff44, #a78bfa44); border-radius: 3px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-[#04080f] bg-[#5ee7ff] transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden;
+    box-shadow: 0 0 25px rgba(94,231,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 50px rgba(94,231,255,0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-[#04080f] bg-amber-400 transition-all duration-300 hover:scale-105 active:scale-95;
+    box-shadow: 0 0 25px rgba(251,191,36,0.35);
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-[#5ee7ff] border border-[#5ee7ff33] transition-all duration-300 hover:scale-105 active:scale-95 hover:border-[#5ee7ff88] hover:bg-[#5ee7ff0a];
+  }
+  .glass-card {
+    background: linear-gradient(135deg, rgba(30,48,85,0.45) 0%, rgba(10,18,40,0.7) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  .glass-card-bright {
+    background: linear-gradient(135deg, rgba(40,65,110,0.5) 0%, rgba(15,26,50,0.75) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(94,231,255,0.12);
+    border-radius: 1rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(94,231,255,0.05), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white;
+    letter-spacing: -0.02em;
+  }
+  .section-subtitle {
+    @apply text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed;
+  }
+  .nav-link {
+    @apply text-slate-400 hover:text-white transition-all duration-200 text-sm font-medium;
+  }
+  .input-field {
+    @apply w-full border rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none transition-all duration-200;
+    background: rgba(10,18,40,0.8);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .input-field:focus {
+    border-color: rgba(94,231,255,0.4);
+    box-shadow: 0 0 0 3px rgba(94,231,255,0.08);
+  }
+  .divider-line {
+    @apply w-16 h-px mx-auto my-4;
+    background: linear-gradient(90deg, transparent, #5ee7ff66, transparent);
+  }
+  .planet-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+    background: rgba(94,231,255,0.1);
+    border: 1px solid rgba(94,231,255,0.2);
+    color: #5ee7ff;
+  }
+}
+
+@layer utilities {
+  .text-glow-cyan { text-shadow: 0 0 30px rgba(94,231,255,0.7), 0 0 60px rgba(94,231,255,0.3); }
+  .text-glow-gold { text-shadow: 0 0 30px rgba(251,191,36,0.7), 0 0 60px rgba(251,191,36,0.3); }
+  .text-glow-soft { text-shadow: 0 0 40px rgba(94,231,255,0.4); }
+  .glow-cyan { box-shadow: 0 0 30px rgba(94,231,255,0.3); }
+  .glow-gold { box-shadow: 0 0 30px rgba(251,191,36,0.3); }
+  .glow-purple { box-shadow: 0 0 30px rgba(167,139,250,0.3); }
+  .shimmer-text {
+    background: linear-gradient(90deg, #fbbf24 0%, #fde68a 35%, #ffffff 50%, #fde68a 65%, #fbbf24 100%);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(94,231,255,0.4), rgba(167,139,250,0.2), rgba(94,231,255,0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ── Zodiac Wheel ── */
+.zodiac-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(94,231,255,0.08);
+  animation: spin-slow 120s linear infinite;
+}
+.zodiac-ring-2 {
+  animation: spin-reverse 80s linear infinite;
+  border-color: rgba(167,139,250,0.06);
+}
+.zodiac-ring-3 {
+  animation: spin-slow 200s linear infinite;
+  border-color: rgba(94,231,255,0.04);
+}
+
+/* ── Service Icon Glow ── */
+.service-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(94,231,255,0.12), rgba(94,231,255,0.04));
+  border: 1px solid rgba(94,231,255,0.15);
+  transition: all 0.3s ease;
+}
+.group:hover .service-icon-wrap {
+  background: linear-gradient(135deg, rgba(94,231,255,0.2), rgba(94,231,255,0.08));
+  box-shadow: 0 0 20px rgba(94,231,255,0.2);
+  transform: scale(1.05);
+}
+
+/* ── Testimonial Quote ── */
+.quote-mark {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(94,231,255,0.12);
+  position: absolute;
+  top: -10px; left: 16px;
+  pointer-events: none;
+}
+
+/* ── Navagraha Orbit ── */
+.orbit-container {
+  position: relative;
+  width: 420px; height: 420px;
+}
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(94,231,255,0.12);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit-planet {
+  position: absolute;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #5ee7ff;
+  background: rgba(10,18,40,0.9);
+  border: 1px solid rgba(94,231,255,0.25);
+  box-shadow: 0 0 12px rgba(94,231,255,0.2);
+}
+
+/* ── Keyframes ── */
+@keyframes spin-slow { 100% { transform: rotate(360deg); } }
+@keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes float-slow {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.1; transform: scale(0.4); }
+}
+@keyframes shimmer {
+  0% { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+@keyframes pulse-ring {
+  0% { transform: translate(-50%,-50%) scale(0.95); opacity: 0.6; }
+  50% { transform: translate(-50%,-50%) scale(1.05); opacity: 0.2; }
+  100% { transform: translate(-50%,-50%) scale(0.95); opacity: 0.6; }
+}
+@keyframes beam-rotate {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes glow-pulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Particle dots ── */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #5ee7ff;
+  animation: twinkle var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* ── Horizontal scroll for gems ── */
+.gems-scroll::-webkit-scrollbar { height: 3px; }
+.gems-scroll::-webkit-scrollbar-thumb { background: rgba(94,231,255,0.3); border-radius: 2px; }
