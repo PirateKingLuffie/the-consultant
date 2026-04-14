@@ -27,15 +27,15 @@ function CountUp({ target, suffix }) {
 }
 
 const PLANETS = [
-  { name: 'Sun', angle: 0,   r: 130, size: 32 },
-  { name: 'Moon', angle: 40,  r: 130, size: 28 },
-  { name: 'Mars', angle: 80,  r: 130, size: 28 },
-  { name: 'Merc', angle: 120, r: 130, size: 26 },
-  { name: 'Jup',  angle: 160, r: 130, size: 32 },
-  { name: 'Ven',  angle: 200, r: 130, size: 28 },
-  { name: 'Sat',  angle: 240, r: 130, size: 30 },
-  { name: 'Rahu', angle: 280, r: 130, size: 26 },
-  { name: 'Ketu', angle: 320, r: 130, size: 26 },
+  { name: 'Sun',  angle: 0,   r: 200, size: 36 },
+  { name: 'Moon', angle: 40,  r: 200, size: 32 },
+  { name: 'Mars', angle: 80,  r: 200, size: 32 },
+  { name: 'Merc', angle: 120, r: 200, size: 30 },
+  { name: 'Jup',  angle: 160, r: 200, size: 36 },
+  { name: 'Ven',  angle: 200, r: 200, size: 32 },
+  { name: 'Sat',  angle: 240, r: 200, size: 34 },
+  { name: 'Rahu', angle: 280, r: 200, size: 30 },
+  { name: 'Ketu', angle: 320, r: 200, size: 30 },
 ]
 
 export default function Home() {
@@ -114,26 +114,25 @@ export default function Home() {
 
             {/* Outer decorative rings */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="absolute w-[480px] h-[480px] rounded-full border border-[#5ee7ff06] animate-spin-slow" />
-              <div className="absolute w-[420px] h-[420px] rounded-full border border-[#5ee7ff08]" style={{ animation: 'spin-reverse 90s linear infinite' }} />
-              <div className="absolute w-[360px] h-[360px] rounded-full border border-[#5ee7ff05] animate-spin-slow" style={{ animationDuration: '150s' }} />
-              {/* Pulse rings */}
-              <div className="absolute w-[320px] h-[320px] rounded-full border border-[#5ee7ff15]" style={{ animation: 'pulse-ring 4s ease-in-out infinite' }} />
-              <div className="absolute w-[340px] h-[340px] rounded-full border border-[#5ee7ff08]" style={{ animation: 'pulse-ring 4s ease-in-out 1s infinite' }} />
+              <div className="absolute w-[560px] h-[560px] rounded-full border border-[#5ee7ff06]" style={{ animation: 'spin-slow 120s linear infinite' }} />
+              <div className="absolute w-[500px] h-[500px] rounded-full border border-[#5ee7ff08]" style={{ animation: 'spin-reverse 90s linear infinite' }} />
+              <div className="absolute w-[440px] h-[440px] rounded-full border border-[#5ee7ff05]" style={{ animation: 'spin-slow 150s linear infinite' }} />
+              <div className="absolute w-[390px] h-[390px] rounded-full border border-[#5ee7ff18]" style={{ animation: 'pulse-ring 4s ease-in-out infinite' }} />
+              <div className="absolute w-[410px] h-[410px] rounded-full border border-[#5ee7ff08]" style={{ animation: 'pulse-ring 4s ease-in-out 1.5s infinite' }} />
             </div>
 
-            {/* Zodiac wheel image */}
-            <div className="relative w-[280px] h-[280px] rounded-full overflow-hidden"
-              style={{ boxShadow: '0 0 80px rgba(94,231,255,0.25), 0 0 160px rgba(94,231,255,0.1), inset 0 0 60px rgba(0,0,0,0.5)' }}>
+            {/* Zodiac wheel image — large */}
+            <div className="relative w-[360px] h-[360px] rounded-full overflow-hidden"
+              style={{ boxShadow: '0 0 120px rgba(94,231,255,0.3), 0 0 240px rgba(94,231,255,0.12), inset 0 0 80px rgba(0,0,0,0.4)' }}>
               <img src="/astro-wheel.webp" alt="Zodiac Wheel"
                 className="w-full h-full object-cover"
-                style={{ animation: 'spin-slow 60s linear infinite', filter: 'brightness(0.85) saturate(1.3) contrast(1.1)' }} />
-              <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, transparent 40%, rgba(4,8,15,0.6) 100%)' }} />
+                style={{ animation: 'spin-slow 60s linear infinite', filter: 'brightness(0.9) saturate(1.4) contrast(1.15)' }} />
+              <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, transparent 50%, rgba(4,8,15,0.5) 100%)' }} />
             </div>
 
             {/* Center profile */}
-            <div className="absolute w-20 h-20 rounded-full overflow-hidden border-2 z-10"
-              style={{ borderColor: 'rgba(94,231,255,0.5)', boxShadow: '0 0 30px rgba(94,231,255,0.3)' }}>
+            <div className="absolute w-24 h-24 rounded-full overflow-hidden border-2 z-10"
+              style={{ borderColor: 'rgba(94,231,255,0.6)', boxShadow: '0 0 40px rgba(94,231,255,0.4)' }}>
               <img src="/p.jpg" alt="GuptaJi" className="w-full h-full object-cover" />
             </div>
 

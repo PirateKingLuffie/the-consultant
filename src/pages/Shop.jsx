@@ -1,17 +1,21 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ShoppingCart, Check } from 'lucide-react'
+import { Check, ScrollText, Star, Video, Heart, Home, ShoppingBag, Gem, ArrowRight } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { FadeIn } from '../components/FadeIn'
 import { SHOP_PRODUCTS, ALL_GEMS } from '../data/index'
 
+const ICON_MAP = {
+  scroll: ScrollText, star: Star, video: Video, video2: Video,
+  heart: Heart, home: Home, beads: ShoppingBag, yantra: ShoppingBag,
+}
+
 const CATS = [
-  { key: 'all', label: 'All Products' },
+  { key: 'all',          label: 'All Products' },
   { key: 'consultation', label: 'Consultations' },
-  { key: 'gemstones', label: 'Gemstones' },
-  { key: 'products', label: 'Sacred Items' },
-  { key: 'vaastu', label: 'Vaastu' },
+  { key: 'gemstones',    label: 'Gemstones' },
+  { key: 'products',     label: 'Sacred Items' },
+  { key: 'vaastu',       label: 'Vaastu' },
 ]
 
 const FEATURED_GEMS = ALL_GEMS.slice(0, 8)
@@ -25,85 +29,87 @@ export default function Shop() {
 
   const showGems = cat === 'all' || cat === 'gemstones'
 
-  const handleBuy = (product) => {
-    const msg = encodeURIComponent(`Hello GuptaJi! I want to purchase:\n\n*${product.name}*\nPrice: ₹${product.price.toLocaleString()}\n\nPlease guide me on the next steps.`)
-    window.open(`https://wa.me/919899952569?text=${msg}`, '_blank')
-    toast.success('Redirecting to WhatsApp!')
-  }
-
   return (
-    <div className="pt-24 pb-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <FadeIn className="text-center mb-12">
-          <p className="text-[#5ee7ff] text-sm font-medium tracking-widest uppercase mb-3">Sacred Store</p>
+    <div className="w-full pt-28 pb-20 px-6 lg:px-16">
+      <div className="w-full max-w-[1400px] mx-auto">
+
+        <FadeIn className="mb-14">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-10 opacity-60" style={{ background: '#5ee7ff' }} />
+            <span className="text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#5ee7ff' }}>Sacred Store</span>
+          </div>
           <h1 className="section-title text-4xl md:text-5xl mb-4">The Consultant Shop</h1>
-          <p className="section-subtitle">Authentic gemstones, sacred items, and consultation packages — all in one place.</p>
+          <p className="text-slate-500 text-lg max-w-2xl leading-relaxed">Authentic gemstones, sacred items, and consultation packages — all in one place.</p>
         </FadeIn>
 
-        {/* Filter */}
-        <FadeIn className="flex flex-wrap gap-2 justify-center mb-12">
+        <FadeIn className="flex flex-wrap gap-2 mb-12">
           {CATS.map(c => (
             <button key={c.key} onClick={() => setCat(c.key)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${cat === c.key ? 'bg-[#5ee7ff] text-cosmic-950 shadow-glow-cyan' : 'bg-white/5 text-slate-400 hover:bg-white/10 border border-white/10'}`}>
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${cat === c.key ? 'text-cosmic-950 font-semibold' : 'bg-white/[0.04] text-slate-400 hover:bg-white/[0.07] border border-white/[0.07]'}`}
+              style={cat === c.key ? { background: '#5ee7ff', boxShadow: '0 0 20px rgba(94,231,255,0.3)' } : {}}>
               {c.label}
             </button>
           ))}
         </FadeIn>
 
-        {/* Consultation / Sacred Products */}
         {products.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {products.map((p, i) => (
-              <FadeIn key={p.id} delay={i * 0.07}>
-                <div className={`glass-card border p-7 rounded-2xl flex flex-col h-full relative ${p.badge ? 'border-[#5ee7ff44]' : 'border-white/5'}`}>
-                  {p.badge && (
-                    <span className="absolute -top-3 left-6 px-3 py-1 rounded-full text-xs font-bold bg-[#5ee7ff] text-cosmic-950">{p.badge}</span>
-                  )}
-                  <div className="text-4xl mb-4">{p.icon}</div>
-                  <h3 className="font-display font-semibold text-white text-lg mb-2">{p.name}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">{p.desc}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {p.includes.map(f => (
-                      <li key={f} className="flex items-center gap-2 text-slate-300 text-xs">
-                        <Check className="w-3.5 h-3.5 text-[#5ee7ff] shrink-0" />{f}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-display text-2xl font-bold text-white">₹{p.price.toLocaleString()}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {products.map((p, i) => {
+              const PIcon = ICON_MAP[p.icon] || ShoppingBag
+              return (
+                <FadeIn key={p.id} delay={i * 0.06}>
+                  <div className={`glass-card p-7 flex flex-col h-full relative ${p.badge ? 'border border-[#5ee7ff33]' : 'border border-white/[0.05]'}`} style={{ borderRadius: '1.25rem' }}>
+                    {p.badge && (
+                      <span className="absolute -top-3 left-6 px-4 py-1 rounded-full text-xs font-bold text-cosmic-950" style={{ background: '#5ee7ff' }}>{p.badge}</span>
+                    )}
+                    <div className="service-icon-wrap mb-5">
+                      <PIcon className="w-5 h-5" style={{ color: '#5ee7ff' }} />
+                    </div>
+                    <h3 className="font-display font-semibold text-white text-lg mb-2">{p.name}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-1">{p.desc}</p>
+                    <ul className="space-y-1.5 mb-5">
+                      {p.includes.map(f => (
+                        <li key={f} className="flex items-center gap-2 text-slate-400 text-xs">
+                          <div className="w-1 h-1 rounded-full shrink-0" style={{ background: '#5ee7ff' }} />{f}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex items-baseline gap-1 mb-5">
+                      <span className="font-display text-3xl font-bold text-white">₹{p.price.toLocaleString()}</span>
+                    </div>
+                    {p.category === 'consultation' ? (
+                      <Link to="/booking" className="btn-primary text-sm justify-center">Book Now</Link>
+                    ) : (
+                      <Link to="/contact" className="btn-outline text-sm justify-center">
+                        <ShoppingBag className="w-4 h-4" /> Enquire to Purchase
+                      </Link>
+                    )}
                   </div>
-                  {p.category === 'consultation' ? (
-                    <Link to="/booking" className="btn-primary text-sm justify-center">Book Now</Link>
-                  ) : (
-                    <button onClick={() => handleBuy(p)} className="btn-primary text-sm justify-center">
-                      <ShoppingCart className="w-4 h-4" /> Buy via WhatsApp
-                    </button>
-                  )}
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              )
+            })}
           </div>
         )}
 
-        {/* Gemstones Grid */}
         {showGems && (
           <>
             <FadeIn className="flex items-center justify-between mb-6">
               <h2 className="font-display text-2xl font-bold text-white">Gemstones</h2>
-              <Link to="/rashi-ratna" className="text-[#5ee7ff] text-sm hover:underline">View All →</Link>
+              <Link to="/rashi-ratna" className="text-sm flex items-center gap-1 hover:text-white transition-colors" style={{ color: '#5ee7ff' }}>
+                View All <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </FadeIn>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
               {FEATURED_GEMS.map((gem, i) => (
-                <FadeIn key={gem.id} delay={i * 0.05}>
+                <FadeIn key={gem.id} delay={i * 0.04}>
                   <Link to={`/rashi-ratna/${gem.id}`}
-                    className="glass-card border border-white/5 hover:border-[#5ee7ff33] p-4 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 hover:shadow-glow-cyan transition-all duration-300 block">
-                    <div className="w-20 h-20 rounded-full overflow-hidden mb-3 border border-white/10 group-hover:border-[#5ee7ff44] transition-all">
+                    className="glass-card border border-white/[0.05] hover:border-[#5ee7ff22] p-4 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 block">
+                    <div className="w-14 h-14 rounded-full overflow-hidden mb-3 border border-white/10 group-hover:border-[#5ee7ff33] transition-all">
                       <img src={gem.img} alt={gem.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={e => { e.target.style.display = 'none' }} />
                     </div>
-                    <h3 className="text-white text-sm font-medium mb-1 group-hover:text-[#5ee7ff] transition-colors">{gem.name}</h3>
-                    <p className="text-slate-500 text-xs mb-2">{gem.planet}</p>
-                    <p className="text-[#5ee7ff] text-xs font-semibold">₹{gem.price.toLocaleString()}+</p>
+                    <h3 className="text-white text-xs font-medium mb-1 group-hover:text-astro transition-colors leading-tight">{gem.name}</h3>
+                    <p className="text-xs font-semibold" style={{ color: '#5ee7ff' }}>₹{gem.price.toLocaleString()}+</p>
                   </Link>
                 </FadeIn>
               ))}

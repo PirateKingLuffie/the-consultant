@@ -52,7 +52,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Detailed birth chart analysis with planetary positions, houses, and basic predictions.',
     price: 499,
     badge: 'Popular',
-    icon: '📜',
+    icon: 'scroll',
     includes: ['Birth Chart PDF', 'Planetary Analysis', 'Basic Predictions', 'Email Delivery in 48hrs'],
   },
   {
@@ -62,7 +62,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Comprehensive analysis including Dasha, Yogas, Doshas, and 5-year predictions.',
     price: 1499,
     badge: 'Best Value',
-    icon: '⭐',
+    icon: 'star',
     includes: ['Full Birth Chart', 'Dasha Analysis', 'Yoga & Dosha Report', '5-Year Predictions', 'Remedies', 'WhatsApp Support'],
   },
   {
@@ -72,7 +72,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Live one-on-one session with GuptaJi. Ask anything about your chart, life, or future.',
     price: 999,
     badge: null,
-    icon: '🎥',
+    icon: 'video',
     includes: ['30 Min Zoom Call', 'Screen Share Chart', 'Recording Provided', 'Follow-up Q&A'],
   },
   {
@@ -82,7 +82,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Deep-dive session covering all life areas: career, love, health, finances, and remedies.',
     price: 1799,
     badge: 'Recommended',
-    icon: '🔮',
+    icon: 'video2',
     includes: ['60 Min Zoom Call', 'Full Chart Review', 'All Life Areas', 'Personalized Remedies', 'Recording', 'Priority Booking'],
   },
   {
@@ -92,7 +92,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Complete marriage compatibility analysis for two charts with Guna Milan and Dosha check.',
     price: 1299,
     badge: null,
-    icon: '💑',
+    icon: 'heart',
     includes: ['Two Chart Analysis', 'Guna Milan Score', 'Dosha Check', 'Compatibility Report', 'Remedies if needed'],
   },
   {
@@ -102,7 +102,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Online Vaastu analysis for your home with floor plan review and directional corrections.',
     price: 2499,
     badge: null,
-    icon: '🏠',
+    icon: 'home',
     includes: ['Floor Plan Analysis', 'Room-wise Guidance', 'Directional Corrections', 'Remedy Report', 'Zoom Discussion'],
   },
   {
@@ -112,7 +112,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Authentic Nepal-origin 5 Mukhi Rudraksha. Blessed and energized. Ruled by Jupiter.',
     price: 799,
     badge: null,
-    icon: '📿',
+    icon: 'beads',
     includes: ['Certified Authentic', 'Energized & Blessed', 'Certificate of Authenticity', 'Wearing Instructions'],
   },
   {
@@ -122,7 +122,7 @@ export const SHOP_PRODUCTS = [
     desc: 'Handcrafted copper Shree Yantra for wealth, prosperity, and positive energy.',
     price: 1199,
     badge: null,
-    icon: '🔱',
+    icon: 'yantra',
     includes: ['Pure Copper', 'Handcrafted', 'Energized', 'Placement Guide'],
   },
 ]
